@@ -1,0 +1,103 @@
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/modals";
+@import "../Configs/index";
+
+.modal[role="dialog"] {
+  overflow: auto;
+}
+
+.modal.center {
+  .modal-dialog {
+    top: 10%;
+  }
+}
+
+.modal-backdrop {
+  z-index: 1050;
+
+  &.fade.in {
+    opacity: 0.08;
+  }
+}
+
+.modal-header {
+  padding: 24px;
+
+  .close {
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    top: 30px;
+    right: 24px;
+    padding: 0;
+    opacity: 1;
+    cursor: pointer;
+    background: $white;
+    border: none;
+
+    &::before {
+      font-weight: 400;
+      font-style: normal;
+      font-family: 'Material Icons';
+      content: "clear";
+      display: inline-block;
+      color: $pink-100;
+
+      &:hover {
+        color: $blue-300;
+      }
+    }
+
+    span {
+      display: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.modal-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-content {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.modal-lg {
+  .modal-content {
+    min-width: 772px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .modal-header {
+    padding: 20px;
+
+    .close {
+      top: 24px;
+      right: 20px;
+    }
+  }
+
+  .modal-title {
+    font-size: 16px;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+
+  .modal-lg {
+    width: auto;
+    margin: 30px 10px;
+  }
+}

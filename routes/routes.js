@@ -1,8 +1,7 @@
-const tryRoutes = require('./try');
+const express = require(`express`);
 
 module.exports = {
-  init(app, db) {
-    tryRoutes(app, db);
-
+  init(app) {
+    app.use(express.static(`static`));
   }
 };

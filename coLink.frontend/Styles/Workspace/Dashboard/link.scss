@@ -1,0 +1,49 @@
+.link {
+  .cover {
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+    background-position: center center;
+    background-size: cover;
+
+    .favicon {
+      right: 0;
+      margin: 5px;
+      height: 34px;
+      padding: 10px;
+      width: 34px;
+      background-color: rgba(255, 255, 255, 0.5);
+      overflow: hidden;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+
+      img {
+        @extend %absolute-center;
+
+        height: 16px;
+      }
+    }
+  }
+
+  .url {
+    height: 20px;
+    padding: 0 10px 5px;
+    white-space: nowrap;
+    width: 170px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+
+  .title {
+    text-overflow: ellipsis;
+    max-height: 50px;
+    overflow: hidden;
+    margin: 10px;
+    font-weight: 600;
+    color: $black;
+  }
+}

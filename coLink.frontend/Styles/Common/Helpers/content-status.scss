@@ -1,0 +1,36 @@
+.content-status {
+  height: 100%;
+  text-align: center;
+
+  .loader {
+    @extend %helpers-status-loader;
+  }
+
+  .error {
+    @extend %helpers-status-error;
+  }
+
+  .success {
+    @extend %helpers-status-success;
+  }
+
+  .icon {
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+  .message {
+    position: relative;
+    color: $white;
+  }
+
+  &.is-page {
+    height: 100%;
+
+    .message {
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+}

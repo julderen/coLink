@@ -1,0 +1,107 @@
+%reset-outline {
+  box-shadow: none;
+  outline: none;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:hover &:focus,
+  &:focus:active {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+%vertical-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+%absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+%text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+%disabled {
+  cursor: $disabled-cursor;
+  opacity: $disabled-opacity;
+}
+
+%vertical-align-helper {
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+  }
+}
+
+%wave {
+  overflow: hidden;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    background: white;
+    width: 50px;
+    height: 50px;
+    content: "";
+    display: block;
+    border-radius: 50%;
+    -webkit-backface-visibility: hidden;
+    animation: wave-animate 0.7s forwards  ease-out;
+  }
+}
+
+%helpers-status-loader {
+  @include status;
+
+  border: 2px solid #eee !important;
+  border-top: 2px solid $pink-500 !important;
+  outline-style: none;
+  transform: rotate(360deg);
+  transition: 0.6s;
+  cursor: progress;
+  animation: spinning 0.7s infinite ease-out;
+}
+
+%helpers-status-error {
+  @include status;
+
+  &::before {
+    content: "close";
+    color: $pink-500;
+    display: block;
+    width: 36px;
+    height: 36px;
+    font-family: "Material Icons";
+    font-size: 28px;
+    line-height: 36px;
+    text-transform: none;
+  }
+}
+
+%helpers-status-success {
+  @include status;
+
+  &::before {
+    content: "done";
+    color: $pink-500;
+    display: block;
+    width: 36px;
+    height: 36px;
+    font-family: "Material Icons";
+    font-size: 28px;
+    line-height: 36px;
+    text-transform: none;
+  }
+}

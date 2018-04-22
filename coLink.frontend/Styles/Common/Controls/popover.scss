@@ -1,0 +1,13 @@
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/popovers";
+
+.popover {
+  padding: 0;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  font-family: $font-roboto;
+  font-size: 13px;
+
+  .arrow {
+    border-color: transparent !important;
+  }
+}

@@ -1,0 +1,24 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+#root,
+html {
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  background-image: linear-gradient(to top, $pink-100 0%, $pink-100 1%, #e6dee9 100%);
+  color: $gray-700;
+  font-size: 14px;
+  margin: 0;
+  font-family: $font-roboto;
+}
+
+.hidden {
+  display: none !important;
+}

@@ -1,0 +1,50 @@
+$animation-speed: 500ms;
+
+.card-form {
+  height: 100%;
+  margin: 0 8px;
+  padding-top: 8px;
+  position: relative;
+
+  form {
+    div:first-child {
+      margin-top: 12px;
+    }
+  }
+
+  .buttons-group {
+    position: absolute;
+    bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .btn {
+    padding: 0 10px;
+  }
+}
+
+.new-card {
+  opacity: 0.6;
+  border: dashed 2px $gray-500;
+  position: relative;
+
+  .btn {
+    @extend %absolute-center;
+
+    min-width: 0;
+    width: 34px;
+    padding: 0;
+
+    .material-icons {
+      @extend %absolute-center;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .new-card .btn {
+    width: 30px;
+  }
+}

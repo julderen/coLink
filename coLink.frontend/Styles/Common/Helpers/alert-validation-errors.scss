@@ -1,0 +1,37 @@
+.alert-validation-errors {
+  text-align: center;
+  font-size: 14px;
+  padding: 16px 0;
+  color: $danger;
+
+  p:not(:last-child) {
+    margin: 14px 0 0;
+  }
+
+  &.alert-validation-enter.alert-validation-enter-active {
+    opacity: 1;
+    max-height: 200px;
+    padding: 16px 0;
+    transition: all 1000ms linear;
+  }
+
+  &.alert-validation-enter {
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  &.alert-validation-leave {
+    max-height: 200px;
+    padding: 16px 0;
+    opacity: 1;
+  }
+
+  &.alert-validation-leave.alert-validation-leave-active {
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: all 1000ms linear;
+  }
+}

@@ -1,0 +1,42 @@
+.overlay-status {
+  height: 100%;
+  z-index: 100;
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "";
+    z-index: 101;
+    cursor: $disabled-cursor;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  & > .message {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 400;
+    z-index: 102;
+    box-shadow: 0 0 20px 0 $gray-300;
+    color: $gray-600;
+    background: white;
+    transform: translate(-50%, -50%);
+    word-wrap: break-word;
+  }
+
+  &[data-status="STATUS_DEFAULT"] {
+    &::before,
+    &::after,
+    & > .message {
+      display: none !important;
+    }
+  }
+}

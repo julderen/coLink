@@ -1,0 +1,34 @@
+.form-control {
+  padding: 8px;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid $gray-200;
+  font-size: 14px;
+
+  &::placeholder {
+    color: $gray-500;
+  }
+
+  &:hover {
+    border-color: $gray-300;
+  }
+
+  &:focus,
+  &:active,
+  &:focus,
+  &:focus:active {
+    outline: none;
+    box-shadow: none;
+    border-color: $pink-100;
+  }
+
+  &[disabled] {
+    cursor: $disabled-cursor;
+    background: $gray-300;
+    border-color: $gray-200;
+  }
+}
+
+.has-icon .form-control {
+  padding: 8px 0;
+}

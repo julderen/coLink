@@ -1,0 +1,15 @@
+.btn {
+  &-status {
+    &-loader {
+      @extend %helpers-status-loader;
+    }
+
+    &-error {
+      @extend %helpers-status-error;
+    }
+
+    &-success {
+      @extend %helpers-status-success;
+    }
+  }
+}
