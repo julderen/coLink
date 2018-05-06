@@ -1,14 +1,6 @@
-require(`dotenv`).config();
-const express = require(`express`);
-const configs = require(`./configs/configs`);
-const routes = require(`./routes/routes`);
-
-const app = express();
-routes.init(app);
-console.log(configs);
-const port = configs[process.env.TYPE].port;
-const hostname = configs[process.env.TYPE].hostname;
-
-app.listen(port, hostname, () => {
-  console.info(`Server running at http://${hostname}:${port}/`);
-});
+"use strict";
+exports.__esModule = true;
+var App_1 = require("./app/App");
+var configs_1 = require("./configs");
+var server = new App_1["default"](configs_1["default"][process.env.TYPE]);
+server.start();

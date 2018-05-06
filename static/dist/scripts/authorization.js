@@ -194,35 +194,7 @@ exports.default = (0, _realt.createReducer)(SignInReducer);
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _lodash = __webpack_require__(16);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactAddonsCssTransitionGroup = __webpack_require__(95);
-
-var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
-
-var _Controls = __webpack_require__(14);
-
-var _SignIn = __webpack_require__(1069);
-
-var _SignIn2 = _interopRequireDefault(_SignIn);
-
-var _Registration = __webpack_require__(1074);
-
-var _Registration2 = _interopRequireDefault(_Registration);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -230,8 +202,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var AuthorizationLayout = function (_Component) {
-  _inherits(AuthorizationLayout, _Component);
+Object.defineProperty(exports, "__esModule", { value: true });
+var lodash_1 = __webpack_require__(16);
+var react_1 = __webpack_require__(0);
+var react_addons_css_transition_group_1 = __webpack_require__(95);
+var Controls_1 = __webpack_require__(14);
+var SignIn_1 = __webpack_require__(1069);
+var Registration_1 = __webpack_require__(1074);
+
+var AuthorizationLayout = function (_react_1$Component) {
+  _inherits(AuthorizationLayout, _react_1$Component);
 
   function AuthorizationLayout() {
     _classCallCheck(this, AuthorizationLayout);
@@ -241,56 +221,50 @@ var AuthorizationLayout = function (_Component) {
     _this.state = {
       isSignIn: true
     };
-
     _this.onToggleView = function () {
-      return _lodash2.default.debounce(_this.setState({ isSignIn: !_this.state.isSignIn }), 700);
+      return lodash_1.default.debounce(_this.setState({ isSignIn: !_this.state.isSignIn }), 700);
     };
     return _this;
   }
 
   _createClass(AuthorizationLayout, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       var isSignIn = this.state.isSignIn;
 
-
-      return _react2.default.createElement(
-        'div',
-        { className: 'authorization-layout' },
-        _react2.default.createElement(
-          'div',
-          { className: 'authorization-content-wrap' },
-          _react2.default.createElement('img', { alt: 'sorry...', src: 'http://localhost:3000/sign-in.png' }),
-          _react2.default.createElement(
-            _Controls.Button,
-            { bsStyle: 'primary', className: 'toggled-view', onClick: this.onToggleView },
-            isSignIn ? [_react2.default.createElement(
-              'i',
-              { className: 'material-icons', key: 'reqistration' },
-              'person_add'
-            ), _react2.default.createElement(
-              'span',
+      return React.createElement(
+        "div",
+        { className: "authorization-layout" },
+        React.createElement(
+          "div",
+          { className: "authorization-content-wrap" },
+          React.createElement("img", { alt: "sorry...", src: "http://localhost:8090/contents/sign-in.png" }),
+          React.createElement(
+            Controls_1.Button,
+            { bsStyle: "primary", className: "toggled-view", onClick: this.onToggleView },
+            isSignIn ? [React.createElement(
+              "i",
+              { className: "material-icons", key: "reqistration" },
+              "person_add"
+            ), React.createElement(
+              "span",
               null,
-              'Registration'
-            )] : [_react2.default.createElement(
-              'i',
-              { className: 'material-icons', key: 'signIn' },
-              'person'
-            ), _react2.default.createElement(
-              'span',
+              "Registration"
+            )] : [React.createElement(
+              "i",
+              { className: "material-icons", key: "signIn" },
+              "person"
+            ), React.createElement(
+              "span",
               null,
-              'Sign in'
+              "Sign in"
             )]
           ),
-          _react2.default.createElement(
-            _reactAddonsCssTransitionGroup2.default,
-            {
-              transitionName: 'authorization',
-              transitionEnterTimeout: 400,
-              transitionLeaveTimeout: 300
-            },
-            isSignIn && _react2.default.createElement(_SignIn2.default, null),
-            !isSignIn && _react2.default.createElement(_Registration2.default, null)
+          React.createElement(
+            react_addons_css_transition_group_1.default,
+            { transitionName: "authorization", transitionEnterTimeout: 400, transitionLeaveTimeout: 300 },
+            isSignIn && React.createElement(SignIn_1.default, null),
+            !isSignIn && React.createElement(Registration_1.default, null)
           )
         )
       );
@@ -298,7 +272,7 @@ var AuthorizationLayout = function (_Component) {
   }]);
 
   return AuthorizationLayout;
-}(_react.Component);
+}(react_1.Component);
 
 exports.default = AuthorizationLayout;
 
@@ -310,35 +284,9 @@ exports.default = AuthorizationLayout;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _ConnectDecorators = __webpack_require__(36);
-
-var _SigInForm = __webpack_require__(1070);
-
-var _SigInForm2 = _interopRequireDefault(_SigInForm);
-
-var _ValidationConstants = __webpack_require__(488);
-
-var _SignInActions = __webpack_require__(485);
-
-var _SignInActions2 = _interopRequireDefault(_SignInActions);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -346,41 +294,46 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var SignIn = function (_Component) {
-  _inherits(SignIn, _Component);
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __webpack_require__(0);
+var prop_types_1 = __webpack_require__(1);
+var ConnectDecorators_1 = __webpack_require__(36);
+var SigInForm_1 = __webpack_require__(1070);
+var ValidationConstants_1 = __webpack_require__(488);
+var SignInActions_1 = __webpack_require__(485);
 
-  function SignIn(props) {
-    _classCallCheck(this, SignIn);
+var SignIn = function (_react_1$Component) {
+    _inherits(SignIn, _react_1$Component);
 
-    var _this = _possibleConstructorReturn(this, (SignIn.__proto__ || Object.getPrototypeOf(SignIn)).call(this));
+    function SignIn(props) {
+        _classCallCheck(this, SignIn);
 
-    _this.signIn = function (data) {
-      return props.actions.signIn(data);
-    };
-    return _this;
-  }
+        var _this = _possibleConstructorReturn(this, (SignIn.__proto__ || Object.getPrototypeOf(SignIn)).call(this));
 
-  _createClass(SignIn, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'authorization-form sign-in-form' },
-        _react2.default.createElement(_SigInForm2.default, _extends({}, this.props, {
-          onSubmit: this.signIn
-        }))
-      );
+        _this.signIn = function (data) {
+            return props.actions.signIn(data);
+        };
+        return _this;
     }
-  }]);
 
-  return SignIn;
-}(_react.Component);
+    _createClass(SignIn, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "div",
+                { className: "authorization-form sign-in-form" },
+                React.createElement(SigInForm_1.default, _extends({}, this.props, { onSubmit: this.signIn }))
+            );
+        }
+    }]);
+
+    return SignIn;
+}(react_1.Component);
 
 SignIn.propTypes = {
-  actions: _propTypes2.default.object
+    actions: prop_types_1.default.object
 };
-
-exports.default = (0, _ConnectDecorators.compose)((0, _ConnectDecorators.connectToStore)({ name: 'signIn', actions: _SignInActions2.default }), (0, _ConnectDecorators.connectToForm)({ name: 'signIn', validation: _ValidationConstants.signInValidation }))(SignIn);
+exports.default = ConnectDecorators_1.compose(ConnectDecorators_1.connectToStore({ name: 'signIn', actions: SignInActions_1.default }), ConnectDecorators_1.connectToForm({ name: 'signIn', validation: ValidationConstants_1.signInValidation }))(SignIn);
 
 /***/ }),
 
@@ -390,53 +343,42 @@ exports.default = (0, _ConnectDecorators.compose)((0, _ConnectDecorators.connect
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _Form = __webpack_require__(75);
-
-var _Controls = __webpack_require__(14);
-
-var _SignInConstants = __webpack_require__(218);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-var SignInForm = function SignInForm(_ref) {
-  var status = _ref.status,
-      props = _objectWithoutProperties(_ref, ['status']);
-
-  return _react2.default.createElement(
-    _Form.Form,
-    props,
-    _react2.default.createElement(_Form.Input, { name: 'email', label: 'Email', icon: 'email', maxLength: _SignInConstants.FIELD_MAX_LENGTH }),
-    _react2.default.createElement(_Form.Input, { name: 'password', label: 'Password', type: 'password', icon: 'lock', maxLength: _SignInConstants.FIELD_MAX_LENGTH }),
-    _react2.default.createElement(
-      _Controls.ButtonsGroup,
-      null,
-      _react2.default.createElement(
-        _Controls.ButtonLoader,
-        { status: status },
-        'sign in'
-      )
-    )
-  );
+var __rest = undefined && undefined.__rest || function (s, e) {
+    var t = {};
+    for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+    }if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+        if (e.indexOf(p[i]) < 0) t[p[i]] = s[p[i]];
+    }return t;
 };
-
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __webpack_require__(0);
+var prop_types_1 = __webpack_require__(1);
+var Form_1 = __webpack_require__(75);
+var Controls_1 = __webpack_require__(14);
+var SignInConstants_1 = __webpack_require__(218);
+var SignInForm = function SignInForm(_a) {
+    var status = _a.status,
+        props = __rest(_a, ["status"]);
+    return React.createElement(
+        Form_1.Form,
+        props,
+        React.createElement(Form_1.Input, { name: "email", label: "Email", icon: "email", maxLength: SignInConstants_1.FIELD_MAX_LENGTH }),
+        React.createElement(Form_1.Input, { name: "password", label: "Password", type: "password", icon: "lock", maxLength: SignInConstants_1.FIELD_MAX_LENGTH }),
+        React.createElement(
+            Controls_1.ButtonsGroup,
+            null,
+            React.createElement(
+                Controls_1.ButtonLoader,
+                { status: status },
+                "sign in"
+            )
+        )
+    );
+};
 SignInForm.propTypes = {
-  status: _propTypes2.default.string
+    status: prop_types_1.default.string
 };
-
 exports.default = SignInForm;
 
 /***/ }),
@@ -828,35 +770,9 @@ exports.ERROR_MESSAGES = ERROR_MESSAGES;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _ConnectDecorators = __webpack_require__(36);
-
-var _RegistrationForm = __webpack_require__(1075);
-
-var _RegistrationForm2 = _interopRequireDefault(_RegistrationForm);
-
-var _ValidationConstants = __webpack_require__(488);
-
-var _RegistrationActions = __webpack_require__(487);
-
-var _RegistrationActions2 = _interopRequireDefault(_RegistrationActions);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -864,42 +780,47 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var SignIn = function (_Component) {
-  _inherits(SignIn, _Component);
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __webpack_require__(0);
+var prop_types_1 = __webpack_require__(1);
+var ConnectDecorators_1 = __webpack_require__(36);
+var RegistrationForm_1 = __webpack_require__(1075);
+var ValidationConstants_1 = __webpack_require__(488);
+var RegistrationActions_1 = __webpack_require__(487);
 
-  function SignIn(props) {
-    _classCallCheck(this, SignIn);
+var SignIn = function (_react_1$Component) {
+    _inherits(SignIn, _react_1$Component);
 
-    var _this = _possibleConstructorReturn(this, (SignIn.__proto__ || Object.getPrototypeOf(SignIn)).call(this));
+    function SignIn(props) {
+        _classCallCheck(this, SignIn);
 
-    _this.registration = function (data) {
-      return props.actions.registration(data);
-    };
-    return _this;
-  }
+        var _this = _possibleConstructorReturn(this, (SignIn.__proto__ || Object.getPrototypeOf(SignIn)).call(this));
 
-  _createClass(SignIn, [{
-    key: 'render',
-    value: function render() {
-      console.log(this.props);
-      return _react2.default.createElement(
-        'div',
-        { className: 'authorization-form registration-form' },
-        _react2.default.createElement(_RegistrationForm2.default, _extends({}, this.props, {
-          onSubmit: this.registration
-        }))
-      );
+        _this.registration = function (data) {
+            return props.actions.registration(data);
+        };
+        return _this;
     }
-  }]);
 
-  return SignIn;
-}(_react.Component);
+    _createClass(SignIn, [{
+        key: "render",
+        value: function render() {
+            console.log(this.props);
+            return React.createElement(
+                "div",
+                { className: "authorization-form registration-form" },
+                React.createElement(RegistrationForm_1.default, _extends({}, this.props, { onSubmit: this.registration }))
+            );
+        }
+    }]);
+
+    return SignIn;
+}(react_1.Component);
 
 SignIn.propTypes = {
-  actions: _propTypes2.default.object
+    actions: prop_types_1.default.object
 };
-
-exports.default = (0, _ConnectDecorators.compose)((0, _ConnectDecorators.connectToStore)({ name: 'registration', actions: _RegistrationActions2.default }), (0, _ConnectDecorators.connectToForm)({ name: 'registration', validation: _ValidationConstants.registrationValidation }))(SignIn);
+exports.default = ConnectDecorators_1.compose(ConnectDecorators_1.connectToStore({ name: 'registration', actions: RegistrationActions_1.default }), ConnectDecorators_1.connectToForm({ name: 'registration', validation: ValidationConstants_1.registrationValidation }))(SignIn);
 
 /***/ }),
 
@@ -909,54 +830,43 @@ exports.default = (0, _ConnectDecorators.compose)((0, _ConnectDecorators.connect
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _Form = __webpack_require__(75);
-
-var _Controls = __webpack_require__(14);
-
-var _SignInConstants = __webpack_require__(218);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-var RegistrationForm = function RegistrationForm(_ref) {
-  var status = _ref.status,
-      props = _objectWithoutProperties(_ref, ['status']);
-
-  return _react2.default.createElement(
-    _Form.Form,
-    props,
-    _react2.default.createElement(_Form.Input, { name: 'email', label: 'Email*', icon: 'email', maxLength: _SignInConstants.FIELD_MAX_LENGTH }),
-    _react2.default.createElement(_Form.Input, { name: 'displayName', label: 'Login', icon: 'face', maxLength: _SignInConstants.FIELD_MAX_LENGTH }),
-    _react2.default.createElement(_Form.Input, { name: 'password', label: 'Password*', icon: 'lock', maxLength: _SignInConstants.FIELD_MAX_LENGTH }),
-    _react2.default.createElement(
-      _Controls.ButtonsGroup,
-      null,
-      _react2.default.createElement(
-        _Controls.ButtonLoader,
-        { status: status, bsSize: 'lg' },
-        'registration'
-      )
-    )
-  );
+var __rest = undefined && undefined.__rest || function (s, e) {
+    var t = {};
+    for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+    }if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+        if (e.indexOf(p[i]) < 0) t[p[i]] = s[p[i]];
+    }return t;
 };
-
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __webpack_require__(0);
+var prop_types_1 = __webpack_require__(1);
+var Form_1 = __webpack_require__(75);
+var Controls_1 = __webpack_require__(14);
+var SignInConstants_1 = __webpack_require__(218);
+var RegistrationForm = function RegistrationForm(_a) {
+    var status = _a.status,
+        props = __rest(_a, ["status"]);
+    return React.createElement(
+        Form_1.Form,
+        props,
+        React.createElement(Form_1.Input, { name: "email", label: "Email*", icon: "email", maxLength: SignInConstants_1.FIELD_MAX_LENGTH }),
+        React.createElement(Form_1.Input, { name: "displayName", label: "Login", icon: "face", maxLength: SignInConstants_1.FIELD_MAX_LENGTH }),
+        React.createElement(Form_1.Input, { name: "password", label: "Password*", icon: "lock", maxLength: SignInConstants_1.FIELD_MAX_LENGTH }),
+        React.createElement(
+            Controls_1.ButtonsGroup,
+            null,
+            React.createElement(
+                Controls_1.ButtonLoader,
+                { status: status, bsSize: "lg" },
+                "registration"
+            )
+        )
+    );
+};
 RegistrationForm.propTypes = {
-  status: _propTypes2.default.string
+    status: prop_types_1.default.string
 };
-
 exports.default = RegistrationForm;
 
 /***/ }),
@@ -1063,11 +973,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _AjaxService = __webpack_require__(116);
+var _AjaxService = __webpack_require__(115);
 
 var _AjaxService2 = _interopRequireDefault(_AjaxService);
 
-var _UrlConstants = __webpack_require__(117);
+var _UrlConstants = __webpack_require__(116);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

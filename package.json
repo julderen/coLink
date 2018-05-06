@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js",
+    "start": "node dist/index.js",
+    "build": "tsc index.ts",
     "module install": "npm install"
   },
   "repository": {
@@ -19,11 +20,30 @@
   "dependencies": {
     "body-parser": "1.15.2",
     "express": "4.14.0",
-    "dotenv": "5.0.1"
+    "dotenv": "5.0.1",
+    "pg": "7.4.1",
+    "typeorm": "0.2.0",
+    "routing-controllers": "0.7.7"
   },
   "devDependencies": {
-    "nodemon": "1.11.0",
-    "eslint": "4.17.0",
-    "eslint-config-htmlacademy": "0.4.2"
+    "@types/node": "9.6.1",
+    "@types/ejs": "2.5.0",
+    "@types/express": "4.11.1",
+    "@types/body-parser": "1.16.8",
+    "@types/multer": "1.3.6",
+    "@types/pg": "7.4.7",
+    "@types/lodash": "4.14.106",
+    "@types/jsonwebtoken": "7.2.6",
+    "@types/sharp": "0.17.7",
+    "typescript": "2.8.1",
+    "tsutils": "2.25.0",
+    "rollup": "0.57.1",
+    "rollup-plugin-typescript": "0.8.1",
+    "rollup-plugin-replace": "2.0.0",
+    "rollup-plugin-babel-minify": "4.0.0",
+    "rollup-plugin-ejs": "1.1.1",
+    "rollup-plugin-commonjs": "9.1.0",
+    "tslint": "5.9.1",
+    "tslint-config-airbnb": "5.8.0"
   }
 }
