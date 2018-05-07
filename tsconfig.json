@@ -1,16 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "target": "es2017",
-    "module": "commonjs",
+    "target": "ES2015",
     "moduleResolution": "node",
     "sourceMap": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "removeComments": true,
-    "allowJs": true,
-    "outDir": "dist"
+    "allowJs": true
   },
   "exclude": [
     "node_modules",

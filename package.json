@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
-    "build": "tsc index.ts",
+    "start": "node dist/server.js",
+    "build": "tsc -p ./tsconfig.json",
+    "build rollup": "rollup -c rollup.config.js -o dist/server.js",
     "module install": "npm install"
   },
   "repository": {
@@ -22,6 +23,8 @@
     "express": "4.14.0",
     "dotenv": "5.0.1",
     "pg": "7.4.1",
+    "cors": "2.8.4",
+    "reflect-metadata": "0.1.12",
     "typeorm": "0.2.0",
     "routing-controllers": "0.7.7"
   },
@@ -39,10 +42,6 @@
     "tsutils": "2.25.0",
     "rollup": "0.57.1",
     "rollup-plugin-typescript": "0.8.1",
-    "rollup-plugin-replace": "2.0.0",
-    "rollup-plugin-babel-minify": "4.0.0",
-    "rollup-plugin-ejs": "1.1.1",
-    "rollup-plugin-commonjs": "9.1.0",
     "tslint": "5.9.1",
     "tslint-config-airbnb": "5.8.0"
   }

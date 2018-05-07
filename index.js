@@ -1,6 +1,5 @@
-"use strict";
-exports.__esModule = true;
-var App_1 = require("./app/App");
-var configs_1 = require("./configs");
-var server = new App_1["default"](configs_1["default"][process.env.TYPE]);
+import App from './app/App';
+import configs from './configs';
+import 'reflect-metadata';
+const server = new App(configs[process.env.TYPE]);
 server.start();
