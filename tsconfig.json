@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
+    "baseUrl": ".",
+    "target": "ES2017",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,

@@ -1,7 +1,13 @@
+import { Inject } from 'typedi';
 import { Controller, Param, Body, Get, Post, Put, Delete } from 'routing-controllers';
+import { User } from 'entities/index';
+import { IUsersService } from 'abstractions/services';
 
 @Controller()
 export class UserController {
+  @Inject()
+  private usersService: IUsersService;
+
   @Get('/users')
   getAll() {
     return 'This action returns all users';
@@ -13,12 +19,16 @@ export class UserController {
   }
 
   @Post('/users')
-  post(@Body() user: any) {
-    return 'Saving user...';
+  public async createUser(@Body() user: User) {
+    console.log(this.usersService);
+    const saveUser = await this.usersService.createUser(user);
+
+    return saveUser.id;
   }
 
   @Put('/users/:id')
-  put(@Param('id') id: number, @Body() user: any) {
+  public async updateUser(@Param('id') id: number, @Body() user: User) {
+
     return 'Updating a user...';
   }
 

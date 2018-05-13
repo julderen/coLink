@@ -25,7 +25,12 @@
     "pg": "7.4.1",
     "cors": "2.8.4",
     "reflect-metadata": "0.1.12",
+    "crypto-js": "3.1.9-1",
+    "base64-url": "2.2.0",
+    "jsonwebtoken": "8.2.1",
+    "typedi": "0.7.3",
     "typeorm": "0.2.0",
+    "typeorm-typedi-extensions": "0.2.1 ",
     "routing-controllers": "0.7.7"
   },
   "devDependencies": {
@@ -38,7 +43,7 @@
     "@types/lodash": "4.14.106",
     "@types/jsonwebtoken": "7.2.6",
     "@types/sharp": "0.17.7",
-    "typescript": "2.8.1",
+    "typescript": "2.8.3",
     "tsutils": "2.25.0",
     "rollup": "0.57.1",
     "rollup-plugin-typescript": "0.8.1",

@@ -1,6 +1,6 @@
 import * as path from 'path';
-// import * as typescript from 'typescript';
-import typescript from 'rollup-plugin-typescript';
+import * as typescript from 'typescript';
+import * as pluginTypescript from 'rollup-plugin-typescript';
 
 // import { ProjectConfig } from './types';
 
@@ -19,7 +19,9 @@ const config = {
   cache: null,
   external: Object.keys(projectPackage.dependencies).concat(excludeDependencies),
   plugins: [
-    typescript()
+    pluginTypescript({
+      typescript
+    })
   ]
 };
 
