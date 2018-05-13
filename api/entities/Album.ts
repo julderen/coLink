@@ -1,18 +1,16 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { IAlbum } from 'abstractions/entities/index';
 
-@Entity('users')
-class User {
+@Entity('albums')
+class Album implements IAlbum {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ type: 'varchar', length: 256, unique: true })
-  email: string;
+  name: string;
 
-  @Column({ type: 'varchar', length: 64 })
-  passwordHash: string;
-
-  @Column({ type: 'varchar', length: 64 })
-  login: string;
+  @Column({ type: 'varchar', length: 256 })
+  description: string;
 
   @CreateDateColumn()
   createDate: Date;
@@ -21,4 +19,4 @@ class User {
   updateDate: Date;
 }
 
-export default User;
+export default Album;

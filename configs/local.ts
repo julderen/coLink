@@ -8,7 +8,7 @@ export default {
   domains: {
     api: 'http://localhost:8892',
     cdn: '/',
-    web: 'http://icorating.ru'
+    web: 'http://localhost:3005'
   },
   dbConfig: {
     type: 'postgres',

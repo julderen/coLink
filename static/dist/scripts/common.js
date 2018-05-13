@@ -5276,7 +5276,7 @@ var structure = {
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -23348,7 +23348,7 @@ module.exports = ExecutionEnvironment;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- *
+ * 
  */
 
 function makeEmptyFunction(arg) {
@@ -23390,7 +23390,7 @@ module.exports = emptyFunction;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -23775,7 +23775,7 @@ module.exports = ReactComponentTreeHook;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -24341,7 +24341,7 @@ var updateSyncWarnings = __WEBPACK_IMPORTED_MODULE_0__actions__["a" /* default *
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -25881,7 +25881,7 @@ module.exports = ReactElement;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -26397,7 +26397,7 @@ module.exports = React;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -26794,7 +26794,7 @@ function make_assign() {
 				each(Object(arguments[i]), function(val, key) {
 					obj[key] = val
 				})
-			}
+			}			
 			return obj
 		}
 	}
@@ -28514,7 +28514,7 @@ module.exports = __webpack_require__(1017);
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -28570,7 +28570,7 @@ module.exports = emptyObject;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -28829,7 +28829,7 @@ module.exports = EventPluginRegistry;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -31301,7 +31301,7 @@ module.exports = EventPluginUtils;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -31974,7 +31974,7 @@ module.exports = LinkedValueUtils;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -32023,7 +32023,7 @@ module.exports = ReactComponentEnvironment;
  * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
- *
+ * 
  */
 
 /*eslint-disable no-self-compare */
@@ -32142,7 +32142,7 @@ module.exports = shouldUpdateReactComponent;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -32907,7 +32907,7 @@ function warning(message) {
     (global.hoistNonReactStatics = factory());
 }(this, (function () {
     'use strict';
-
+    
     var REACT_STATICS = {
         childContextTypes: true,
         contextTypes: true,
@@ -32919,7 +32919,7 @@ function warning(message) {
         propTypes: true,
         type: true
     };
-
+    
     var KNOWN_STATICS = {
         name: true,
         length: true,
@@ -32929,30 +32929,30 @@ function warning(message) {
         arguments: true,
         arity: true
     };
-
+    
     var defineProperty = Object.defineProperty;
     var getOwnPropertyNames = Object.getOwnPropertyNames;
     var getOwnPropertySymbols = Object.getOwnPropertySymbols;
     var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
     var getPrototypeOf = Object.getPrototypeOf;
     var objectPrototype = getPrototypeOf && getPrototypeOf(Object);
-
+    
     return function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
         if (typeof sourceComponent !== 'string') { // don't hoist over string (html) components
-
+            
             if (objectPrototype) {
                 var inheritedComponent = getPrototypeOf(sourceComponent);
                 if (inheritedComponent && inheritedComponent !== objectPrototype) {
                     hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
                 }
             }
-
+            
             var keys = getOwnPropertyNames(sourceComponent);
-
+            
             if (getOwnPropertySymbols) {
                 keys = keys.concat(getOwnPropertySymbols(sourceComponent));
             }
-
+            
             for (var i = 0; i < keys.length; ++i) {
                 var key = keys[i];
                 if (!REACT_STATICS[key] && !KNOWN_STATICS[key] && (!blacklist || !blacklist[key])) {
@@ -32962,10 +32962,10 @@ function warning(message) {
                     } catch (e) {}
                 }
             }
-
+            
             return targetComponent;
         }
-
+        
         return targetComponent;
     };
 })));
@@ -34824,7 +34824,7 @@ keyCode.isEventKey = function isEventKey(event, nameOrCode) {
       // check codes
       var foundNamedKey = codes[nameOrCode.toLowerCase()]
       if (foundNamedKey) { return foundNamedKey === keyCode; }
-
+    
       // check aliases
       var foundNamedKey = aliases[nameOrCode.toLowerCase()]
       if (foundNamedKey) { return foundNamedKey === keyCode; }
@@ -36447,7 +36447,7 @@ module.exports = ReactNoopUpdateQueue;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -36472,7 +36472,7 @@ module.exports = REACT_ELEMENT_TYPE;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -37352,7 +37352,7 @@ module.exports = ReactDOMComponentFlags;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -37416,7 +37416,7 @@ module.exports = accumulateInto;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -37490,7 +37490,7 @@ module.exports = getTextContentAccessor;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -37615,7 +37615,7 @@ module.exports = PooledClass.addPoolingTo(CallbackQueue);
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -37769,7 +37769,7 @@ module.exports = inputValueTracking;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -38342,7 +38342,7 @@ module.exports = DOMPropertyOperations;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -38726,7 +38726,7 @@ module.exports = instantiateReactComponent;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -40608,7 +40608,7 @@ function wrapMapToPropsConstant(getConstant) {
 // dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
 // to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
 // whether mapToProps needs to be invoked when props have changed.
-//
+// 
 // A length of one signals that mapToProps does not depend on props from the parent component.
 // A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
 // therefore not reporting its length accurately..
@@ -40618,16 +40618,16 @@ function getDependsOnOwnProps(mapToProps) {
 
 // Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
 // this function wraps mapToProps in a proxy function which does several things:
-//
+// 
 //  * Detects whether the mapToProps function being called depends on props, which
 //    is used by selectorFactory to decide if it should reinvoke on props changes.
-//
+//    
 //  * On first call, handles mapToProps if returns another function, and treats that
 //    new function as the true mapToProps for subsequent calls.
-//
+//    
 //  * On first call, verifies the first result is a plain object, in order to warn
 //    the developer that their mapToProps function is not returning a valid result.
-//
+//    
 function wrapMapToPropsFunc(mapToProps, methodName) {
   return function initProxySelector(dispatch, _ref) {
     var displayName = _ref.displayName;
@@ -57893,7 +57893,7 @@ module.exports = ReactChildren;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -58193,7 +58193,7 @@ module.exports = traverseAllChildren;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -58525,7 +58525,7 @@ module.exports = checkReactTypeSpec;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -58556,7 +58556,7 @@ module.exports = ReactPropTypeLocationNames;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -58606,7 +58606,7 @@ module.exports = factory(isValidElement);
 // React 15.5 references this module, and assumes PropTypes are still callable in production.
 // Therefore we re-export development-only version with all the PropTypes checks here.
 // However if one is migrating to the `prop-types` npm library, they will go through the
-// `index.ts` entry point, and it will branch depending on the environment.
+// `index.js` entry point, and it will branch depending on the environment.
 var factory = __webpack_require__(225);
 module.exports = function(isValidElement) {
   // It is still allowed in 15.5.
@@ -60896,7 +60896,7 @@ module.exports = ChangeEventPlugin;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -60990,7 +60990,7 @@ module.exports = ReactRef;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -61089,7 +61089,7 @@ module.exports = ReactOwner;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -61456,7 +61456,7 @@ module.exports = ReactDebugTool;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -61499,7 +61499,7 @@ module.exports = ReactInvalidSetStateWarningHook;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -63920,7 +63920,7 @@ module.exports = hyphenate;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- *
+ * 
  * @typechecks static-only
  */
 
@@ -64428,7 +64428,7 @@ module.exports = ReactDOMInput;
 // React 15.5 references this module, and assumes PropTypes are still callable in production.
 // Therefore we re-export development-only version with all the PropTypes checks here.
 // However if one is migrating to the `prop-types` npm library, they will go through the
-// `index.ts` entry point, and it will branch depending on the environment.
+// `index.js` entry point, and it will branch depending on the environment.
 var factory = __webpack_require__(543);
 module.exports = function(isValidElement) {
   // It is still allowed in 15.5.
@@ -66943,7 +66943,7 @@ module.exports = checkReactTypeSpec;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -66974,7 +66974,7 @@ module.exports = ReactPropTypeLocationNames;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -67000,7 +67000,7 @@ module.exports = getNextDebugID;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -67025,7 +67025,7 @@ module.exports = REACT_ELEMENT_TYPE;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -67071,7 +67071,7 @@ module.exports = getIteratorFn;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -67249,7 +67249,7 @@ module.exports = ReactServerRenderingTransaction;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -68563,7 +68563,7 @@ module.exports = getNodeForCharacterOffset;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- *
+ * 
  */
 
 var isTextNode = __webpack_require__(569);
@@ -69162,7 +69162,7 @@ module.exports = SelectEventPlugin;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -70037,7 +70037,7 @@ module.exports = ReactMarkupChecksum;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -70723,7 +70723,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
   selectorFactory, which has the signature:
 
     (dispatch, options) => (nextState, nextOwnProps) => nextFinalProps
-
+  
   connect passes its args to connectAdvanced as options, which will in turn pass them to
   selectorFactory each time a Connect component instance is instantiated or hot reloaded.
 
@@ -84676,7 +84676,7 @@ module.exports = {
 var storeAPI = {
 	version: '2.0.12',
 	enabled: false,
-
+	
 	// get returns the value of the given key. If that value
 	// is undefined, it returns optionalDefaultValue instead.
 	get: function(key, optionalDefaultValue) {
@@ -84727,11 +84727,11 @@ var storeAPI = {
 	createStore: function() {
 		return createStore.apply(this, arguments)
 	},
-
+	
 	addPlugin: function(plugin) {
 		this._addPlugin(plugin)
 	},
-
+	
 	namespace: function(namespace) {
 		return createStore(this.storage, this.plugins, namespace)
 	}
@@ -84761,7 +84761,7 @@ function createStore(storages, plugins, namespace) {
 	if (!legalNamespaces.test(namespace)) {
 		throw new Error('store.js namespaces can only have alphanumerics + underscores and dashes')
 	}
-
+	
 	var _privateStoreProps = {
 		_namespacePrefix: namespacePrefix,
 		_namespaceRegexp: namespaceRegexp,
@@ -84819,7 +84819,7 @@ function createStore(storages, plugins, namespace) {
 
 			return (val !== undefined ? val : defaultVal)
 		},
-
+		
 		_addStorage: function(storage) {
 			if (this.enabled) { return }
 			if (this._testStorage(storage)) {
@@ -84868,10 +84868,10 @@ function createStore(storages, plugins, namespace) {
 				self._assignPluginFnProp(pluginFnProp, propName)
 			})
 		},
-
+		
 		// Put deprecated properties in the private API, so as to not expose it to accidential
 		// discovery through inspection of the store object.
-
+		
 		// Deprecated: addStorage
 		addStorage: function(storage) {
 			_warn('store.addStorage(storage) is deprecated. Use createStore([storages])')
@@ -84885,7 +84885,7 @@ function createStore(storages, plugins, namespace) {
 	store.raw = {}
 	each(store, function(prop, propName) {
 		if (isFunction(prop)) {
-			store.raw[propName] = bind(store, prop)
+			store.raw[propName] = bind(store, prop)			
 		}
 	})
 	each(storages, function(storage) {

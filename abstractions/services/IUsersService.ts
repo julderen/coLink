@@ -1,10 +1,8 @@
 import { IUser } from '../entities';
 
 interface IUsersService {
-  createUser(info: Partial<IUser>): IUser;
-  mergeUser(user: IUser, update: Partial<IUser>): IUser;
+  createUser(info: Partial<IUser>): Promise<IUser>;
   saveUser(user: IUser): Promise<IUser>;
-  removeUser(user: IUser): Promise<IUser>;
   getUser(conditions: Partial<IUser>): Promise<IUser>;
   getUserById(id: number): Promise<IUser>;
   getUserByEmail(email: string): Promise<IUser>;

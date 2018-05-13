@@ -12,9 +12,9 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const typedi_1 = require("typedi");
 const routing_controllers_1 = require("routing-controllers");
-const index_1 = require("entities/index");
+const models_1 = require("../models");
+const decorators_1 = require("core/decorators");
 const services_1 = require("abstractions/services");
 let UserController = class UserController {
     getAll() {
@@ -24,9 +24,12 @@ let UserController = class UserController {
         return 'This action returns user #' + id;
     }
     async createUser(user) {
-        console.log(this.usersService);
         const saveUser = await this.usersService.createUser(user);
-        return saveUser.id;
+        return await this.jwtService.generateToken({
+            id: saveUser.id,
+            email: saveUser.email,
+            login: saveUser.login
+        });
     }
     async updateUser(id, user) {
         return 'Updating a user...';
@@ -36,45 +39,49 @@ let UserController = class UserController {
     }
 };
 __decorate([
-    typedi_1.Inject(),
+    decorators_1.InjectService('users'),
     __metadata("design:type", Object)
 ], UserController.prototype, "usersService", void 0);
 __decorate([
-    routing_controllers_1.Get('/users'),
+    decorators_1.InjectService('jwt'),
+    __metadata("design:type", Object)
+], UserController.prototype, "jwtService", void 0);
+__decorate([
+    routing_controllers_1.Get(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "getAll", null);
 __decorate([
-    routing_controllers_1.Get('/users/:id'),
+    routing_controllers_1.Get('/:id'),
     __param(0, routing_controllers_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "getOne", null);
 __decorate([
-    routing_controllers_1.Post('/users'),
+    routing_controllers_1.Post(''),
     __param(0, routing_controllers_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [index_1.User]),
+    __metadata("design:paramtypes", [models_1.CreateUserModel]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "createUser", null);
 __decorate([
-    routing_controllers_1.Put('/users/:id'),
+    routing_controllers_1.Put('/:id'),
     __param(0, routing_controllers_1.Param('id')), __param(1, routing_controllers_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, index_1.User]),
+    __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "updateUser", null);
 __decorate([
-    routing_controllers_1.Delete('/users/:id'),
+    routing_controllers_1.Delete('/:id'),
     __param(0, routing_controllers_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "remove", null);
 UserController = __decorate([
-    routing_controllers_1.Controller()
+    routing_controllers_1.JsonController('/api/users')
 ], UserController);
 exports.UserController = UserController;
 exports.default = UserController;

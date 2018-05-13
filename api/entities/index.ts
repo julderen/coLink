@@ -1,7 +1,12 @@
-import {
-  User
-} from '../../entities';
+import User from './User';
+import Album from './Album';
+
+export {
+  User,
+  Album
+};
 
 export default [
-  User
+  User,
+  Album
 ];

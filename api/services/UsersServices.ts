@@ -1,34 +1,29 @@
 import { Service } from 'typedi';
 import { Repository } from 'typeorm';
 import { OrmRepository } from 'typeorm-typedi-extensions';
-import { User } from '../../entities/index';
+import { IUsersService } from 'abstractions/services';
+
+import { User } from 'api/entities';
+import { CreateUserModel } from '../models';
 
 import { encryptPassword } from '../../core/utils/crypto';
 
 @Service()
-class UsersService {
+class UsersService implements IUsersService {
   @OrmRepository(User)
   private usersRepository: Repository<User>;
 
-  public createUser(info: Partial<User>): Promise<User> {
+  public createUser(info: Partial<CreateUserModel>): Promise<User> {
     const user = new User();
     user.email = info.email;
-    user.passwordHash = info.passwordHash;
+    user.passwordHash = this.encryptPassword(info.email, info.password);
     user.login = info.login;
 
     return this.saveUser(user);
   }
 
-  public mergeUser(user: User, update: Partial<User>): User {
-    return this.usersRepository.merge(user, update);
-  }
-
   public async saveUser(user: User): Promise<User> {
     return this.usersRepository.save(user);
-  }
-
-  public removeUser(user: User): Promise<User> {
-    return this.usersRepository.remove(user);
   }
 
   public getUser(conditions: Partial<User>): Promise<User> {

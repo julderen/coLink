@@ -4,7 +4,7 @@ import { IHttpChecker } from 'abstractions/checkers';
 import { ProjectConfig } from 'abstractions/types';
 import { DependencyProvider, PostgresDatabaseContext, HttpServer } from 'core/application/index';
 import { getDependency } from 'core/decorators';
-import controllers from '../controllers/controllers';
+import controllers from '../controllers';
 import services from '../services';
 import checkers from '../checkers';
 import entities from '../entities';

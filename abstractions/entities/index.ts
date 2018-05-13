@@ -1,5 +1,7 @@
 import IUser from './IUser';
+import IAlbum from './IAlbum';
 
 export {
-  IUser
+  IUser,
+  IAlbum
 };
