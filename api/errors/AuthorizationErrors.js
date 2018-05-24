@@ -8,3 +8,9 @@ class IncorrectLoginOrPasswordError extends errors_1.HttpError {
     }
 }
 exports.IncorrectLoginOrPasswordError = IncorrectLoginOrPasswordError;
+class NoRights extends errors_1.HttpError {
+    constructor(message) {
+        super(404, enums_1.ErrorTypeOption.NotRights, message);
+    }
+}
+exports.NoRights = NoRights;

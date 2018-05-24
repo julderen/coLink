@@ -1,10 +1,14 @@
 import { IsNotEmpty, IsString } from 'class-validator';
+import { IUser } from 'abstractions/entities';
 
 export class CreateAlbumModel {
   @IsNotEmpty()
   @IsString()
   name: string;
 
-  @IsString()
   description: string;
+
+  isPublic: boolean;
+
+  owner: IUser;
 }

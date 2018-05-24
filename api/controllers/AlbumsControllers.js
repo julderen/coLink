@@ -16,22 +16,29 @@ const routing_controllers_1 = require("routing-controllers");
 const models_1 = require("../models");
 const decorators_1 = require("core/decorators");
 const services_1 = require("abstractions/services");
+const entities_1 = require("abstractions/entities");
+const errors_1 = require("../errors");
 let UserController = class UserController {
-    getAll() {
-        return 'This action returns all users';
+    async getAlbums(user) {
+        return await this.albumsService.getAlbumsByUser(user);
     }
-    getOne(id) {
-        return 'This action returns user #' + id;
-    }
-    async createAlbum(album) {
-        const saveAlbum = await this.albumsService.createAlbum(album);
+    async createAlbum(user, album) {
+        const saveAlbum = await this.albumsService.createAlbum(Object.assign({}, album, { owner: user }));
         return saveAlbum.id;
     }
-    async updateUser(id, user) {
-        return 'Updating a user...';
+    async updateAlbum(user, albumId, album) {
+        const oldAlbum = await this.albumsService.getAlbumById(albumId);
+        if (oldAlbum.owner !== user) {
+            throw new errors_1.NoRights();
+        }
+        return await this.albumsService.updateAlbum(Object.assign({}, album, { owner: user }), oldAlbum);
     }
-    remove(id) {
-        return 'Removing user...';
+    async removeAlbum(user, albumId) {
+        const oldAlbum = await this.albumsService.getAlbumById(albumId);
+        if (oldAlbum.owner !== user) {
+            throw new errors_1.NoRights();
+        }
+        return await this.albumsService.removeAlbum(oldAlbum);
     }
 };
 __decorate([
@@ -40,38 +47,32 @@ __decorate([
 ], UserController.prototype, "albumsService", void 0);
 __decorate([
     routing_controllers_1.Get(),
+    __param(0, routing_controllers_1.CurrentUser({ required: true })),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], UserController.prototype, "getAll", null);
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "getAlbums", null);
 __decorate([
-    routing_controllers_1.Get('/:id'),
-    __param(0, routing_controllers_1.Param('id')),
+    routing_controllers_1.Post(),
+    __param(0, routing_controllers_1.CurrentUser({ required: true })), __param(1, routing_controllers_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
-    __metadata("design:returntype", void 0)
-], UserController.prototype, "getOne", null);
-__decorate([
-    routing_controllers_1.Post(''),
-    __param(0, routing_controllers_1.Body()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [models_1.CreateAlbumModel]),
+    __metadata("design:paramtypes", [Object, models_1.CreateAlbumModel]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "createAlbum", null);
 __decorate([
     routing_controllers_1.Put('/:id'),
-    __param(0, routing_controllers_1.Param('id')), __param(1, routing_controllers_1.Body()),
+    __param(0, routing_controllers_1.CurrentUser()), __param(1, routing_controllers_1.Param('id')), __param(2, routing_controllers_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, Object]),
+    __metadata("design:paramtypes", [Object, Number, models_1.CreateAlbumModel]),
     __metadata("design:returntype", Promise)
-], UserController.prototype, "updateUser", null);
+], UserController.prototype, "updateAlbum", null);
 __decorate([
     routing_controllers_1.Delete('/:id'),
-    __param(0, routing_controllers_1.Param('id')),
+    __param(0, routing_controllers_1.CurrentUser({ required: true })), __param(1, routing_controllers_1.Param('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
-    __metadata("design:returntype", void 0)
-], UserController.prototype, "remove", null);
+    __metadata("design:paramtypes", [Object, Number]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "removeAlbum", null);
 UserController = __decorate([
     routing_controllers_1.JsonController('/api/albums')
 ], UserController);

@@ -1,7 +1,9 @@
-import { JsonController, Param, Body, Get, Post, Put, Delete } from 'routing-controllers';
+import { JsonController, Param, Body, Get, Post, Put, Delete, CurrentUser } from 'routing-controllers';
 import { CreateAlbumModel } from '../models';
 import { InjectService } from 'core/decorators';
 import { IAlbumsService } from 'abstractions/services';
+import { IUser } from 'abstractions/entities';
+import { NoRights } from '../errors';
 
 @JsonController('/api/albums')
 export class UserController {
@@ -9,31 +11,37 @@ export class UserController {
   private albumsService: IAlbumsService;
 
   @Get()
-  getAll() {
-    return 'This action returns all users';
+  public async getAlbums(@CurrentUser({ required: true }) user: IUser) {
+    return await this.albumsService.getAlbumsByUser(user);
   }
 
-  @Get('/:id')
-  getOne(@Param('id') id: number) {
-    return 'This action returns user #' + id;
-  }
-
-  @Post('')
-  public async createAlbum(@Body() album: CreateAlbumModel) {
-    const saveAlbum = await this.albumsService.createAlbum(album);
+  @Post()
+  public async createAlbum(@CurrentUser({ required: true }) user: IUser, @Body() album: CreateAlbumModel) {
+    const saveAlbum = await this.albumsService.createAlbum({ ...album, owner: user });
 
     return saveAlbum.id;
   }
 
   @Put('/:id')
-  public async updateUser(@Param('id') id: number, @Body() user: any) {
+  public async updateAlbum(@CurrentUser() user: IUser, @Param('id') albumId: number, @Body() album: CreateAlbumModel) {
+    const oldAlbum = await this.albumsService.getAlbumById(albumId);
 
-    return 'Updating a user...';
+    if (oldAlbum.owner !== user) {
+      throw new NoRights();
+    }
+
+    return await this.albumsService.updateAlbum({ ...album, owner: user }, oldAlbum);
   }
 
   @Delete('/:id')
-  remove(@Param('id') id: number) {
-    return 'Removing user...';
+  public async removeAlbum(@CurrentUser({ required: true }) user: IUser, @Param('id') albumId: number) {
+    const oldAlbum = await this.albumsService.getAlbumById(albumId);
+
+    if (oldAlbum.owner !== user) {
+      throw new NoRights();
+    }
+
+    return await this.albumsService.removeAlbum(oldAlbum);
   }
 }
 

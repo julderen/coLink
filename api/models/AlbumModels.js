@@ -17,8 +17,4 @@ __decorate([
     class_validator_1.IsString(),
     __metadata("design:type", String)
 ], CreateAlbumModel.prototype, "name", void 0);
-__decorate([
-    class_validator_1.IsString(),
-    __metadata("design:type", String)
-], CreateAlbumModel.prototype, "description", void 0);
 exports.CreateAlbumModel = CreateAlbumModel;

@@ -4,3 +4,5 @@ const IUser_1 = require("./IUser");
 exports.IUser = IUser_1.default;
 const IAlbum_1 = require("./IAlbum");
 exports.IAlbum = IAlbum_1.default;
+const ILink_1 = require("./ILink");
+exports.ILink = ILink_1.default;

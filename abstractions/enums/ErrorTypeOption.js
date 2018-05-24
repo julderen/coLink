@@ -4,8 +4,7 @@ var ErrorTypeOption;
 (function (ErrorTypeOption) {
     ErrorTypeOption["InternalServerError"] = "InternalServerError";
     ErrorTypeOption["ValidationError"] = "ValidationError";
-    ErrorTypeOption["IncorrectLoginOrPassword"] = "IncorrectLoginOrPassword";
-    ErrorTypeOption["NotFoundUserWithEmail"] = "NotFoundUserWithEmail";
-    ErrorTypeOption["TokenParseFailed"] = "TokenParseFailed";
-    ErrorTypeOption["TokenExpired"] = "TokenExpired";
+    ErrorTypeOption["IncorrectLoginOrPassword"] = "Incorrect login or password";
+    ErrorTypeOption["NotRights"] = "You have't rights";
+    ErrorTypeOption["AlbumNotExit"] = "Album does not exist";
 })(ErrorTypeOption = exports.ErrorTypeOption || (exports.ErrorTypeOption = {}));

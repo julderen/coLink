@@ -1,6 +1,6 @@
 import { Container } from 'typedi';
 import { Connection, ConnectionOptions, createConnection, useContainer } from 'typeorm';
-import { PostgresDatabaseConfig } from 'icorating.abstractions/types';
+import { PostgresDatabaseConfig } from 'abstractions/types';
 
 class PostgresDatabaseContext {
   private entities: Function[];

@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const services_1 = require("../../abstractions/services");
-const decorators_1 = require("../../core/decorators");
+const services_1 = require("abstractions/services");
+const decorators_1 = require("core/decorators");
 class CurrentUserChecker {
     async check(token, action) {
         if (!token)

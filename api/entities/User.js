@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
+const index_1 = require("./index");
 let User = class User {
 };
 __decorate([
@@ -17,7 +18,7 @@ __decorate([
     __metadata("design:type", Number)
 ], User.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column({ type: 'varchar', length: 256, unique: true }),
+    typeorm_1.Column({ type: 'varchar', length: 256 }),
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 __decorate([
@@ -28,6 +29,10 @@ __decorate([
     typeorm_1.Column({ type: 'varchar', length: 64 }),
     __metadata("design:type", String)
 ], User.prototype, "login", void 0);
+__decorate([
+    typeorm_1.OneToMany(type => index_1.Album, album => album.owner),
+    __metadata("design:type", Array)
+], User.prototype, "albums", void 0);
 __decorate([
     typeorm_1.CreateDateColumn(),
     __metadata("design:type", Date)

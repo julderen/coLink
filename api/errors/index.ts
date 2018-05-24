@@ -1,2 +1,2 @@
 export * from './AuthorizationErrors';
-export * from './ResetPasswordErrors';
+export * from './LinksErrors';

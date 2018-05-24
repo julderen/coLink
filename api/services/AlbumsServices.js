@@ -18,13 +18,33 @@ let AlbumsService = class AlbumsService {
         const album = new entities_1.Album();
         album.name = info.name;
         album.description = info.description;
+        album.isPublic = info.isPublic;
+        album.owner = info.owner;
         return this.saveAlbum(album);
+    }
+    async updateAlbum(info, oldAlbum) {
+        const album = new entities_1.Album();
+        album.name = info.name;
+        album.description = info.description;
+        album.isPublic = info.isPublic;
+        album.owner = info.owner;
+        const updatedMiner = this.mergeAlbum(oldAlbum, album);
+        return this.saveAlbum(updatedMiner);
+    }
+    mergeAlbum(album, update) {
+        return this.albumsRepository.merge(album, update);
     }
     async saveAlbum(user) {
         return this.albumsRepository.save(user);
     }
-    removeAlbum(user) {
-        return this.albumsRepository.remove(user);
+    async removeAlbum(album) {
+        return this.albumsRepository.remove(album);
+    }
+    getAlbumsByUser(user) {
+        return this.albumsRepository.find({ owner: user });
+    }
+    getAlbumById(id, options) {
+        return this.albumsRepository.findOne(Object.assign({ id }, options));
     }
 };
 __decorate([

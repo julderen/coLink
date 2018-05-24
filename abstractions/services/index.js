@@ -6,3 +6,5 @@ const IUsersService_1 = require("./IUsersService");
 exports.IUsersService = IUsersService_1.default;
 const IAlbumsService_1 = require("./IAlbumsService");
 exports.IAlbumsService = IAlbumsService_1.default;
+const ILinksService_1 = require("./ILinksService");
+exports.ILinksService = ILinksService_1.default;

@@ -27,6 +27,7 @@
     "cors": "2.8.4",
     "reflect-metadata": "0.1.12",
     "crypto-js": "3.1.9-1",
+    "image-resolver": "0.6.1",
     "base64-url": "2.2.0",
     "jsonwebtoken": "8.2.1",
     "class-validator": "0.8.5",
