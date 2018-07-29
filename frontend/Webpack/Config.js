@@ -55,7 +55,7 @@ module.exports = {
           fallback: 'style-loader',
           use: production ? cssLoader.concat('postcss-loader') : cssLoader
         }),
-      },
+      },//vopepovoeprovpre
       {
         test: /\.(png|jpg|gif)(\?.+)?$/,
         loader: {
