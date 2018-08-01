@@ -5,8 +5,12 @@
         "jsx-a11y",
         "import"
     ],
+    "parser": "babel-eslint",
     "rules":{
-        "linebreak-style": "off"
+        "linebreak-style": "off",
+        "no-unused-vars":"off",
+        "class-methods-use-this":"off",
+        "no-console": "off"
     },
     "env": {
         "browser": true

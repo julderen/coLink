@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import DevTools from 'mobx-react-devtools';
 
 import Home from './Home';
 import Album from './Album';
@@ -11,6 +12,7 @@ import '../../styles/Home.scss';
 
 const App = () => (
   <div>
+    <DevTools />
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/Album" component={Album} />

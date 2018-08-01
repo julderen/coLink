@@ -49,8 +49,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(entryFolderPath, {}),
-    new MiniCssExtractPlugin(),
+    //new CleanWebpackPlugin(entryFolderPath, {}),
+    new MiniCssExtractPlugin({
+      filename: '[name].css' 
+    }),
     new HtmlWebpackPlugin({
       title: 'CoLink app',
       template: join(__dirname, 'src', 'index.html'),
