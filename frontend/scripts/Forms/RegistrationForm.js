@@ -11,8 +11,27 @@ class RegForm extends BaseFrom {
 
     @observable repeatPassword = '';
 
+    @observable rules = [
+      {
+        rule: 'email',
+        function: value => value.length > 3,
+        message: 'Length of value must be more then 3 ',
+      },
+    ]
+
     plugins() {
-      return { dvr: validatorjs };
+      return {
+        dvr: {
+          package: validatorjs,
+          extend: ($validator) => {
+            this.rules.map(item => $validator.register(
+              item.rule,
+              item.function,
+              item.message,
+            ));
+          },
+        },
+      };
     }
 
     setup() {
@@ -21,7 +40,7 @@ class RegForm extends BaseFrom {
           email: {
             label: 'Email',
             placeholder: 'email',
-            rules: 'required|string',
+            rules: 'email',
             value: this.email,
           },
           login: {
