@@ -1,0 +1,18 @@
+.form-label {
+  padding: 0 4px;
+  text-align: center;
+  font-size: 14px;
+  position: absolute;
+  top: 12px;
+  left: 6px;
+  transition: $labelTransition;
+  background-color: white;
+  pointer-events: none;
+}
+
+.form-label__focused {
+  transform: translateY($inputFocusTranslation);
+  line-height: 13px;
+  z-index: 1;
+  font-size: 12px;
+}
