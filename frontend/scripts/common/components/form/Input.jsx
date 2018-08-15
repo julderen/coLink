@@ -20,10 +20,3 @@ FormInput.propTypes = {
 };
 
 export default FormInput;
-
-/*
-  name="firstName"
-  component={Input}
-  placeholder="First Name"
-  label="la"
- */

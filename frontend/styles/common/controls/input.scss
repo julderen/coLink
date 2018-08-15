@@ -1,21 +1,25 @@
-.form-control {
+.form-input {
   border-radius: $inputRadius;
   border: $inputBorder;
   height: 20px;
   font-weight: lighter;
-  margin: 10px auto;
+  margin: 12px auto;
   padding-left: 5px;
   cursor: pointer;
   transition: $inputTransition;
   box-shadow: none;
   outline: none;
+  /*&:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px  inset;
+    -webkit-text-fill-color: white !important;
+  }*/
 }
 
-.form-control:focus {
+.form-input:focus {
   border: $inputFocusBorder;
   cursor: none;
 }
 
-.form-control__error:focus {
-  border-color: red;
+.form-input__error:focus {
+  border-color: $inputErrorColor;
 }

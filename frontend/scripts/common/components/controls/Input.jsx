@@ -6,7 +6,7 @@ import FormGroup from './FormGroup';
 
 const ControlInput = ({ input: { input, meta }, label, type }) => (
   <FormGroup label={label} error={meta.error} touched={meta.touched} value={input.value}>
-    <Input {...input} className={meta.error === undefined ? 'form-control' : 'form-control__error form-control'} type={type} />
+    <Input {...input} className={meta.error === undefined ? 'form-input' : 'form-input__error form-input'} type={type} />
   </FormGroup>
 );
 

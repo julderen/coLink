@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
-import { observer, inject } from 'mobx-react';
-import { Redirect } from 'react-router-dom';
+import { inject, observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import { Form } from 'components/form';
-import FormComponent from 'registration/components/Form';
-import validation from 'registration/utils/Validation';
+import FormComponent from 'authorization/components/Form';
+import validation from 'authorization/utils/Validation';
+import { Redirect } from 'react-router-dom';
 
-@inject(['registration'])
+@inject(['authorization'])
 @observer
-class RegistrationView extends Component {
+class AuthorizationView extends Component {
   submitForm = (values) => {
-    const { registration: { fetchData } } = this.props;
+    const { authorization: { fetchData } } = this.props;
     fetchData(values);
   };
 
   resetError = () => {
-    const { registration: { resetError } } = this.props;
+    const { authorization: { resetError } } = this.props;
     resetError();
   };
 
   render() {
-    const { registration: { status, error } } = this.props;
+    const { authorization: { error, status } } = this.props;
     const { submitForm, resetError } = this;
     return (status === 'success' || localStorage.token !== undefined) ? <Redirect to="/Album" />
       : (
@@ -33,16 +33,16 @@ class RegistrationView extends Component {
           <div className={error === undefined ? 'registration-error' : 'registration-error registration-error_active'}>
             { error }
             <button onClick={resetError} className="registration-error__button">
-              Понятно
+            Понятно
             </button>
           </div>
-        </div>
-      );
+        </div>);
   }
 }
 
-RegistrationView.propTypes = {
-  registration: PropTypes.objectOf(
+
+AuthorizationView.propTypes = {
+  authorization: PropTypes.objectOf(
     PropTypes.shape({
       fetchData: PropTypes.func.isRequired,
       status: PropTypes.string.isRequired,
@@ -52,4 +52,4 @@ RegistrationView.propTypes = {
   ),
 };
 
-export default RegistrationView;
+export default AuthorizationView;

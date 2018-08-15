@@ -8,11 +8,10 @@ const Form = ({ handleSubmit }) => (
     <Input label="E-mail" name="email" placeholder="email" />
     <Input label="Логин" name="login" placeholder="login" />
     <Input label="Пароль" name="password" placeholder="password" type="password" />
-    <Input label="Подтвердите пароль" name="repeat" placeholder="repeat" type="password" />
     <button className="form__button">
-          Регистрация
+      Войти
     </button>
-    <Button path="/Login" text="Войти" />
+    <Button path="/Registration" text="Регистрация" />
   </form>
 );
 
