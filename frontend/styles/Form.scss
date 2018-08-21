@@ -1,0 +1,145 @@
+/*
+.registration {
+
+  display: flex;
+  justify-content: center;
+}
+*/
+
+.form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-button {
+  text-align: center;
+}
+
+.form-container {
+  outline: none;
+  text-align: center;
+  border-radius: 5px;
+  width: 80px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 12px;
+  background-color: $buttonFormBackground;
+  color: white;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.9, 0.1, 0.1, 0.9);
+}
+
+.form-container:focus, .form-container:hover {
+  background-color: #3700B3;
+}
+
+.form-container__button {
+  opacity: 1;
+  transition: 0.2s 0.4s ease;
+}
+
+.form-container.form-container_loading .form-container__button {
+  opacity: 0;
+  transition: 0.2s ease;
+}
+
+.form-container_loading {
+  border-radius: 50%;
+  background: #fb0 !important;
+  width: 30px;
+  padding: 0;
+  transition-property: all;
+  transition-duration: 0.4s;
+  transition-delay: 0.2s;
+  transition-timing-function: cubic-bezier(0.9, 0.1, 0.1, 0.9);
+  animation: loadingAnimation 2s 0.48s infinite;
+}
+
+.form-container.form-container_success {
+  position: relative;
+  background: #3dcb5f;
+  width: 30px;
+  animation: none;
+  transition: all 0.4s cubic-bezier(0.9, 0.1, 0.1, 0.9);
+}
+
+.form-container.form-container_error {
+  position: relative;
+  background: #da3b3b;
+  width: 30px;
+  animation: none;
+  transition: all 0.4s cubic-bezier(0.9, 0.1, 0.1, 0.9);
+}
+
+.form-container.form-container_error .form-container__button {
+  opacity: 0;
+  transition: 0.2s ease;
+}
+
+.form-container.form-container_success .form-container__button {
+  opacity: 0;
+  transition: 0.2s ease;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    box-shadow: 0 0 0 0 #fb0;
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(255,187,0,0);
+  }
+}
+
+
+/*
+.registration-error {
+  visibility: hidden;
+  border: 1px solid $inputErrorColor;
+  width: 200px;
+  text-align: center;
+  border-radius: 10%;
+  position: absolute;
+  top: 76px;
+  //z-index: -1;
+  background-color: white;
+  opacity: 0;
+  transition: $errorTransition;
+  font-size: 14px;
+  padding: 5px 0;
+}*/
+
+/*
+.registration-error_active {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+}
+*/
+
+/*
+.registration-error__button {
+  padding: 2px 4px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid #BDBDBD;
+  color: #6200EE;
+  cursor: pointer;
+  outline: none;
+  transition: $formButtonTransition
+}
+*/
+
+/*
+.registration-error__button:hover, .registration-error__button:focus {
+  background-color: #F5F5F5;
+}
+
+.registration-error__button:active {
+  transform: scale(0.9);
+}
+*/

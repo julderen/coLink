@@ -7,11 +7,12 @@ import Catalog from './Catalog';
 import Registration from './registration/containers/View';
 import Authorization from './authorization/containers/View';
 import NotFound from './NotFound';
+import Layout from './Layout';
 
 import '../../styles/index.scss';
 
 const App = () => (
-  <div className="app">
+  <Layout>
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/Album" component={Album} />
@@ -20,7 +21,7 @@ const App = () => (
       <Route path="/Login" component={Authorization} />
       <Route component={NotFound} />
     </Switch>
-  </div>
+  </Layout>
 );
 
 export default App;

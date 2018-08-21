@@ -14,29 +14,23 @@ class RegistrationView extends Component {
     fetchData(values);
   };
 
-  resetError = () => {
-    const { registration: { resetError } } = this.props;
-    resetError();
-  };
-
   render() {
     const { registration: { status, error } } = this.props;
-    const { submitForm, resetError } = this;
+    const { submitForm } = this;
+
     return (status === 'success' || localStorage.token !== undefined) ? <Redirect to="/Album" />
       : (
-        <div className="registration">
-          <Form
-            onSubmit={submitForm}
-            component={FormComponent}
-            validate={validation}
-          />
-          <div className={error === undefined ? 'registration-error' : 'registration-error registration-error_active'}>
-            { error }
-            <button onClick={resetError} className="registration-error__button">
-              Понятно
-            </button>
-          </div>
-        </div>
+        <Form
+          onSubmit={submitForm}
+          render={({ handleSubmit, invalid }) => (
+            <FormComponent
+              handleSubmit={handleSubmit}
+              invalid={invalid}
+              error={error}
+            />
+          )}
+          validate={validation}
+        />
       );
   }
 }

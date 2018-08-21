@@ -42,7 +42,8 @@
     "sass-loader": "7.0.3",
     "style-loader": "0.21.0",
     "webpack-cli": "3.1.0",
-    "webpack-dev-server": "3.1.5"
+    "webpack-dev-server": "3.1.5",
+    "stylelint": "9.4.0"
   },
   "scripts": {
     "dev": "webpack-dev-server --mode development"
