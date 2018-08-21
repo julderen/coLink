@@ -1,8 +1,7 @@
 .error-control {
-  width: 190px;
   font-size: 12px;
   position: absolute;
-  left: 9px;
+  right: 9px;
   top: 31px;
-  color: $inputErrorColor;
+  color: $errorColor;
 }

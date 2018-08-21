@@ -1,10 +1,19 @@
+//COLORS
+$blue-900: #01344d;
+$blue-400: #467fa4;
+$blue-50: #d9f1ff;
+$red-700: #D32F2F;
+
+//OTHERS
 $inputRadius: 5%;
-$inputBorder: 1px solid black;
+$errorColor: $red-700;
+
+$inputBorder: 1px solid $blue-400;
 $labelTransition: 0.2s ease all;
 $inputTransition: 0.2s border-top-width, border-bottom-width ease;
 $errorTransition: 0.5s opacity ease;
-$inputFocusBorder: 2px solid #6200EE;
-$inputErrorColor: #B00020;
+$inputFocusBorder: 2px solid $blue-100;
 $inputFocusTranslation: -11px;
-$buttonFormBackground: #6200EE;
+$buttonFormBackground: $blue-100;
 $formButtonTransition: 0.4s background-color, transform ease;
+

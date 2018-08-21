@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const outputFolderPath = join(__dirname, '..', 'static', 'dist');
 const commonFolderPath = join(__dirname, 'scripts', 'common');
-const pagesPath = join(__dirname, 'scripts', 'pages');
 
 module.exports = {
   entry: join(__dirname, 'scripts', 'index.jsx'),
@@ -18,8 +17,6 @@ module.exports = {
     alias: {
       components: join(commonFolderPath, 'components'),
       validation: join(commonFolderPath, 'validation'),
-      registration: join(pagesPath, 'registration'),
-      authorization: join(pagesPath, 'authorization'),
     },
     extensions: ['.js', '.jsx'],
   },

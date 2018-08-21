@@ -32,6 +32,7 @@ const Form = ({ handleSubmit, invalid, error }) => {
 
   return (
     <form onSubmit={handleSubmit} className="form">
+      <h1>Регистрация</h1>
       {error !== undefined ? console.log('its an error: ', error) : console.log('There is no error: ', error)}
       <Input label="E-mail" name="email" placeholder="email" />
       <Input label="Логин" name="login" placeholder="login" />
