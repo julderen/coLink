@@ -1,44 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Button from 'components/controls/Button';
 import { Input } from 'components/form';
-import { Button } from 'components/controls';
+import { Link } from 'components/controls';
 
 
-const Form = ({ handleSubmit, invalid, error }) => {
-  const state = ['form-container_error', 'form-container_success'];
-  let curState = 0;
-  const handleState = (e) => {
-    curState = error !== undefined ? 0 : 1;
-    const { classList } = e.currentTarget;
-    if (invalid) {
-      handleSubmit();
-    } else {
-      handleSubmit();
-      if (classList.contains('form-container_loading')) {
-        classList.remove('form-container_loading');
-      } else if (classList.contains('form-container_error')) {
-        classList.remove('form-container_error');
-      } else if (classList.contains('form-container_success')) {
-        classList.remove('form-container_success');
-      } else {
-        classList.add('form-container_loading');
-        window.setTimeout(() => {
-          classList.remove('form-container_loading');
-          classList.add(state[curState]);
-        }, 2000);
-      }
-    }
-  };
+const Form = ({ handleSubmit, invalid, error, status }) => (
+  <form onSubmit={handleSubmit} className="form">
+    <h1 className="form-title">
+        Регистрация
+    </h1>
+    {error !== undefined ? console.log('its an error: ', error) : console.log('There is no error: ', error)}
+    <Input label="E-mail" name="email" placeholder="email" />
+    <Input label="Логин" name="login" placeholder="login" />
+    <Input label="Пароль" name="password" placeholder="password" type="password" />
+    <Input label="Подтвердите пароль" name="repeat" placeholder="repeat" type="password" />
+    <Button text="Регистрация" status={status} />
+    <Link path="/Login" text="Войти" />
+    <span className="form-error">
+      {error}
+    </span>
+  </form>
+);
 
-  return (
-    <form onSubmit={handleSubmit} className="form">
-      <h1>Регистрация</h1>
-      {error !== undefined ? console.log('its an error: ', error) : console.log('There is no error: ', error)}
-      <Input label="E-mail" name="email" placeholder="email" />
-      <Input label="Логин" name="login" placeholder="login" />
-      <Input label="Пароль" name="password" placeholder="password" type="password" />
-      <Input label="Подтвердите пароль" name="repeat" placeholder="repeat" type="password" />
-      <div
+/*
+<div
         className={error === undefined ? 'form-container' : `form-container ${state[curState]}`}
         onClick={handleState}
         tabIndex={0}
@@ -47,12 +34,6 @@ const Form = ({ handleSubmit, invalid, error }) => {
           Регистрация
         </div>
       </div>
-      <Button path="/Login" text="Войти" />
-    </form>
-  );
-};
-
-/*
  if (e.currentTarget.classList.contains('loading')) {
         e.currentTarget.classList.remove('loading');
       } else if (e.currentTarget.classList.contains('success')) {
@@ -67,6 +48,7 @@ const Form = ({ handleSubmit, invalid, error }) => {
 Form.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   invalid: PropTypes.bool.isRequired,
+  status: PropTypes.string.isRequired,
   error: PropTypes.string,
 };
 

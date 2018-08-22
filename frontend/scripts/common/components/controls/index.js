@@ -1,6 +1,6 @@
 import FormGroup from './FormGroup';
 import Label from './Label';
 import Input from './Input';
-import Button from './Button';
+import Link from './Link';
 
-export { FormGroup, Label, Input, Button };
+export { FormGroup, Label, Input, Link };

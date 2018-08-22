@@ -1,5 +1,6 @@
 {
-  "rules": {
-    "unit-whitelist": ["px", "%"]
-  }
+  "extends": "stylelint-config-airbnb",
+  "plugins": [
+    "stylelint-scss"
+  ]
 }

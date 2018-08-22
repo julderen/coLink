@@ -2,7 +2,7 @@
   height: 30px;
   width: 100%;
   margin: 12px auto;
-  padding-left: 5px;
+  padding-left: 10px;
   background: inherit;
   color: inherit;
   border: none;
@@ -11,6 +11,7 @@
   transition: $inputTransition;
   box-shadow: none;
   outline: none;
+
   /*&:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px  inset;
     -webkit-text-fill-color: white !important;

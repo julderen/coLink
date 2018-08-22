@@ -1,16 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Button = ({ path, text }) => (
-  <Link to={path} className="form__button form__button_redirect">
-    {text}
-  </Link>
-);
+const Button = ({ text, status }) => {
+  const getClassName = () => {
+    switch (status) {
+      case 'loading':
+        return 'form-status_loading';
+      case 'success':
+        return 'form-status_success';
+      case 'error':
+        return 'form-status_error';
+      default:
+        return '';
+    }
+  };
+
+  return (
+    <div className={`form-status ${getClassName()}`}>
+      {console.log('status: ', status)}
+      <button className="status-button">
+        {text}
+      </button>
+    </div>
+  );
+};
 
 Button.propTypes = {
-  path: PropTypes.string.isRequired,
-  text: PropTypes.string,
+  text: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
 };
 
 export default Button;
