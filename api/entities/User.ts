@@ -1,9 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, Unique } from 'typeorm';
 import { IUser } from 'abstractions/entities';
 
 import { Album } from './index';
 
 @Entity('users')
+@Unique(['email'])
 class User implements IUser {
   @PrimaryGeneratedColumn()
   id: number;
