@@ -26,7 +26,8 @@
   color: white;
   border: none;
   padding: 2px;
-  transition: .2s .4s ease;
+  transition: .1s .4s color ease,
+    .2s .4s background-color ease;
 }
 
 .status-button:hover,
@@ -36,7 +37,21 @@
   cursor: pointer;
 }
 
-.form-status.form-status_loading .status-button {
+#status-button_loading {
+  background-color: gold;
+  color: transparent;
+  animation: loadingAnimation 2s .48s infinite;
+}
+
+.status-button_success {
+
+}
+
+.status-button_error {
+
+}
+
+/*.form-status.form-status_loading .status-button {
   opacity: 0;
   transition: .2s ease;
 }
@@ -76,6 +91,7 @@
   opacity: 0;
   transition: .2s ease;
 }
+*/
 
 @keyframes loadingAnimation {
 

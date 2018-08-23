@@ -16,6 +16,7 @@ module.exports = {
   resolve: {
     alias: {
       components: join(commonFolderPath, 'components'),
+      utils: join(commonFolderPath, 'utils'),
       validation: join(commonFolderPath, 'validation'),
     },
     extensions: ['.js', '.jsx'],

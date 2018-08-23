@@ -16,7 +16,7 @@ class Registration {
       .then((res) => {
         localStorage.token = res.data;
         this.status = 'success';
-        setTimeout(() => window.location = 'http://www.localhost:9000/Album', 2000);
+        setTimeout(() => window.location = 'http://localhost:9000/Album', 2000);
       })
       .catch((err) => {
         this.status = 'error';

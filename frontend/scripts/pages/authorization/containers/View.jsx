@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 
 import { Form } from 'components/form';
 import FormComponent from '../components/Form';
 import validation from '../utils/Validation';
+import { Default } from '../constants/Constants';
 
 @inject(['authorization'])
 @observer
 class AuthorizationView extends Component {
   submitForm = (values) => {
     const { authorization: { fetchData, status, resetStatus } } = this.props;
-    if (status === 'default') {
+    if (status === Default) {
       fetchData(values);
     } else {
       resetStatus();
