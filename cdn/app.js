@@ -1,8 +1,8 @@
 const path = require('path');
 const express = require('express');
 const serveStatic = require('serve-static');
-
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 app.use('/dist', serveStatic(path.join(__dirname, '..' ,'static', 'dist')));
 
@@ -15,4 +15,4 @@ function dashboardRoute(req, res) {
 
 app.get('*', (req, res) => res.sendFile(path.resolve('static/index.html')));
 
-app.listen(8090, () => console.info('App listen on 8090'));
+app.listen(PORT, () => console.info(`App listen on ${PORT}`));
