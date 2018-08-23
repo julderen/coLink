@@ -3,17 +3,22 @@ const Autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-const entryFolderPath = join(__dirname, '..', 'static', 'dist');
+const outputFolderPath = join(__dirname, '..', 'static', 'dist');
+const commonFolderPath = join(__dirname, 'scripts', 'common');
 
 module.exports = {
-  entry: join(__dirname, 'src', 'index.jsx'),
+  entry: join(__dirname, 'scripts', 'index.jsx'),
   output: {
-    path: entryFolderPath,
+    path: outputFolderPath,
     filename: 'bundle.js',
     publicPath: '/',
   },
   resolve: {
+    alias: {
+      components: join(commonFolderPath, 'components'),
+      utils: join(commonFolderPath, 'utils'),
+      validation: join(commonFolderPath, 'validation'),
+    },
     extensions: ['.js', '.jsx'],
   },
   module: {
@@ -49,18 +54,19 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(entryFolderPath, {}),
-    new MiniCssExtractPlugin(),
+    // new CleanWebpackPlugin(entryFolderPath, {}),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
     new HtmlWebpackPlugin({
       title: 'CoLink app',
-      template: join(__dirname, 'src', 'index.html'),
+      template: join(__dirname, 'template', 'index.html'),
     }),
   ],
   devServer: {
-    contentBase: join(entryFolderPath),
+    contentBase: join(outputFolderPath),
     compress: true,
     port: 9000,
     historyApiFallback: true,
-    open: true,
   },
 };

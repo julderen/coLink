@@ -1,0 +1,12 @@
+.header {
+  height: 50px;
+  background-color: red;
+}
+
+
+@media screen and (max-width: 400px) {
+
+  .header {
+    background-color: coral;
+  }
+}

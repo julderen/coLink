@@ -17,4 +17,6 @@ build/
 # Локальные файлы конфигураций
 .env
 
-*.js
+dist
+
+.cache-loader
