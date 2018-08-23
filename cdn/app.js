@@ -14,5 +14,5 @@ function dashboardRoute(req, res) {
 }
 
 app.get('*', (req, res) => res.sendFile(path.resolve('static/index.html')));
-
+console.log('PORT', PORT);
 app.listen(PORT, () => console.info(`App listen on ${PORT}`));
