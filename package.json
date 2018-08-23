@@ -6,8 +6,8 @@
   "scripts": {
     "module install": "npm install",
     "start api": "node dist/api.js",
-    "build rollup api": "rollup -c rollup.config.js -o dist/api.js",
-    "start cdn": "node cdn/app.js"
+    "build rollup api": "rollup -c rollup.config.js -o dist/api.js && node dist/api.js",
+    "start": "node cdn/app.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,12 @@
   "bugs": {
     "url": "https://github.com/julderen/coLink/issues"
   },
+  "engines": {
+    "node": "8.11.1"
+  },
   "dependencies": {
     "body-parser": "1.18.3",
+    "multer": "1.3.1",
     "express": "4.16.3",
     "dotenv": "6.0.0",
     "pg": "7.4.3",

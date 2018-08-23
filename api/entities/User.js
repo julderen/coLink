@@ -42,6 +42,7 @@ __decorate([
     __metadata("design:type", Date)
 ], User.prototype, "updateDate", void 0);
 User = __decorate([
-    typeorm_1.Entity('users')
+    typeorm_1.Entity('users'),
+    typeorm_1.Unique(['email'])
 ], User);
 exports.default = User;

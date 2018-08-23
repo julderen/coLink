@@ -1,5 +1,5 @@
 import { JsonController, Param, Body, Get, Post, Put, Delete } from 'routing-controllers';
-import {CreateUserModel, UserContext} from '../models';
+import { CreateUserModel, UserContext } from '../models';
 import { InjectService } from 'core/decorators';
 import { IUsersService, IJWTService } from 'abstractions/services';
 
