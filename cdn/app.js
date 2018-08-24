@@ -3,7 +3,7 @@ const express = require('express');
 const serveStatic = require('serve-static');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const PATH_STATIC = path.join(__dirname, '..' ,'static', 'dist');
+const PATH_STATIC = path.join(__dirname, '..' ,'static');
 
 app.use('/dist', serveStatic(path.join(PATH_STATIC, 'dist')));
 
