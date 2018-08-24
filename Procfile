@@ -1,1 +1,1 @@
-web: node cdn/app.js
+cdn: npm run start-cdn

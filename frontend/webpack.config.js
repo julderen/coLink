@@ -10,7 +10,7 @@ module.exports = {
   entry: join(__dirname, 'scripts', 'index.jsx'),
   output: {
     path: outputFolderPath,
-    filename: 'bundle.js',
+    filename: join('dist', 'bundle.js'),
     publicPath: '/',
   },
   resolve: {
@@ -56,7 +56,7 @@ module.exports = {
   plugins: [
     // new CleanWebpackPlugin(entryFolderPath, {}),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: join('dist', '[name].css'),
     }),
     new HtmlWebpackPlugin({
       title: 'CoLink app',

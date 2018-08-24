@@ -8,15 +8,16 @@ Thumbs.db
 
 # Вспомогательные файлы
 *.log
+*.js
 npm-debug.log*
 node_modules/
 
 # Папка с собранными файлами проекта
-build/
+dist/
+static/
 
 # Локальные файлы конфигураций
 .env
 
-dist
 
 .cache-loader
