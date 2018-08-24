@@ -2,17 +2,11 @@ const path = require('path');
 const express = require('express');
 const serveStatic = require('serve-static');
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
+const PATH_STATIC = path.join(__dirname, '..' ,'static');
 
-app.use('/dist', serveStatic(path.join(__dirname, '..' ,'static', 'dist')));
+app.use('/dist', serveStatic(path.join(PATH_STATIC, 'dist')));
 
-app.get('/dashboard', dashboardRoute);
-app.get('/dashboard/*', dashboardRoute);
-
-function dashboardRoute(req, res) {
-	res.sendFile('/../static/dashboard.html', { root: __dirname });
-}
-
-app.get('*', (req, res) => res.sendFile(path.resolve('static/index.html')));
+app.get('*', (req, res) => res.sendFile(path.join(PATH_STATIC, 'index.html')));
 
 app.listen(PORT, () => console.info(`App listen on ${PORT}`));

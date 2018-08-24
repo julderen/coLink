@@ -6,17 +6,17 @@ Thumbs.db
 .idea
 *.sublime*
 
-# Вспомогательные файлы
+# Вспомогательные файл
 *.log
+
 npm-debug.log*
 node_modules/
 
 # Папка с собранными файлами проекта
-build/
+./dist/
 
 # Локальные файлы конфигураций
 .env
 
-dist
 
 .cache-loader

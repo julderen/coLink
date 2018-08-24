@@ -3,15 +3,19 @@ const Autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+<<<<<<< HEAD
 
 const outputFolderPath = join(__dirname, '..', 'static', 'dist');
+=======
+const outputFolderPath = join(__dirname, '..', 'static');
+>>>>>>> upstream/experiments
 const commonFolderPath = join(__dirname, 'scripts', 'common');
 
 module.exports = {
   entry: join(__dirname, 'scripts', 'index.jsx'),
   output: {
     path: outputFolderPath,
-    filename: 'bundle.js',
+    filename: join('dist', 'bundle.js'),
     publicPath: '/',
   },
   resolve: {
@@ -83,7 +87,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: join('dist', '[name].css'),
     }),
     new HtmlWebpackPlugin({
       title: 'CoLink app',
