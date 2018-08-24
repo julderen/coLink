@@ -1,8 +1,11 @@
 .form-linkContainer {
   color: black;
   font-size: 14px;
-  margin: 30px auto 0 auto;
+  margin: 0 auto;
   text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 500px;
 }
 
 .form__link {

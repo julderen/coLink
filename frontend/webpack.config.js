@@ -23,6 +23,7 @@ module.exports = {
     },
     extensions: ['.js', '.jsx'],
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -47,14 +48,28 @@ module.exports = {
               plugins: () => [Autoprefixer],
             },
           },
+          'resolve-url-loader',
           {
             loader: 'sass-loader',
-            options: {},
+            options: {
+              sourceMap: true,
+            },
           },
         ],
       },
       {
         test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(otf|eot|svg|ttf|woff|woff2)(\?.+)?$/,
         use: [
           {
             loader: 'url-loader',
