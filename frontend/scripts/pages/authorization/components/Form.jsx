@@ -1,24 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Input } from 'components/form';
-import { Link } from 'components/controls';
 import Button from 'components/controls/Button';
+import utils from 'utils/statusFormUtlis';
 
 const Form = ({ handleSubmit, invalid, error, status }) => (
-  <form onSubmit={handleSubmit} className="form">
-    <h1 className="form-title">
-      Вход
-    </h1>
-    {error !== undefined ? console.log('its an error: ', error) : console.log('There is no error: ', error)}
-    <Input label="E-mail" name="email" placeholder="email" />
-    <Input label="Логин" name="login" placeholder="login" />
-    <Input label="Пароль" name="password" placeholder="password" type="password" />
-    <Button text="Войти" status={status} />
-    <Link path="/Registration" text="Регистрация" />
-    <span className="form-error">
-      {error}
-    </span>
-  </form>
+  <div className={`state ${utils.getClassName(status)}`}>
+    <form onSubmit={handleSubmit} className={status === 'default' ? 'form' : 'form form-state_visibled'}>
+      <h1 className="form-title">
+        Вход
+      </h1>
+      <span className="form-line" />
+      <Input label="E-mail" name="email" placeholder="email" />
+      <Input label="Логин" name="login" placeholder="login" />
+      <Input label="Пароль" name="password" placeholder="password" type="password" />
+      <Button text="Войти" status={status} />
+      <span className="form-error">
+        {error}
+      </span>
+    </form>
+  </div>
 );
 
 

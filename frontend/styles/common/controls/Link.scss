@@ -1,14 +1,19 @@
+.form-linkContainer {
+  color: black;
+  font-size: 14px;
+  margin: 30px auto 0 auto;
+  text-align: center;
+}
+
 .form__link {
-  font-size: 16px;
-  color: white;
   transition: $linkTransition;
   cursor: pointer;
   text-decoration: none;
-  float: right;
-  margin-right: 10px;
+  margin-left: 4px;
+  color: #039BE5;
 }
 
 .form__link:hover, .form__link:focus {
-  color: $blue-200;
+  color: $blue-900;
 }
 

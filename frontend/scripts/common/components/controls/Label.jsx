@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Label = ({ label, value }) => (
-  <span className={value === '' ? 'form-label' : 'form-label form-label_focused'}>
+const Label = ({ label, value, error }) => (
+  <span className={value === '' ? 'form-label' : `form-label form-label_focused ${!error ? '' : 'form-label_error'}`}>
     {label}
   </span>
 );
@@ -10,6 +10,7 @@ const Label = ({ label, value }) => (
 Label.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
+  error: PropTypes.string,
 };
 
 export default Label;

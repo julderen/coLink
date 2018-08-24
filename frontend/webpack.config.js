@@ -3,6 +3,7 @@ const Autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const outputFolderPath = join(__dirname, '..', 'static', 'dist');
 const commonFolderPath = join(__dirname, 'scripts', 'common');
 
@@ -17,6 +18,7 @@ module.exports = {
     alias: {
       components: join(commonFolderPath, 'components'),
       utils: join(commonFolderPath, 'utils'),
+      constants: join(commonFolderPath, 'constants'),
       validation: join(commonFolderPath, 'validation'),
     },
     extensions: ['.js', '.jsx'],
@@ -51,10 +53,20 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
-    // new CleanWebpackPlugin(entryFolderPath, {}),
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),

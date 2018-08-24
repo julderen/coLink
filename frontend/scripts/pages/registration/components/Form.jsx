@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import Button from 'components/controls/Button';
 import { Input } from 'components/form';
-import { Link } from 'components/controls';
 
 
 const Form = ({ handleSubmit, invalid, error, status }) => (
@@ -11,19 +10,19 @@ const Form = ({ handleSubmit, invalid, error, status }) => (
     <h1 className="form-title">
         Регистрация
     </h1>
-    {error !== undefined ? console.log('its an error: ', error) : console.log('There is no error: ', error)}
+    <span className="form-line" />
     <Input label="E-mail" name="email" placeholder="email" />
     <Input label="Логин" name="login" placeholder="login" />
     <Input label="Пароль" name="password" placeholder="password" type="password" />
     <Input label="Подтвердите пароль" name="repeat" placeholder="repeat" type="password" />
     <Button text="Регистрация" status={status} />
-    <Link path="/Login" text="Войти" />
     <span className="form-error">
       {error}
     </span>
   </form>
 );
 
+// <Link path="/Login" text="Войти" />
 /*
 <div
         className={error === undefined ? 'form-container' : `form-container ${state[curState]}`}

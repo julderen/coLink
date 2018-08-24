@@ -4,7 +4,6 @@
   margin: 12px auto;
   padding-left: 10px;
   background: inherit;
-  color: inherit;
   border: none;
   border-bottom: $inputBorder;
   cursor: pointer;
@@ -23,6 +22,6 @@
   cursor: none;
 }
 
-.form-input__error:focus {
+.form-input_error:focus {
   border-color: $errorColor;
 }

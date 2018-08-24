@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { observer, inject } from 'mobx-react';
 import PropTypes from 'prop-types';
+
+import { Link } from 'components/controls';
 
 import { Form } from 'components/form';
 import FormComponent from '../components/Form';
@@ -23,18 +25,24 @@ class RegistrationView extends Component {
     const { submitForm } = this;
 
     return (
-      <Form
-        onSubmit={submitForm}
-        render={({ handleSubmit, invalid }) => (
-          <FormComponent
-            handleSubmit={handleSubmit}
-            invalid={invalid}
-            error={error}
-            status={status}
-          />
-        )}
-        validate={validation}
-      />
+      <Fragment>
+        <Form
+          onSubmit={submitForm}
+          render={({ handleSubmit, invalid }) => (
+            <FormComponent
+              handleSubmit={handleSubmit}
+              invalid={invalid}
+              error={error}
+              status={status}
+            />
+          )}
+          validate={validation}
+        />
+        <div className="form-linkContainer">
+          Есть аккаунт?
+          <Link path="/Login" text="Войти..." />
+        </div>
+      </Fragment>
     );
   }
 }
