@@ -6,7 +6,7 @@ Thumbs.db
 .idea
 *.sublime*
 
-# Вспомогательные файлы
+# Вспомогательные файл
 *.log
 *.js
 npm-debug.log*
