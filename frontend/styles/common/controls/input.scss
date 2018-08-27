@@ -11,18 +11,23 @@
   transition: $inputTransition;
   box-shadow: none;
   outline: none;
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    /*-webkit-text-fill-color: white !important;*/
+  }
+}
 
-  /*&:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px  inset;
-    -webkit-text-fill-color: white !important;
-  }*/
+.form-input_not-empty {
+  border-bottom: $inputFocusBorder;
 }
 
 .form-input:focus {
   border-bottom: $inputFocusBorder;
-  cursor: none;
+  cursor: default;
 }
 
-.form-input_error:focus {
+
+
+.form-input_error, .form-input_error:focus {
   border-color: $errorColor;
 }

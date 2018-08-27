@@ -13,5 +13,6 @@ body {
   color: white;
   font-size: 14px;
   /*background-color: $blue-900;*/
-  background-image: url("./background.png");
+  background: url("../../../Files/background.png") repeat;
+  background-size: cover;
 }

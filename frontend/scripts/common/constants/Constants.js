@@ -1,6 +1,8 @@
 const Default = 'default';
 const Loading = 'loading';
-const Succsess = 'success';
+const Success = 'success';
 const Error = 'error';
+const ErrorMessage = 'Ошибка при регистрации! Повторите попытку.';
+const SuccessMessage = 'Успешно!';
 
-export { Default, Loading, Succsess, Error };
+export { Default, Loading, Success, Error, ErrorMessage, SuccessMessage };

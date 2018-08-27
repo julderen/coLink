@@ -3,12 +3,7 @@ const Autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-<<<<<<< HEAD
-
 const outputFolderPath = join(__dirname, '..', 'static', 'dist');
-=======
-const outputFolderPath = join(__dirname, '..', 'static');
->>>>>>> upstream/experiments
 const commonFolderPath = join(__dirname, 'scripts', 'common');
 
 module.exports = {

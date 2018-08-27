@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx';
 import axios from 'axios';
-import { Default, Loading, Succsess, Error } from 'constants/Constants';
+import { Default, Loading, Success, Error } from 'constants/Constants';
 
 class Registration {
   @observable status = Default;
@@ -16,7 +16,7 @@ class Registration {
     setTimeout(() => axios.post('http://localhost:8892/api/users', { email, login, password })
       .then((res) => {
         localStorage.token = res.data;
-        this.status = Succsess;
+        this.status = Success;
         setTimeout(() => window.location = 'http://localhost:9000/Album', 2000);
       })
       .catch((err) => {

@@ -1,55 +1,288 @@
+@font-face {
+  font-family: 'Rubik';
+  src: url("Rubik-BlackItalic.eot");
+  src: local("Rubik Black Italic"), local("Rubik-BlackItalic"), url("Rubik-BlackItalic.eot?#iefix") format("embedded-opentype"), url("Rubik-BlackItalic.woff") format("woff"), url("Rubik-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic; }
+@font-face {
+  font-family: 'Rubik';
+  src: url("Rubik-BoldItalic.eot");
+  src: local("Rubik Bold Italic"), local("Rubik-BoldItalic"), url("Rubik-BoldItalic.eot?#iefix") format("embedded-opentype"), url("Rubik-BoldItalic.woff") format("woff"), url("Rubik-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic; }
+@font-face {
+  font-family: 'Rubik';
+  src: url("Rubik-Light.eot");
+  src: local("Rubik Light"), local("Rubik-Light"), url("Rubik-Light.eot?#iefix") format("embedded-opentype"), url("Rubik-Light.woff") format("woff"), url("Rubik-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+@font-face {
+  font-family: 'Rubik';
+  src: url("Rubik-Medium.eot");
+  src: local("Rubik Medium"), local("Rubik-Medium"), url("Rubik-Medium.eot?#iefix") format("embedded-opentype"), url("Rubik-Medium.woff") format("woff"), url("Rubik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+@font-face {
+  font-family: 'Rubik';
+  src: url("Rubik-Italic.eot");
+  src: local("Rubik Italic"), local("Rubik-Italic"), url("Rubik-Italic.eot?#iefix") format("embedded-opentype"), url("Rubik-Italic.woff") format("woff"), url("Rubik-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic; }
+@font-face {
+  font-family: 'Rubik';
+  src: url("Rubik-Bold.eot");
+  src: local("Rubik Bold"), local("Rubik-Bold"), url("Rubik-Bold.eot?#iefix") format("embedded-opentype"), url("Rubik-Bold.woff") format("woff"), url("Rubik-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+@font-face {
+  font-family: 'Rubik';
+  src: url("Rubik-LightItalic.eot");
+  src: local("Rubik Light Italic"), local("Rubik-LightItalic"), url("Rubik-LightItalic.eot?#iefix") format("embedded-opentype"), url("Rubik-LightItalic.woff") format("woff"), url("Rubik-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic; }
+@font-face {
+  font-family: 'Rubik';
+  src: url("Rubik-Regular.eot");
+  src: local("Rubik"), local("Rubik-Regular"), url("Rubik-Regular.eot?#iefix") format("embedded-opentype"), url("Rubik-Regular.woff") format("woff"), url("Rubik-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Rubik';
+  src: url("Rubik-MediumItalic.eot");
+  src: local("Rubik Medium Italic"), local("Rubik-MediumItalic"), url("Rubik-MediumItalic.eot?#iefix") format("embedded-opentype"), url("Rubik-MediumItalic.woff") format("woff"), url("Rubik-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic; }
+@font-face {
+  font-family: 'Rubik Mono One';
+  src: url("RubikMonoOne-Regular.eot");
+  src: local("Rubik Mono One Regular"), local("RubikMonoOne-Regular"), url("RubikMonoOne-Regular.eot?#iefix") format("embedded-opentype"), url("RubikMonoOne-Regular.woff") format("woff"), url("RubikMonoOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Rubik';
+  src: url("Rubik-Black.eot");
+  src: local("Rubik Black"), local("Rubik-Black"), url("Rubik-Black.eot?#iefix") format("embedded-opentype"), url("Rubik-Black.woff") format("woff"), url("Rubik-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: Rubik;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 14px;
+  /*background-color: $blue-900;*/
+  background: url("../../../Files/background.png") repeat;
+  background-size: cover; }
+
+.form-input {
+  font-size: 16px;
+  height: 30px;
+  width: 100%;
+  margin-top: 18px;
+  padding-top: 6px;
+  background: inherit;
+  border: none;
+  border-bottom: 1px solid #AEAEAE;
+  cursor: pointer;
+  transition: 0.2s border-top-width, border-bottom-width ease;
+  box-shadow: none;
+  outline: none; }
+  .form-input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    /*-webkit-text-fill-color: white !important;*/ }
+
+.form-input_not-empty {
+  border-bottom: 1px solid #039BE5; }
+
+.form-input:focus {
+  border-bottom: 1px solid #039BE5;
+  cursor: default; }
+
+.form-input_error, .form-input_error:focus {
+  border-color: #D50000; }
+
+.form-label {
+  padding-left: 4px;
+  text-align: center;
+  font-size: 16px;
+  position: absolute;
+  top: 26px;
+  left: -5px;
+  transition: 0.2s ease all;
+  pointer-events: none;
+  color: rgba(174, 174, 174, 0.87); }
+
+.form-label_focused {
+  transform: translateY(-16px);
+  line-height: 12px;
+  z-index: 1;
+  font-size: 12px;
+  color: #039BE5; }
+
+.form-label_error {
+  color: #E50303; }
+
+.form-group {
+  position: relative;
+  width: 100%;
+  margin-top: 20px; }
+
+.error-control {
+  font-size: 10px;
+  position: absolute;
+  right: 9px;
+  top: 50px;
+  color: #D50000; }
+
+.form-linkContainer {
+  color: black;
+  font-size: 14px;
+  margin: 0 auto;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 500px; }
+
+.form__link {
+  transition: 0.4s color ease;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 4px;
+  color: #039BE5; }
+
+.form__link:hover, .form__link:focus {
+  color: #01344d; }
+
+.form {
+  width: 270px;
+  margin: 10px auto 0 auto;
+  background-color: white;
+  padding: 40px 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  position: relative; }
+
+.state {
+  background-color: white; }
+
+.state_loading {
+  height: 220px;
+  border-radius: 50%;
+  border: 8px solid black;
+  border-color: #4788f4 transparent #4788f4 transparent;
+  animation: loading 2.2s 1s linear infinite; }
+
+.state_success {
+  height: 220px;
+  animation: none;
+  background: url("../Files/CorrectCircle.svg") no-repeat 50% 20%;
+  transition: all 0.4s cubic-bezier(0.9, 0.1, 0.1, 0.9); }
+
+.state_error {
+  height: 220px;
+  animation: none;
+  background: url("../Files/IncorrectCircle.svg") no-repeat 50% 20%;
+  transition: all 0.4s cubic-bezier(0.9, 0.1, 0.1, 0.9); }
+
+.state-text {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  color: black;
+  width: 200px;
+  top: 200px;
+  text-align: center;
+  font-size: 15px;
+  padding-left: 10px;
+  transition: all 0.8s cubic-bezier(0.9, 0.1, 0.1, 0.9); }
+
+.state-text_visible {
+  z-index: 1;
+  opacity: 1; }
+
+@keyframes loading {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); } }
+.form-content {
+  max-height: inherit;
+  transition: 0.7s opacity ease, 1s z-index ease;
+  /*max-height 0.2s 1.5s ease-in-out;*/
+  /*transition: all .4s cubic-bezier(.9, .1, .1, .9);*/ }
+
+.form-content_hidden {
+  /* transition: max-height 0.2s 1.5s ease-in-out;
+   max-height: 0;
+   overflow: hidden;*/
+  opacity: 0;
+  z-index: -1; }
+
+.form-content {
+  position: relative; }
+
+.form-error {
+  display: block;
+  color: #E50303;
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center; }
+
+.form-title {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 32px;
+  color: #555555;
+  font-weight: normal; }
+
+.form-line {
+  margin: 0 auto;
+  display: block;
+  width: 74px;
+  height: 3px;
+  background-color: #039BE5; }
+
+.form-button {
+  text-align: center; }
+
+.status-button {
+  display: block;
+  border-radius: 10px;
+  background: linear-gradient(to left, #0090DA, #81D4FA);
+  outline: none;
+  width: 200px;
+  margin: 30px auto 0 auto;
+  height: 40px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  color: white;
+  border: none; }
+
+.status-button:hover,
+.status-button:focus {
+  cursor: pointer; }
+
+.header {
+  height: 50px;
+  background-color: red; }
+
+@media screen and (max-width: 400px) {
+  .header {
+    background-color: coral; } }
 /*
-Error: File to import not found or unreadable: Fonts/Rubik/stylesheet.
-        on line 1 of index.scss
+@media screen and (min-width: 400px) {
 
-1: @import "Fonts/Rubik/stylesheet";
-2: @import "common/index";
-3: @import "Form";
-4: @import "Header";
-5: @import "MediaQuerries";
-
-Backtrace:
-index.scss:1
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/import_node.rb:67:in `rescue in import'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/import_node.rb:44:in `import'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/import_node.rb:28:in `imported_file'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/import_node.rb:37:in `css_import?'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/perform.rb:310:in `visit_import'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/perform.rb:157:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/visitors/perform.rb:10:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/engine.rb:307:in `render_with_sourcemap'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/plugin.rb:82:in `update_stylesheets'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/exec/sass_scss.rb:338:in `watch_or_update'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/exec/sass_scss.rb:51:in `process_result'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/exec/base.rb:50:in `parse'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/lib/sass/exec/base.rb:18:in `parse!'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.7/bin/scss:13:in `<top (required)>'
-C:/Ruby24-x64/bin/scss:23:in `load'
-C:/Ruby24-x64/bin/scss:23:in `<main>'
+  .form {
+    width: 400px;
+    margin: 20px auto 0 auto;
+  }
+}
 */
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: File to import not found or unreadable: Fonts/Rubik/stylesheet.\A         on line 1 of index.scss\A \A 1: @import \"Fonts/Rubik/stylesheet\";\A 2: @import \"common/index\";\A 3: @import \"Form\";\A 4: @import \"Header\";\A 5: @import \"MediaQuerries\";"; }
+
+/*# sourceMappingURL=index.css.map */
