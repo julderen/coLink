@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-require(`dotenv`).config();
 const application_1 = require("core/application");
 const decorators_1 = require("core/decorators");
 const controllers_1 = require("../controllers");

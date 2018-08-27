@@ -81,7 +81,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "remove", null);
 UserController = __decorate([
-    routing_controllers_1.JsonController('/api/users')
+    routing_controllers_1.JsonController('/users')
 ], UserController);
 exports.UserController = UserController;
 exports.default = UserController;

@@ -3,7 +3,7 @@ import { CreateUserModel, UserContext } from '../models';
 import { InjectService } from 'core/decorators';
 import { IUsersService, IJWTService } from 'abstractions/services';
 
-@JsonController('/api/users')
+@JsonController('/users')
 export class UserController {
   @InjectService('users')
   private usersService: IUsersService;

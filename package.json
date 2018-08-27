@@ -7,7 +7,7 @@
     "module install": "npm install",
     "start api": "node dist/api.js",
     "build rollup api": "rollup -c rollup.config.js -o dist/api.js",
-    "build-start-api": "rollup -c rollup.config.js -o dist/api.js && node dist/api.js",
+    "start-api-production": "cross-env NODE_ENV=production node dist/api.js",
     "start-cdn": "node cdn/app.js"
   },
   "repository": {
@@ -38,6 +38,7 @@
     "class-validator": "0.8.5",
     "typedi": "0.7.3",
     "typeorm": "0.2.7",
+    "cross-env": "5.2.0",
     "typeorm-typedi-extensions": "0.2.1 ",
     "routing-controllers": "0.7.7"
   },

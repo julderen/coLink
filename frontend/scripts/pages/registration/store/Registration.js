@@ -12,11 +12,11 @@ class Registration {
 
   @action fetchData = ({ email, login, password }) => {
     this.status = 'loading';
-    setTimeout(() => axios.post('http://localhost:8892/api/users', { email, login, password })
+    setTimeout(() => axios.post('/api/users', { email, login, password })
       .then((res) => {
         localStorage.token = res.data;
         this.status = 'success';
-        setTimeout(() => window.location = 'http://localhost:9000/Album', 2000);
+        setTimeout(() => window.location = '/Album', 20000);
       })
       .catch((err) => {
         this.status = 'error';
@@ -25,7 +25,7 @@ class Registration {
         } else {
           this.error = err;
         }
-      }), 6000);
+      }), 2000);
   }
 }
 

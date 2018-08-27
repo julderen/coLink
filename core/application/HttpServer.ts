@@ -27,6 +27,7 @@ class HttpServer {
   }
 
   public createServer(checkers?: HttpCheckers) {
+    console.log(this.options.port);
     this.server = createExpressServer({
       ...<RoutingControllersOptions>this.options,
       middlewares: this.middlewares,

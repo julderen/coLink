@@ -74,7 +74,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "removeAlbum", null);
 UserController = __decorate([
-    routing_controllers_1.JsonController('/api/albums')
+    routing_controllers_1.JsonController('/albums')
 ], UserController);
 exports.UserController = UserController;
 exports.default = UserController;

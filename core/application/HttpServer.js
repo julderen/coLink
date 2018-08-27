@@ -17,6 +17,7 @@ class HttpServer {
         };
     }
     createServer(checkers) {
+        console.log(this.options.port);
         this.server = routing_controllers_1.createExpressServer(Object.assign({}, this.options, { middlewares: this.middlewares, controllers: this.controllers, defaultErrorHandler: false, authorizationChecker: checkers ? this.checkerMiddleware(checkers.authorization) : null, currentUserChecker: checkers ? this.checkerMiddleware(checkers.currentUser) : null })).listen(this.options.port);
     }
 }

@@ -1,5 +1,3 @@
-require(`dotenv`).config();
-
 import { IHttpChecker } from 'abstractions/checkers';
 import { ProjectConfig } from 'abstractions/types';
 import { DependencyProvider, PostgresDatabaseContext, HttpServer } from 'core/application';
