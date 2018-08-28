@@ -7,8 +7,7 @@ import { Input } from 'components/controls';
 const FormInput = ({ label, placeholder, name, type }) => (
   <Field
     name={name}
-    render={input => (
-      <Input input={input} placeholder={placeholder} label={label} type={type} />)}
+    render={input => <Input input={input} placeholder={placeholder} label={label} type={type} />}
   />
 );
 

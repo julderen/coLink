@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx';
 import axios from 'axios';
-import { Default, Loading, Succsess, Error } from 'constants/Constants';
+import { Default, Loading, Success, Error } from 'constants/Constants';
 
 class Authorization {
   @observable status = Default;
@@ -16,7 +16,7 @@ class Authorization {
     setTimeout(() => axios.post('http://localhost:8892/authorization', { email, login, password })
       .then((res) => {
         localStorage.token = res.data;
-        this.status = Succsess;
+        this.status = Success;
         setTimeout(() => window.location.href = 'http://localhost:9000/Album', 2000);
       })
       .catch((err) => {
@@ -25,8 +25,8 @@ class Authorization {
           this.error = 'Ошибка соединения с сервером. Повторите запрос позже';
         } else {
           this.error = err.response.data.type;
-          console.log(err.response);
         }
+        setTimeout(() => this.status = Default, 4000);
       }), 6000);
   }
 }

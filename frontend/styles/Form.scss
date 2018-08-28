@@ -1,15 +1,74 @@
 .form {
+  text-align: center;
   width: 270px;
-  margin: 10px auto 0 auto;
+  margin: 110px auto 40px auto;
   background-color: white;
   padding: 40px 25px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   border-radius: 20px;
   position: relative;
+  /*max-height: 600px;*/
+  transition: all .6s cubic-bezier(.9, .1, .1, .9);
+  &::after {
+    z-index: -1;
+    opacity: 0;
+    transition: all 1.5s cubic-bezier(.9, .1, .1, .9);
+    position: absolute;
+    content: '';
+    left: 28%;
+    top: 25%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 8px solid black;
+    border-color: #4788f4 transparent #4788f4 transparent;
+    animation: loading 2.2s 1s linear infinite;
+  }
+}
+
+.form_loading {
+  /*max-height: 260px;*/
+  &::after {
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+.form_success {
+  text-align: inherit;
+  /*max-height: 260px;*/
+  &::after {
+    border: none;
+    opacity: 1;
+    z-index: 1;
+    animation: none;
+    background: url("../Files/Correct32.svg") no-repeat center;
+    transition: all .4s cubic-bezier(.9, .1, .1, .9);
+  }
+}
+
+.form_error {
+  text-align: inherit;
+  /*max-height: 260px;*/
+  &::after {
+    border: none;
+    opacity: 1;
+    z-index: 1;
+    animation: none;
+    background: url("../Files/Incorrect32.svg") no-repeat center;
+    transition: all .4s cubic-bezier(.9, .1, .1, .9);
+  }
 }
 
 .state {
-  background-color: white;
+  background: white;
+  opacity: 1;
+  transition: all .4s cubic-bezier(.9, .1, .1, .9);
+}
+
+.state_hidden {
+  opacity: 0;
+  transition: all .4s cubic-bezier(.9, .1, .1, .9);
 }
 
 .state_loading {
@@ -34,7 +93,7 @@
   transition: all .4s cubic-bezier(.9, .1, .1, .9);
 }
 
-.state-text {
+.form-status {
   position: absolute;
   z-index: -1;
   opacity: 0;
@@ -47,45 +106,16 @@
   transition: all .8s cubic-bezier(.9, .1, .1, .9);
 }
 
-.state-text_visible {
+.form-status_visible {
   z-index: 1;
   opacity: 1;
-}
-
-@keyframes loading {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.form-content {
-  max-height: inherit;
-  transition:
-    0.7s opacity ease,
-    1s z-index ease;
-    /*max-height 0.2s 1.5s ease-in-out;*/
-  /*transition: all .4s cubic-bezier(.9, .1, .1, .9);*/
-}
-
-.form-content_hidden {
- /* transition: max-height 0.2s 1.5s ease-in-out;
-  max-height: 0;
-  overflow: hidden;*/
-  opacity: 0;
-  z-index: -1;
-}
-
-.form-content {
-  position: relative;
 }
 
 .form-error {
   display: block;
   color: #E50303;
-  margin-top: 10px;
+  margin-top: -10px;
+  margin-bottom: 30px;
   font-size: 16px;
   text-align: center;
 }
@@ -99,31 +129,70 @@
 }
 
 .form-line {
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
   display: block;
   width: 74px;
   height: 3px;
   background-color: #039BE5;
 }
 
-.form-button {
-  text-align: center;
+@keyframes loading {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-.status-button {
-  display: block;
-  border-radius: 10px;
-  background: linear-gradient(to left, #0090DA, #81D4FA);
-  outline: none;
-  width: 200px;
-  margin: 30px auto 0 auto;
-  height: 40px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-  color: white;
-  border: none;
+@media screen and (min-width: 768px) {
+  .form {
+    background-color: black;
+    width: 580px;
+  }
 }
 
-.status-button:hover,
-.status-button:focus {
+.form-license {
+  font-size: 12px;
+  color: black;
+  margin-bottom: 26px;
+}
+
+.license__checkbox {
+  margin-right: 10px;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.license__checkbox:after {
   cursor: pointer;
+  content: '';
+  width: 24px;
+  height: 24px;
+  border-radius: 5%;
+  position: absolute;
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.54);
+  transition: all .4s cubic-bezier(.9, .1, .1, .9);
+}
+
+.license__checkbox:checked:after {
+  background: url("../Files/Correct.svg") #039BE5 no-repeat center;
+  background-size: contain;
+  border: none;
+  background-origin: content-box;
+  padding: 3px;
+
+}
+
+.license__label {
+  display: inline-block;
+  text-align: left;
+}
+
+.license__link {
+  display: block;
+  text-decoration: none;
+  color: #039BE5;
 }

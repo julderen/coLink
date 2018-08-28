@@ -6,18 +6,13 @@ import { Form } from 'components/form';
 import { Link } from 'components/controls';
 import FormComponent from '../components/Form';
 import validation from '../utils/Validation';
-import { Default } from '../../../common/constants/Constants';
 
 @inject(['authorization'])
 @observer
 class AuthorizationView extends Component {
   submitForm = (values) => {
-    const { authorization: { fetchData, status, resetStatus } } = this.props;
-    if (status === Default) {
-      fetchData(values);
-    } else {
-      resetStatus();
-    }
+    const { authorization: { fetchData } } = this.props;
+    fetchData(values);
   };
 
   render() {
@@ -39,7 +34,7 @@ class AuthorizationView extends Component {
         />
         <div className="form-linkContainer">
           Нет аккаунта?
-          <Link path="/Registration" text="Регистрация..." />
+          <Link path="/Registration" text=" Регистрация..." />
         </div>
       </Fragment>
     );

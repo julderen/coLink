@@ -16,8 +16,6 @@ const ControlInput = ({ input: { input, meta }, label, type }) => (
   </FormGroup>
 );
 
-// className={input.value === '' ? 'form-input' : `${meta.error === undefined ? 'form-input form-input_not-empty' : ' form-input form-input_error'}`}
-
 ControlInput.propTypes = {
   input: PropTypes.objectOf(
     PropTypes.shape({

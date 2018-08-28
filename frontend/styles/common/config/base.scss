@@ -7,12 +7,11 @@
 }
 
 body {
-  font-family: Rubik; //просмотреть еще раз
+  font-family: Rubik;
   width: 100%;
   height: 100%;
   color: white;
   font-size: 14px;
-  /*background-color: $blue-900;*/
   background: url("../../../Files/background.png") repeat;
-  background-size: cover;
+  background-size: auto;
 }

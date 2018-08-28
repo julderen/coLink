@@ -22,11 +22,11 @@ class Registration {
       .catch((err) => {
         this.status = Error;
         if (!err.response) {
-          this.error = 'Ошибка соединения с сервером. Повторите запрос позже';
+          this.error = 'Ошибка соединения с сервером';
         } else {
           this.error = err.response.data.type;
-          console.log(err.response);
         }
+        setTimeout(() => this.status = Default, 4000);
       }), 6000);
   }
 }

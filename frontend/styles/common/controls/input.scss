@@ -1,9 +1,8 @@
 .form-input {
-  font-size: 16px;
+  font-size: 24px;
   height: 30px;
   width: 100%;
-  margin-top: 18px;
-  padding-top: 6px;
+  padding-top: 2px;
   background: inherit;
   border: none;
   border-bottom: $inputBorder;
@@ -11,6 +10,7 @@
   transition: $inputTransition;
   box-shadow: none;
   outline: none;
+  color: rgba(0, 0, 0, 0.87);
   &:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px white inset;
     /*-webkit-text-fill-color: white !important;*/

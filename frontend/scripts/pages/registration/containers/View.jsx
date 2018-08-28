@@ -12,12 +12,8 @@ import validation from '../utils/Validation';
 @observer
 class RegistrationView extends Component {
   submitForm = (values) => {
-    const { registration: { fetchData, status, resetStatus } } = this.props;
-    if (status === 'default') {
-      fetchData(values);
-    } else {
-      resetStatus();
-    }
+    const { registration: { fetchData } } = this.props;
+    fetchData(values);
   };
 
   render() {
@@ -40,7 +36,7 @@ class RegistrationView extends Component {
         />
         <div className="form-linkContainer">
           Есть аккаунт?
-          <Link path="/Login" text="Войти..." />
+          <Link path="/Login" text=" Войти..." />
         </div>
       </Fragment>
     );

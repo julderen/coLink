@@ -3,16 +3,13 @@
   font-size: 14px;
   margin: 0 auto;
   text-align: center;
-  position: fixed;
   width: 100%;
-  top: 500px;
 }
 
 .form__link {
   transition: $linkTransition;
   cursor: pointer;
   text-decoration: none;
-  margin-left: 4px;
   color: #039BE5;
 }
 
