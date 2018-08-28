@@ -891,8 +891,8 @@ var production = {
         database: process.env.DB || 'coLink',
         username: process.env.DB_USER || 'postgres',
         password: process.env.DB_PASSWORD || 'root',
-        URI: process.env.DB_URL || null,
         logging: true,
+        ssl: true,
         synchronize: true
     }
 };
