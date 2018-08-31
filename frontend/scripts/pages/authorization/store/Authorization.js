@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx';
 import axios from 'axios';
-import { Default, Loading, Success, Error } from 'constants/Constants';
+import { Default, Loading, Success, Error } from 'constants/StatusConstatns';
 
 class Authorization {
   @observable status = Default;

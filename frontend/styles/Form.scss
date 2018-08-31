@@ -1,42 +1,15 @@
 .form {
-  text-align: center;
-  width: 270px;
-  margin: 110px auto 40px auto;
   background-color: white;
-  padding: 40px 25px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
   position: relative;
-  /*max-height: 600px;*/
+  padding: 40px 25px;
   transition: all .6s cubic-bezier(.9, .1, .1, .9);
-  &::after {
-    z-index: -1;
-    opacity: 0;
-    transition: all 1.5s cubic-bezier(.9, .1, .1, .9);
-    position: absolute;
-    content: '';
-    left: 28%;
-    top: 25%;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 8px solid black;
-    border-color: #4788f4 transparent #4788f4 transparent;
-    animation: loading 2.2s 1s linear infinite;
-  }
-}
-
-.form_loading {
-  /*max-height: 260px;*/
-  &::after {
-    opacity: 1;
-    z-index: 1;
-  }
 }
 
 .form_success {
   text-align: inherit;
-  /*max-height: 260px;*/
+  margin: auto;
   &::after {
     border: none;
     opacity: 1;
@@ -49,7 +22,7 @@
 
 .form_error {
   text-align: inherit;
-  /*max-height: 260px;*/
+  margin: auto;
   &::after {
     border: none;
     opacity: 1;
@@ -71,7 +44,7 @@
   transition: all .4s cubic-bezier(.9, .1, .1, .9);
 }
 
-.state_loading {
+/*.state_loading {
   border-radius: 50%;
   border: 8px solid black;
   border-color: #4788f4 transparent #4788f4 transparent;
@@ -96,12 +69,13 @@
   position: absolute;
   z-index: -1;
   opacity: 0;
-  color: black;
-  width: 200px;
-  top: 200px;
+  margin: auto;
+  top: 55%;
+  left: 0;
+  right: 0;
+  bottom: 0;
   text-align: center;
-  font-size: 15px;
-  padding-left: 10px;
+  font-size: 20px;
   transition: all .8s cubic-bezier(.9, .1, .1, .9);
 }
 
@@ -109,6 +83,35 @@
   z-index: 1;
   opacity: 1;
 }
+
+.form-status_error {
+  color: #E50303;
+}
+
+.form-status_success {
+  color: #039BE5;
+}
+
+.form-info {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  margin: auto;
+  top: 65%;
+  color: black;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  font-size: 16px;
+  transition: all .8s cubic-bezier(.9, .1, .1, .9);
+}
+
+.form-info_visible {
+  z-index: 1;
+  opacity: 1;
+}*/
+
 
 .form-error {
   display: block;
@@ -121,7 +124,7 @@
 
 .form-title {
   margin: 0 auto;
-  text-align: center;
+  position: relative;
   font-size: 32px;
   color: #555555;
   font-weight: normal;
@@ -130,6 +133,7 @@
 .form-line {
   margin: 0 auto 40px auto;
   display: block;
+  position: relative;
   width: 74px;
   height: 3px;
   background-color: #039BE5;
@@ -153,6 +157,7 @@
 
 .form-license {
   font-size: 12px;
+  position: relative;
   color: black;
   margin-bottom: 26px;
 }
@@ -181,7 +186,7 @@
   background-size: contain;
   border: none;
   background-origin: content-box;
-  padding: 3px;
+  padding: 4px;
 
 }
 

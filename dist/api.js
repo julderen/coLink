@@ -147,6 +147,7 @@ __decorate([
     __metadata("design:type", String)
 ], CreateLinkModel.prototype, "siteUrl", void 0);
 
+var _a, _b, _c;
 let UserController = class UserController {
     getAll() {
         return 'This action returns all users';
@@ -215,26 +216,6 @@ UserController = __decorate([
     routingControllers.JsonController('/api/users')
 ], UserController);
 var UserControllers = UserController;
-var _a, _b, _c;
-
-var ErrorTypeOption;
-(function (ErrorTypeOption) {
-    ErrorTypeOption["InternalServerError"] = "InternalServerError";
-    ErrorTypeOption["ValidationError"] = "ValidationError";
-    ErrorTypeOption["IncorrectLoginOrPassword"] = "Incorrect login or password";
-    ErrorTypeOption["NotRights"] = "You have't rights";
-    ErrorTypeOption["AlbumNotExit"] = "Album does not exist";
-})(ErrorTypeOption || (ErrorTypeOption = {}));
-
-var EmailTemplateOption;
-(function (EmailTemplateOption) {
-    EmailTemplateOption["ResetPassword"] = "resetPassword";
-})(EmailTemplateOption || (EmailTemplateOption = {}));
-
-var UserRoleOption;
-(function (UserRoleOption) {
-    UserRoleOption[UserRoleOption["User"] = 0] = "User";
-})(UserRoleOption || (UserRoleOption = {}));
 
 class HttpError extends routingControllers.HttpError {
     constructor(httpCode, type, message) {
@@ -260,6 +241,7 @@ class AlbumNotExit extends HttpError {
     }
 }
 
+var _a$1, _b$1, _c$1, _d, _e;
 let AuthorizationController = class AuthorizationController {
     async authorize(request, info) {
         const { email: inputEmail, password } = info;
@@ -293,22 +275,22 @@ __decorate([
     __param(0, routingControllers.Req()),
     __param(1, routingControllers.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, typeof (_c$1 = typeof AuthorizationInfo !== "undefined" && AuthorizationInfo) === "function" && _c$1 || Object]),
+    __metadata("design:paramtypes", [typeof (_c$1 = typeof Request !== "undefined" && Request) === "function" && _c$1 || Object, typeof (_d = typeof AuthorizationInfo !== "undefined" && AuthorizationInfo) === "function" && _d || Object]),
     __metadata("design:returntype", Promise)
 ], AuthorizationController.prototype, "authorize", null);
 __decorate([
     routingControllers.Get('/context'),
     __param(0, routingControllers.CurrentUser({ required: true })),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_d = typeof UserContext !== "undefined" && UserContext) === "function" && _d || Object]),
+    __metadata("design:paramtypes", [typeof (_e = typeof UserContext !== "undefined" && UserContext) === "function" && _e || Object]),
     __metadata("design:returntype", void 0)
 ], AuthorizationController.prototype, "getContext", null);
 AuthorizationController = __decorate([
     routingControllers.JsonController('/authorization')
 ], AuthorizationController);
 var AuthorizationController$1 = AuthorizationController;
-var _a$1, _b$1, _c$1, _d;
 
+var _a$2, _b$2, _c$2, _d$1, _e$1, _f, _g;
 let UserController$1 = class UserController {
     async getAlbums(user) {
         return await this.albumsService.getAlbumsByUser(user);
@@ -354,7 +336,7 @@ __decorate([
     routingControllers.Put('/:id'),
     __param(0, routingControllers.CurrentUser()), __param(1, routingControllers.Param('id')), __param(2, routingControllers.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_e = typeof IUser !== "undefined" && IUser) === "function" && _e || Object, Number, typeof (_f = typeof CreateAlbumModel !== "undefined" && CreateAlbumModel) === "function" && _f || Object]),
+    __metadata("design:paramtypes", [typeof (_e$1 = typeof IUser !== "undefined" && IUser) === "function" && _e$1 || Object, Number, typeof (_f = typeof CreateAlbumModel !== "undefined" && CreateAlbumModel) === "function" && _f || Object]),
     __metadata("design:returntype", Promise)
 ], UserController$1.prototype, "updateAlbum", null);
 __decorate([
@@ -368,8 +350,8 @@ UserController$1 = __decorate([
     routingControllers.JsonController('/api/albums')
 ], UserController$1);
 var AlbumsControllers = UserController$1;
-var _a$2, _b$2, _c$2, _d$1, _e, _f, _g;
 
+var _a$3, _b$3, _c$3, _d$2, _e$2, _f$1, _g$1;
 let UserController$2 = class UserController {
     async getLinks(user, albumId) {
         const album = await this.albumsService.getAlbumById(albumId, { relations: ['owner'] });
@@ -425,7 +407,7 @@ __decorate([
     routingControllers.Post('/:albumId'),
     __param(0, routingControllers.CurrentUser({ required: true })), __param(1, routingControllers.Param('albumId')), __param(2, routingControllers.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_d$2 = typeof IUser !== "undefined" && IUser) === "function" && _d$2 || Object, Number, typeof (_e$1 = typeof CreateLinkModel !== "undefined" && CreateLinkModel) === "function" && _e$1 || Object]),
+    __metadata("design:paramtypes", [typeof (_d$2 = typeof IUser !== "undefined" && IUser) === "function" && _d$2 || Object, Number, typeof (_e$2 = typeof CreateLinkModel !== "undefined" && CreateLinkModel) === "function" && _e$2 || Object]),
     __metadata("design:returntype", Promise)
 ], UserController$2.prototype, "createLink", null);
 __decorate([
@@ -447,10 +429,10 @@ UserController$2 = __decorate([
     routingControllers.JsonController('/api/links')
 ], UserController$2);
 var LinksControllers = UserController$2;
-var _a$3, _b$3, _c$3, _d$2, _e$1, _f$1, _g$1;
 
 var controllers = [UserControllers, AuthorizationController$1, AlbumsControllers, LinksControllers];
 
+var _a$4, _b$4;
 let User = class User {
 };
 __decorate([
@@ -475,11 +457,11 @@ __decorate([
 ], User.prototype, "albums", void 0);
 __decorate([
     typeorm.CreateDateColumn(),
-    __metadata("design:type", Object)
+    __metadata("design:type", typeof (_a$4 = typeof Date !== "undefined" && Date) === "function" && _a$4 || Object)
 ], User.prototype, "createDate", void 0);
 __decorate([
     typeorm.UpdateDateColumn(),
-    __metadata("design:type", Object)
+    __metadata("design:type", typeof (_b$4 = typeof Date !== "undefined" && Date) === "function" && _b$4 || Object)
 ], User.prototype, "updateDate", void 0);
 User = __decorate([
     typeorm.Entity('users'),
@@ -487,6 +469,7 @@ User = __decorate([
 ], User);
 var User$1 = User;
 
+var _a$5, _b$5, _c$4;
 let Link = class Link {
 };
 __decorate([
@@ -511,22 +494,22 @@ __decorate([
 ], Link.prototype, "image", void 0);
 __decorate([
     typeorm.ManyToOne(type => Album$1, album => album.links, { cascade: true }),
-    __metadata("design:type", typeof (_a$4 = typeof Album$1 !== "undefined" && Album$1) === "function" && _a$4 || Object)
+    __metadata("design:type", typeof (_a$5 = typeof Album$1 !== "undefined" && Album$1) === "function" && _a$5 || Object)
 ], Link.prototype, "album", void 0);
 __decorate([
     typeorm.CreateDateColumn(),
-    __metadata("design:type", Object)
+    __metadata("design:type", typeof (_b$5 = typeof Date !== "undefined" && Date) === "function" && _b$5 || Object)
 ], Link.prototype, "createDate", void 0);
 __decorate([
     typeorm.UpdateDateColumn(),
-    __metadata("design:type", Object)
+    __metadata("design:type", typeof (_c$4 = typeof Date !== "undefined" && Date) === "function" && _c$4 || Object)
 ], Link.prototype, "updateDate", void 0);
 Link = __decorate([
     typeorm.Entity('links')
 ], Link);
 var Link$1 = Link;
-var _a$4;
 
+var _a$6, _b$6, _c$5;
 let Album = class Album {
 };
 __decorate([
@@ -548,7 +531,7 @@ __decorate([
 __decorate([
     typeorm.ManyToOne(type => User$1, user => user.albums, { cascade: true }),
     typeorm.JoinColumn(),
-    __metadata("design:type", typeof (_a$5 = typeof User$1 !== "undefined" && User$1) === "function" && _a$5 || Object)
+    __metadata("design:type", typeof (_a$6 = typeof User$1 !== "undefined" && User$1) === "function" && _a$6 || Object)
 ], Album.prototype, "owner", void 0);
 __decorate([
     typeorm.OneToMany(type => Link$1, link => link.album),
@@ -556,17 +539,16 @@ __decorate([
 ], Album.prototype, "links", void 0);
 __decorate([
     typeorm.CreateDateColumn(),
-    __metadata("design:type", Object)
+    __metadata("design:type", typeof (_b$6 = typeof Date !== "undefined" && Date) === "function" && _b$6 || Object)
 ], Album.prototype, "createDate", void 0);
 __decorate([
     typeorm.UpdateDateColumn(),
-    __metadata("design:type", Object)
+    __metadata("design:type", typeof (_c$5 = typeof Date !== "undefined" && Date) === "function" && _c$5 || Object)
 ], Album.prototype, "updateDate", void 0);
 Album = __decorate([
     typeorm.Entity('albums')
 ], Album);
 var Album$1 = Album;
-var _a$5;
 
 var entities = [
     User$1,
@@ -578,6 +560,7 @@ function encryptPassword(email, password) {
     return cryptoJs.SHA256(`${email}.newCoLink.${password}`).toString();
 }
 
+var _a$7;
 let UsersService = class UsersService {
     createUser(info) {
         const user = new User$1();
@@ -608,14 +591,14 @@ let UsersService = class UsersService {
 };
 __decorate([
     typeormTypediExtensions.OrmRepository(User$1),
-    __metadata("design:type", typeof (_a$6 = typeof typeorm.Repository !== "undefined" && typeorm.Repository) === "function" && _a$6 || Object)
+    __metadata("design:type", typeof (_a$7 = typeof typeorm.Repository !== "undefined" && typeorm.Repository) === "function" && _a$7 || Object)
 ], UsersService.prototype, "usersRepository", void 0);
 UsersService = __decorate([
     typedi.Service()
 ], UsersService);
 var UsersServices = UsersService;
-var _a$6;
 
+var _a$8;
 let AlbumsService = class AlbumsService {
     createAlbum(info) {
         const album = new Album$1();
@@ -652,13 +635,12 @@ let AlbumsService = class AlbumsService {
 };
 __decorate([
     typeormTypediExtensions.OrmRepository(Album$1),
-    __metadata("design:type", typeof (_a$7 = typeof typeorm.Repository !== "undefined" && typeorm.Repository) === "function" && _a$7 || Object)
+    __metadata("design:type", typeof (_a$8 = typeof typeorm.Repository !== "undefined" && typeorm.Repository) === "function" && _a$8 || Object)
 ], AlbumsService.prototype, "albumsRepository", void 0);
 AlbumsService = __decorate([
     typedi.Service()
 ], AlbumsService);
 var AlbumsServices = AlbumsService;
-var _a$7;
 
 let resolver;
 resolver = new imageResolver();
@@ -677,6 +659,7 @@ function findImage(url) {
     });
 }
 
+var _a$9;
 let LinksService = class LinksService {
     async createLink(info) {
         const link = new Link$1();
@@ -714,13 +697,12 @@ let LinksService = class LinksService {
 };
 __decorate([
     typeormTypediExtensions.OrmRepository(Link$1),
-    __metadata("design:type", typeof (_a$8 = typeof typeorm.Repository !== "undefined" && typeorm.Repository) === "function" && _a$8 || Object)
+    __metadata("design:type", typeof (_a$9 = typeof typeorm.Repository !== "undefined" && typeorm.Repository) === "function" && _a$9 || Object)
 ], LinksService.prototype, "linksRepository", void 0);
 LinksService = __decorate([
     typedi.Service()
 ], LinksService);
 var LinksServices = LinksService;
-var _a$8;
 
 const SECRET_KEY = 'addfsfsfssd';
 const EXPIRES_TIME = '48h';
@@ -763,6 +745,7 @@ const services = [
     { prefix: 'service', name: 'links', target: LinksServices }
 ];
 
+var _a$10;
 class AuthorizationChecker {
     async check(token, action) {
         if (!token)
@@ -777,10 +760,10 @@ class AuthorizationChecker {
 }
 __decorate([
     InjectService('jwt'),
-    __metadata("design:type", typeof (_a$9 = typeof IJWTService !== "undefined" && IJWTService) === "function" && _a$9 || Object)
+    __metadata("design:type", typeof (_a$10 = typeof IJWTService !== "undefined" && IJWTService) === "function" && _a$10 || Object)
 ], AuthorizationChecker.prototype, "jwtService", void 0);
-var _a$9;
 
+var _a$11;
 class CurrentUserChecker {
     async check(token, action) {
         if (!token)
@@ -795,24 +778,42 @@ class CurrentUserChecker {
 }
 __decorate([
     InjectService('jwt'),
-    __metadata("design:type", typeof (_a$10 = typeof IJWTService !== "undefined" && IJWTService) === "function" && _a$10 || Object)
+    __metadata("design:type", typeof (_a$11 = typeof IJWTService !== "undefined" && IJWTService) === "function" && _a$11 || Object)
 ], CurrentUserChecker.prototype, "jwtService", void 0);
-var _a$10;
 
 const checkers = [
     { prefix: 'checker', name: 'authorization', target: AuthorizationChecker },
     { prefix: 'checker', name: 'currentUser', target: CurrentUserChecker }
 ];
 
+var ErrorTypeOption$1;
+(function (ErrorTypeOption) {
+    ErrorTypeOption["InternalServerError"] = "InternalServerError";
+    ErrorTypeOption["ValidationError"] = "ValidationError";
+    ErrorTypeOption["IncorrectLoginOrPassword"] = "Incorrect login or password";
+    ErrorTypeOption["NotRights"] = "You have't rights";
+    ErrorTypeOption["AlbumNotExit"] = "Album does not exist";
+})(ErrorTypeOption$1 || (ErrorTypeOption$1 = {}));
+
+var EmailTemplateOption;
+(function (EmailTemplateOption) {
+    EmailTemplateOption["ResetPassword"] = "resetPassword";
+})(EmailTemplateOption || (EmailTemplateOption = {}));
+
+var UserRoleOption;
+(function (UserRoleOption) {
+    UserRoleOption[UserRoleOption["User"] = 0] = "User";
+})(UserRoleOption || (UserRoleOption = {}));
+
 let CustomErrorHandler = class CustomErrorHandler {
     error(error, request, response, next) {
         const statusCode = 'httpCode' in error && typeof error.httpCode === 'number' ? error.httpCode : 500;
         const resultError = {
             failure: true,
-            type: 'type' in error && error.type ? error.type : ErrorTypeOption.InternalServerError
+            type: 'type' in error && error.type ? error.type : ErrorTypeOption$1.InternalServerError
         };
         if ('errors' in error && error.errors) {
-            resultError.type = ErrorTypeOption.ValidationError;
+            resultError.type = ErrorTypeOption$1.ValidationError;
             resultError.validationErrors = error.errors;
         }
         else if ('message' in error && error.message) {
@@ -858,9 +859,8 @@ var local = {
         port: 8892
     },
     domains: {
-        api: 'http://localhost:8892',
+        api: process.env.PORT || 'http://localhost:8892',
         cdn: '/',
-        web: 'http://localhost:3005'
     },
     dbConfig: {
         type: 'postgres',

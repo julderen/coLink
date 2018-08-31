@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import PropTypes from 'prop-types';
 
@@ -21,7 +21,7 @@ class RegistrationView extends Component {
     const { submitForm } = this;
 
     return (
-      <Fragment>
+      <section className="registration-container">
         <Form
           onSubmit={submitForm}
           render={({ handleSubmit, invalid }) => (
@@ -38,7 +38,7 @@ class RegistrationView extends Component {
           Есть аккаунт?
           <Link path="/Login" text=" Войти..." />
         </div>
-      </Fragment>
+      </section>
     );
   }
 }

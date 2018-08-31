@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Input } from 'components/form';
 import Button from 'components/controls/Button';
 import utils from 'utils/statusFormUtlis';
-import { Default, Error, AuthorizationError, Success, SuccessMessage } from 'constants/Constants';
+import { Default, Error, AuthorizationError, Success, SuccessMessage } from 'constants/StatusConstatns';
 import Link from 'components/controls/Link';
 
 const Form = ({ handleSubmit, invalid, error, status }) => (

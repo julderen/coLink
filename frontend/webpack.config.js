@@ -1,9 +1,9 @@
 const { join } = require('path');
 const Autoprefixer = require('autoprefixer');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const outputFolderPath = join(__dirname, '..', 'static', 'dist');
+
+const outputFolderPath = join(__dirname, '..', 'static');
 const commonFolderPath = join(__dirname, 'scripts', 'common');
 
 module.exports = {
@@ -22,7 +22,6 @@ module.exports = {
     },
     extensions: ['.js', '.jsx'],
   },
-  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -92,6 +91,8 @@ module.exports = {
   devServer: {
     contentBase: join(outputFolderPath),
     compress: true,
+    hot: false,
+    inline: false,
     port: 9000,
     historyApiFallback: true,
   },

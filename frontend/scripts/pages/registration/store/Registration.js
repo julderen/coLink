@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx';
 import axios from 'axios';
-import { Default, Loading, Success, Error } from 'constants/Constants';
+import { Default, Loading, Success, Error } from 'constants/StatusConstatns';
 
 class Registration {
   @observable status = Default;
@@ -26,7 +26,7 @@ class Registration {
         } else {
           this.error = err.response.data.type;
         }
-        setTimeout(() => this.status = Default, 4000);
+        //setTimeout(() => this.status = Default, 4000);
       }), 6000);
   }
 }
