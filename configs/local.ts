@@ -6,8 +6,7 @@ export default {
     port: 8892
   },
   domains: {
-    api: process.env.PORT || 'http://localhost:8892',
-    cdn: '/',
+    api: process.env.PORT || 'http://localhost:8892'
   },
   dbConfig: {
     type: 'postgres',

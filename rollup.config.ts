@@ -1,6 +1,7 @@
 import * as path from 'path';
 import * as typescript from 'typescript';
 import * as pluginTypescript from 'rollup-plugin-typescript';
+import * as pluginEjs from 'rollup-plugin-ejs';
 
 const projectPackage = require('./package.json');
 
@@ -19,7 +20,8 @@ const config = {
   plugins: [
     pluginTypescript({
       typescript
-    })
+    }),
+    pluginEjs()
   ]
 };
 

@@ -11,6 +11,7 @@ var typeormTypediExtensions = require('typeorm-typedi-extensions');
 var imageResolver = _interopDefault(require('image-resolver'));
 var base64Url = _interopDefault(require('base64-url'));
 var jsonwebtoken = _interopDefault(require('jsonwebtoken'));
+var mail = _interopDefault(require('@sendgrid/mail'));
 require('reflect-metadata');
 
 function __decorate(decorators, target, key, desc) {
@@ -148,7 +149,7 @@ __decorate([
     __metadata("design:type", String)
 ], CreateLinkModel.prototype, "siteUrl", void 0);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 let UserController = class UserController {
     getAll() {
         return 'This action returns all users';
@@ -158,6 +159,7 @@ let UserController = class UserController {
     }
     async createUser(user) {
         const saveUser = await this.usersService.createUser(user);
+        await this.mailsService.sendMail(saveUser.email, 'Спасибо за ргистрацию', saveUser);
         return await this.jwtService.generateToken({
             id: saveUser.id,
             email: saveUser.email,
@@ -180,6 +182,10 @@ __decorate([
     __metadata("design:type", typeof (_b = typeof IJWTService !== "undefined" && IJWTService) === "function" && _b || Object)
 ], UserController.prototype, "jwtService", void 0);
 __decorate([
+    InjectService('mails'),
+    __metadata("design:type", typeof (_c = typeof IMailsService !== "undefined" && IMailsService) === "function" && _c || Object)
+], UserController.prototype, "mailsService", void 0);
+__decorate([
     routingControllers.Get(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
@@ -196,7 +202,7 @@ __decorate([
     routingControllers.Post(''),
     __param(0, routingControllers.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_c = typeof CreateUserModel !== "undefined" && CreateUserModel) === "function" && _c || Object]),
+    __metadata("design:paramtypes", [typeof (_d = typeof CreateUserModel !== "undefined" && CreateUserModel) === "function" && _d || Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "createUser", null);
 __decorate([
@@ -242,7 +248,7 @@ class AlbumNotExit extends HttpError {
     }
 }
 
-var _a$1, _b$1, _c$1, _d, _e;
+var _a$1, _b$1, _c$1, _d$1, _e;
 let AuthorizationController = class AuthorizationController {
     async authorize(request, info) {
         const { email: inputEmail, password } = info;
@@ -276,7 +282,7 @@ __decorate([
     __param(0, routingControllers.Req()),
     __param(1, routingControllers.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_c$1 = typeof Request !== "undefined" && Request) === "function" && _c$1 || Object, typeof (_d = typeof AuthorizationInfo !== "undefined" && AuthorizationInfo) === "function" && _d || Object]),
+    __metadata("design:paramtypes", [typeof (_c$1 = typeof Request !== "undefined" && Request) === "function" && _c$1 || Object, typeof (_d$1 = typeof AuthorizationInfo !== "undefined" && AuthorizationInfo) === "function" && _d$1 || Object]),
     __metadata("design:returntype", Promise)
 ], AuthorizationController.prototype, "authorize", null);
 __decorate([
@@ -291,7 +297,7 @@ AuthorizationController = __decorate([
 ], AuthorizationController);
 var AuthorizationController$1 = AuthorizationController;
 
-var _a$2, _b$2, _c$2, _d$1, _e$1, _f, _g;
+var _a$2, _b$2, _c$2, _d$2, _e$1, _f, _g;
 let UserController$1 = class UserController {
     async getAlbums(user) {
         return await this.albumsService.getAlbumsByUser(user);
@@ -330,7 +336,7 @@ __decorate([
     routingControllers.Post(),
     __param(0, routingControllers.CurrentUser({ required: true })), __param(1, routingControllers.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_c$2 = typeof IUser !== "undefined" && IUser) === "function" && _c$2 || Object, typeof (_d$1 = typeof CreateAlbumModel !== "undefined" && CreateAlbumModel) === "function" && _d$1 || Object]),
+    __metadata("design:paramtypes", [typeof (_c$2 = typeof IUser !== "undefined" && IUser) === "function" && _c$2 || Object, typeof (_d$2 = typeof CreateAlbumModel !== "undefined" && CreateAlbumModel) === "function" && _d$2 || Object]),
     __metadata("design:returntype", Promise)
 ], UserController$1.prototype, "createAlbum", null);
 __decorate([
@@ -352,7 +358,7 @@ UserController$1 = __decorate([
 ], UserController$1);
 var AlbumsControllers = UserController$1;
 
-var _a$3, _b$3, _c$3, _d$2, _e$2, _f$1, _g$1;
+var _a$3, _b$3, _c$3, _d$3, _e$2, _f$1, _g$1;
 let UserController$2 = class UserController {
     async getLinks(user, albumId) {
         const album = await this.albumsService.getAlbumById(albumId, { relations: ['owner'] });
@@ -408,7 +414,7 @@ __decorate([
     routingControllers.Post('/:albumId'),
     __param(0, routingControllers.CurrentUser({ required: true })), __param(1, routingControllers.Param('albumId')), __param(2, routingControllers.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_d$2 = typeof IUser !== "undefined" && IUser) === "function" && _d$2 || Object, Number, typeof (_e$2 = typeof CreateLinkModel !== "undefined" && CreateLinkModel) === "function" && _e$2 || Object]),
+    __metadata("design:paramtypes", [typeof (_d$3 = typeof IUser !== "undefined" && IUser) === "function" && _d$3 || Object, Number, typeof (_e$2 = typeof CreateLinkModel !== "undefined" && CreateLinkModel) === "function" && _e$2 || Object]),
     __metadata("design:returntype", Promise)
 ], UserController$2.prototype, "createLink", null);
 __decorate([
@@ -739,7 +745,88 @@ class JWTService {
     }
 }
 
+function anonymous(locals, escapeFn, include, rethrow
+/*``*/) {
+rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc){
+  var lines = str.split('\n');
+  var start = Math.max(lineno - 3, 0);
+  var end = Math.min(lines.length, lineno + 3);
+  var filename = esc(flnm); // eslint-disable-line
+  // Error context
+  var context = lines.slice(start, end).map(function (line, i){
+    var curr = i + start + 1;
+    return (curr == lineno ? ' >> ' : '    ')
+      + curr
+      + '| '
+      + line;
+  }).join('\n');
+
+  // Alter exception message
+  err.path = filename;
+  err.message = (filename || 'ejs') + ':'
+    + lineno + '\n'
+    + context + '\n\n'
+    + err.message;
+
+  throw err;
+};
+escapeFn = escapeFn || function (markup) {
+  return markup == undefined
+    ? ''
+    : String(markup)
+      .replace(_MATCH_HTML, encode_char);
+};
+var _ENCODE_HTML_RULES = {
+      "&": "&amp;"
+    , "<": "&lt;"
+    , ">": "&gt;"
+    , '"': "&#34;"
+    , "'": "&#39;"
+    }
+  , _MATCH_HTML = /[&<>'"]/g;
+function encode_char(c) {
+  return _ENCODE_HTML_RULES[c] || c;
+}var __line = 1
+  , __lines = "<!DOCTYPE html>\n<html>\n  <head>\n    <title>co-link - Спасибо за регистрацию</title>\n  </head>\n  <body>\n    <div style=\"text-align: center\">\n      <h3><%= locals.login %> Добро пожаловать</h3>\n    </div>\n  </body>\n</html>\n"
+  , __filename = undefined;
+try {
+  var __output = [], __append = __output.push.bind(__output);
+ __append("<!DOCTYPE html>\n<html>\n  <head>\n    <title>co-link - Спасибо за регистрацию</title>\n  </head>\n  <body>\n    <div style=\"text-align: center\">\n      <h3>")
+    ; __line = 8
+    ; __append(escapeFn( locals.login ))
+    ; __append(" Добро пожаловать</h3>\n    </div>\n  </body>\n</html>\n")
+    ; __line = 12;
+  return __output.join("");
+} catch (e) {
+  rethrow(e, __lines, __filename, __line, escapeFn);
+}
+
+}
+
+var templates = {
+    createUser: anonymous
+};
+
+let MailService = class MailService {
+    sendMail(to, subject, data) {
+        mail.setApiKey(process.env.MAIL_API_KEY);
+        const message = {
+            subject,
+            to,
+            from: 'co-link@info.com',
+            html: templates.createUser(data)
+        };
+        mail.send(message);
+        return null;
+    }
+};
+MailService = __decorate([
+    typedi.Service()
+], MailService);
+var MailsServices = MailService;
+
 const services = [
+    { prefix: 'service', name: 'mails', target: MailsServices },
     { prefix: 'service', name: 'jwt', target: JWTService },
     { prefix: 'service', name: 'users', target: UsersServices },
     { prefix: 'service', name: 'albums', target: AlbumsServices },
@@ -859,8 +946,7 @@ var local = {
         port: 8892
     },
     domains: {
-        api: process.env.PORT || 'http://localhost:8892',
-        cdn: '/',
+        api: process.env.PORT || 'http://localhost:8892'
     },
     dbConfig: {
         type: 'postgres',

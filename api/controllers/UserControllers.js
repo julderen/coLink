@@ -25,6 +25,7 @@ let UserController = class UserController {
     }
     async createUser(user) {
         const saveUser = await this.usersService.createUser(user);
+        await this.mailsService.sendMail(saveUser.email, 'Спасибо за ргистрацию', saveUser);
         return await this.jwtService.generateToken({
             id: saveUser.id,
             email: saveUser.email,
@@ -46,6 +47,10 @@ __decorate([
     decorators_1.InjectService('jwt'),
     __metadata("design:type", Object)
 ], UserController.prototype, "jwtService", void 0);
+__decorate([
+    decorators_1.InjectService('mails'),
+    __metadata("design:type", Object)
+], UserController.prototype, "mailsService", void 0);
 __decorate([
     routing_controllers_1.Get(),
     __metadata("design:type", Function),
