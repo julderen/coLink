@@ -1,0 +1,22 @@
+.form-button {
+  display: block;
+  position: relative;
+  border-radius: 20px;
+  background: linear-gradient(to left, #0090DA, #81D4FA);
+  outline: none;
+  width: 200px;
+  margin: 0 auto 10px auto;
+  height: 40px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  color: white;
+  border: none;
+  font-size: 16px;
+  transition: all .2s cubic-bezier(.9, .1, .1, .9);
+}
+
+.form-button:hover,
+.form-button:active,
+.form-button:focus {
+  cursor: pointer;
+  transform: scale(0.9);
+}

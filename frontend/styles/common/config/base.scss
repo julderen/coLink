@@ -7,11 +7,15 @@
 }
 
 body {
+  font-family: Rubik;
   width: 100%;
   height: 100%;
-  font-family: Roboto sans-serif;
   color: white;
   font-size: 14px;
-  background-color: $blue-900;
-  @import url("https://fonts.googleapis.com/css?family=Roboto");
+  background: url("../../../Files/background.png") repeat;
+  background-size: auto;
+}
+
+html, #root {
+  height: 100%;
 }

@@ -6,7 +6,7 @@ import Label from './Label';
 const FormGroup = ({ label, error, touched, children, value }) => (
   <div className="form-group">
     {children}
-    <Label label={label} value={value} />
+    <Label label={label} value={value} error={error} />
     {error && touched
       && (
       <span className={error !== '' ? 'error-control' : ''}>

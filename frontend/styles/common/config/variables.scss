@@ -11,12 +11,12 @@ $blue-50: #daf1ff;
 $inputRadius: 5%;
 $errorColor: $red-700;
 
-$inputBorder: 1px solid $blue-400;
+$inputBorder: 1px solid #AEAEAE;
 $labelTransition: 0.2s ease all;
 $inputTransition: 0.2s border-top-width, border-bottom-width ease;
 $errorTransition: 0.5s opacity ease;
-$inputFocusBorder: 2px solid $blue-200;
-$inputFocusTranslation: -18px;
+$inputFocusBorder: 1px solid #039BE5;
+$inputFocusTranslation: -16px;
 $buttonFormBackground: $blue-200;
 $linkTransition: 0.4s color ease;
 

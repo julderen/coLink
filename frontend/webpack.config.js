@@ -1,8 +1,8 @@
 const { join } = require('path');
 const Autoprefixer = require('autoprefixer');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const outputFolderPath = join(__dirname, '..', 'static');
 const commonFolderPath = join(__dirname, 'scripts', 'common');
 
@@ -17,6 +17,7 @@ module.exports = {
     alias: {
       components: join(commonFolderPath, 'components'),
       utils: join(commonFolderPath, 'utils'),
+      constants: join(commonFolderPath, 'constants'),
       validation: join(commonFolderPath, 'validation'),
     },
     extensions: ['.js', '.jsx'],
@@ -45,16 +46,40 @@ module.exports = {
               plugins: () => [Autoprefixer],
             },
           },
+          'resolve-url-loader',
           {
             loader: 'sass-loader',
-            options: {},
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(otf|eot|svg|ttf|woff|woff2)(\?.+)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
           },
         ],
       },
     ],
   },
   plugins: [
-    // new CleanWebpackPlugin(entryFolderPath, {}),
     new MiniCssExtractPlugin({
       filename: join('dist', '[name].css'),
     }),
@@ -66,6 +91,8 @@ module.exports = {
   devServer: {
     contentBase: join(outputFolderPath),
     compress: true,
+    hot: false,
+    inline: false,
     port: 9000,
     historyApiFallback: true,
   },

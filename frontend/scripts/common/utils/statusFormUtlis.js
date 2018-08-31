@@ -2,11 +2,11 @@ export default {
   getClassName(status) {
     switch (status) {
       case 'loading':
-        return 'status-button_loading';
+        return 'form_loading';
       case 'success':
-        return 'status-button_success';
+        return 'form_success';
       case 'error':
-        return 'status-button_error';
+        return 'form_error';
       default:
         return '';
     }
