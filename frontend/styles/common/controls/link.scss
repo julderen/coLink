@@ -7,13 +7,14 @@
 }
 
 .form__link {
-  transition: $linkTransition;
+  transition: $linkFormTransition;
   cursor: pointer;
   text-decoration: none;
   color: #039BE5;
 }
 
-.form__link:hover, .form__link:focus {
+.form__link:hover,
+.form__link:focus {
   color: $blue-900;
 }
 

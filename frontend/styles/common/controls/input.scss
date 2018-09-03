@@ -5,29 +5,30 @@
   padding-top: 2px;
   background: inherit;
   border: none;
-  border-bottom: $inputBorder;
+  border-bottom: 1px solid $grey;
   cursor: pointer;
-  transition: $inputTransition;
+  transition: $inputFormTransition;
   box-shadow: none;
   outline: none;
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, .87);
+
   &:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px white inset;
-    /*-webkit-text-fill-color: white !important;*/
   }
 }
 
 .form-input_not-empty {
-  border-bottom: $inputFocusBorder;
+  border-bottom-color: $blue;
 }
 
 .form-input:focus {
-  border-bottom: $inputFocusBorder;
+  border-bottom-color: $blue;
   cursor: default;
 }
 
 
 
-.form-input_error, .form-input_error:focus {
+.form-input_error,
+.form-input_error:focus {
   border-color: $errorColor;
 }

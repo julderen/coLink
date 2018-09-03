@@ -7,5 +7,5 @@ export {
   Default,
   Loading,
   Success,
-  Error
+  Error,
 };

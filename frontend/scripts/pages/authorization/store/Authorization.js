@@ -5,6 +5,8 @@ import { Default, Loading, Success, Error } from 'constants/StatusConstatns';
 class Authorization {
   @observable status = Default;
 
+  @observable isAuthorization = true;
+
   @observable error;
 
   @action resetStatus = () => {

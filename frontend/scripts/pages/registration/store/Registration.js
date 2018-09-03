@@ -26,7 +26,7 @@ class Registration {
         } else {
           this.error = err.response.data.type;
         }
-        //setTimeout(() => this.status = Default, 4000);
+        setTimeout(() => this.status = Default, 4000);
       }), 6000);
   }
 }

@@ -8,6 +8,9 @@ import { Form } from 'components/form';
 import FormComponent from '../components/Form';
 import validation from '../utils/Validation';
 
+// import image from '../../../../Files/TabletImage.png';
+
+
 @inject(['registration'])
 @observer
 class RegistrationView extends Component {
@@ -19,6 +22,7 @@ class RegistrationView extends Component {
   render() {
     const { registration: { status, error } } = this.props;
     const { submitForm } = this;
+    // <img src={image} alt="img" className="image" />
 
     return (
       <section className="registration-container">

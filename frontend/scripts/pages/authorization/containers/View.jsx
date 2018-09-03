@@ -6,6 +6,7 @@ import { Form } from 'components/form';
 import { Link } from 'components/controls';
 import FormComponent from '../components/Form';
 import validation from '../utils/Validation';
+import image from "../../../../Files/TabletImage.png";
 
 @inject(['authorization'])
 @observer
@@ -16,10 +17,11 @@ class AuthorizationView extends Component {
   };
 
   render() {
-    const { authorization: { error, status } } = this.props;
+    const { authorization: { error, status, isAuthorization } } = this.props;
     const { submitForm } = this;
     return (
-      <Fragment>
+      <section className="authorization-container">
+        <img src={image} alt="img" className="image" />
         <Form
           onSubmit={submitForm}
           render={({ handleSubmit, invalid }) => (
@@ -28,6 +30,7 @@ class AuthorizationView extends Component {
               invalid={invalid}
               error={error}
               status={status}
+              isAuthorization={isAuthorization}
             />
           )}
           validate={validation}
@@ -36,7 +39,7 @@ class AuthorizationView extends Component {
           Нет аккаунта?
           <Link path="/Registration" text=" Регистрация..." />
         </div>
-      </Fragment>
+      </section>
     );
   }
 }

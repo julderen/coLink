@@ -10,7 +10,7 @@ const FormLink = ({ path, text }) => (
 
 FormLink.propTypes = {
   path: PropTypes.string.isRequired,
-  text: PropTypes.string,
+  text: PropTypes.string.isRequired,
 };
 
 export default FormLink;
