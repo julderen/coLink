@@ -13,7 +13,8 @@ npm-debug.log*
 node_modules/
 
 # Папка с собранными файлами проекта
-./dist/
+/dist/
+/static/
 
 # Локальные файлы конфигураций
 .env

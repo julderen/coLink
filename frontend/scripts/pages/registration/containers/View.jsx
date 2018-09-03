@@ -21,7 +21,11 @@ class RegistrationView extends Component {
     const { submitForm } = this;
 
     return (
-      <section className="registration-container">
+      <body className="registration-container">
+        <header>
+        <h1 className="form-title">Регистрация</h1>
+        </header>
+        <main>
         <Form
           onSubmit={submitForm}
           render={({ handleSubmit, invalid }) => (
@@ -34,11 +38,14 @@ class RegistrationView extends Component {
           )}
           validate={validation}
         />
-        <div className="form-linkContainer">
-          Есть аккаунт?
-          <Link path="/Login" text=" Войти..." />
-        </div>
-      </section>
+        </main>
+        <footer>
+          <div className="form-linkContainer">
+            Есть аккаунт?
+            <Link path="/Login" text=" Войти..." />
+          </div>
+        </footer>
+      </body>
     );
   }
 }
