@@ -15,11 +15,11 @@ class Authorization {
 
   @action fetchData = ({ email, login, password }) => {
     this.status = Loading;
-    setTimeout(() => axios.post('http://localhost:8892/authorization', { email, login, password })
+    setTimeout(() => axios.post('/authorization', { email, login, password })
       .then((res) => {
         localStorage.token = res.data;
-        this.status = Success;
-        setTimeout(() => window.location.href = 'http://localhost:9000/Album', 2000);
+        this.status = Succsess;
+        setTimeout(() => window.location.href = '/Album', 2000);
       })
       .catch((err) => {
         this.status = Error;
@@ -29,7 +29,7 @@ class Authorization {
           this.error = err.response.data.type;
         }
         setTimeout(() => this.status = Default, 4000);
-      }), 6000);
+      }), 1000);
   }
 }
 

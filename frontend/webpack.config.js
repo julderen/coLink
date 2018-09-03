@@ -59,9 +59,9 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'file-loader',
             options: {
-              limit: 8192,
+              name: 'dist/[hash].[ext]',
             },
           },
         ],
@@ -70,9 +70,9 @@ module.exports = {
         test: /\.(otf|eot|svg|ttf|woff|woff2)(\?.+)?$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'file-loader',
             options: {
-              limit: 8192,
+              name: 'dist/[hash].[ext]',
             },
           },
         ],

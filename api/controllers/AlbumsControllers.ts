@@ -5,7 +5,7 @@ import { IAlbumsService } from 'abstractions/services';
 import { IUser } from 'abstractions/entities';
 import { NoRights } from '../errors';
 
-@JsonController('/api/albums')
+@JsonController('/albums')
 export class UserController {
   @InjectService('albums')
   private albumsService: IAlbumsService;

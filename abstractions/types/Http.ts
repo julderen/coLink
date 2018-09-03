@@ -16,6 +16,4 @@ export type HttpConfig = {
 
 export type HttpDomains = {
   api: string,
-  cdn: string,
-  web: string
 };

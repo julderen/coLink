@@ -5,7 +5,7 @@ import { IUser } from 'abstractions/entities';
 import { CreateLinkModel } from '../models';
 import { AlbumNotExit, NoRights } from '../errors';
 
-@JsonController('/api/links')
+@JsonController('/links')
 export class UserController {
   @InjectService('links')
   private linksService: ILinksService;

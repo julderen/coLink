@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
 const typescript = require("typescript");
 const pluginTypescript = require("rollup-plugin-typescript");
+const pluginEjs = require("rollup-plugin-ejs");
 const projectPackage = require('./package.json');
 const context = path.resolve(__dirname);
 const dist = path.resolve(context, 'dist');
@@ -17,7 +18,8 @@ const config = {
     plugins: [
         pluginTypescript({
             typescript
-        })
+        }),
+        pluginEjs()
     ]
 };
 module.exports = config;
