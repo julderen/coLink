@@ -5,6 +5,7 @@
   position: relative;
   padding: 40px 25px;
   transition: .5s all ease;
+  margin: auto;
 }
 
 .form-title {
@@ -29,7 +30,7 @@
   color: $errorColor;
   margin-top: -10px;
   margin-bottom: 30px;
-  font-size: 14px;
+  font-size: 13px;
   text-align: center;
   position: relative;
 }
@@ -80,6 +81,7 @@
 }
 
 .image {
+  display: none;
   position: absolute;
   opacity: 0;
   transition: 1s all ease;
@@ -138,7 +140,9 @@
   }
 }*/
 
+/*
 @include mobile-up {
+
   .registration-container {
     box-shadow: $formShadow;
     border-radius: 20px;
@@ -161,7 +165,6 @@
     width: 600px;
     height: 460px;
     display: flex;
-    padding-top: 20px;
     justify-content: center;
     align-items: flex-start;
     flex-direction: row;
@@ -189,3 +192,4 @@
     align-self: center;
   }
 }
+*/

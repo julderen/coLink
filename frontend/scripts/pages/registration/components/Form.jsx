@@ -9,6 +9,7 @@ import License from './License';
 const Form = ({ handleSubmit, invalid, error, status }) => (
   <form onSubmit={handleSubmit} className="form">
     <StatusHelper status={status}>
+      <h1 className="form-title">Регистрация</h1>
       <span className="form-line" />
       <span className="form-error">{error}</span>
       <Input label="Эл. почта" name="email" placeholder="email" />

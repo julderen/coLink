@@ -8,9 +8,6 @@ import { Form } from 'components/form';
 import FormComponent from '../components/Form';
 import validation from '../utils/Validation';
 
-// import image from '../../../../Files/TabletImage.png';
-
-
 @inject(['registration'])
 @observer
 class RegistrationView extends Component {
@@ -22,26 +19,22 @@ class RegistrationView extends Component {
   render() {
     const { registration: { status, error } } = this.props;
     const { submitForm } = this;
-    // <img src={image} alt="img" className="image" />
 
     return (
-      <body className="registration-container">
-        <header>
-        <h1 className="form-title">Регистрация</h1>
-        </header>
+      <section className="registration-container">
         <main>
-        <Form
-          onSubmit={submitForm}
-          render={({ handleSubmit, invalid }) => (
-            <FormComponent
-              handleSubmit={handleSubmit}
-              invalid={invalid}
-              error={error}
-              status={status}
-            />
-          )}
-          validate={validation}
-        />
+          <Form
+            onSubmit={submitForm}
+            render={({handleSubmit, invalid}) => (
+              <FormComponent
+                handleSubmit={handleSubmit}
+                invalid={invalid}
+                error={error}
+                status={status}
+              />
+            )}
+            validate={validation}
+          />
         </main>
         <footer>
           <div className="form-linkContainer">
@@ -49,7 +42,7 @@ class RegistrationView extends Component {
             <Link path="/Login" text=" Войти..." />
           </div>
         </footer>
-      </body>
+      </section>
     );
   }
 }

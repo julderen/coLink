@@ -1,6 +1,7 @@
 import { observable, action } from 'mobx';
 import axios from 'axios';
 import { Default, Loading, Success, Error } from 'constants/StatusConstatns';
+import { Address } from 'constants/AddressConstants';
 
 class Authorization {
   @observable status = Default;
@@ -15,11 +16,11 @@ class Authorization {
 
   @action fetchData = ({ email, login, password }) => {
     this.status = Loading;
-    setTimeout(() => axios.post('/authorization', { email, login, password })
+    setTimeout(() => axios.post(`${Address}/authorization`, { email, login, password })
       .then((res) => {
         localStorage.token = res.data;
-        this.status = Succsess;
-        setTimeout(() => window.location.href = '/Album', 2000);
+        this.status = Success;
+        setTimeout(() => window.location.href = `\`${Address}/Album`, 2000);
       })
       .catch((err) => {
         this.status = Error;
@@ -29,7 +30,7 @@ class Authorization {
           this.error = err.response.data.type;
         }
         setTimeout(() => this.status = Default, 4000);
-      }), 1000);
+      }), 6000);
   }
 }
 

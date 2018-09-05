@@ -1,11 +1,54 @@
 .authorization-container {
   transition: all .4s cubic-bezier(.9, .1, .1, .9);
-  padding: 50px 0 20px 0;
   height: 100%;
+  width: 270px;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  width: 270px;
+  padding-bottom: 20px;
+}
+
+.main-picture {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  transition: .8s all ease;
+}
+
+.container-main {
   margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@include mobile-up_authorization {
+
+  .main-picture {
+    opacity: 1;
+    display: block;
+    width: 270px;
+    height: 270px;
+  }
+
+  .form {
+    box-shadow: none !important;
+  }
+
+  .container-footer {
+    position: absolute;
+    bottom: 70px;
+    right: 64px;
+  }
+
+  .authorization-container {
+    box-shadow: $formShadow;
+    border-radius: 20px;
+    width: 600px;
+    height: 460px;
+    padding-bottom: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }

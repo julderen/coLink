@@ -16,12 +16,10 @@
 
 .status-helper__message {
   transition: $textTransition;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -60%);
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
-  width: 120px;
-  height: 120px;
   color: black;
   opacity: 0;
 
@@ -31,9 +29,9 @@
     position: absolute;
     content: "";
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    border: 8px solid white;
+    width: 32px;
+    height: 32px;
+    border: 4px solid white;
     border-color: $loadingAnimationColor;
   }
 
@@ -47,11 +45,15 @@
 .status-helper__message_loading {
   z-index: 2;
   opacity: 1;
+
   &::after {
     transition: all 1.5s cubic-bezier(.9, .1, .1, .9);
     position: absolute;
-    top: 30px;
-    left:0;
+    bottom: 60px;
+    right: 0;
+    top: 0;
+    left: 0;
+    margin: auto;
     animation: loading 2.2s 1s linear infinite;
     z-index: 3;
     opacity: 1;
@@ -68,9 +70,10 @@
     width: 32px;
     height: 32px;
     position: absolute;
-    top: 50px;
+    top: 0;
     left: 0;
     right: 0;
+    bottom: 78px;
     margin: auto;
     animation: none;
     z-index: 3;
@@ -90,9 +93,10 @@
     width: 32px;
     height: 32px;
     position: absolute;
-    top: 50px;
+    top: 0;
     left: 0;
     right: 0;
+    bottom: 78px;
     margin: auto;
     animation: none;
     z-index: 3;
