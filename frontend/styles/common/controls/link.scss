@@ -1,19 +1,20 @@
-.form-linkContainer {
+.container-footer {
   color: black;
   font-size: 14px;
   margin: 0 auto;
   text-align: center;
-  width: 100%;
+  width: auto;
 }
 
 .form__link {
-  transition: $linkTransition;
+  transition: $linkFormTransition;
   cursor: pointer;
   text-decoration: none;
   color: #039BE5;
 }
 
-.form__link:hover, .form__link:focus {
+.form__link:hover,
+.form__link:focus {
   color: $blue-900;
 }
 

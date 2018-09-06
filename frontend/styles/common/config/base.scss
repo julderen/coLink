@@ -14,8 +14,12 @@ body {
   font-size: 14px;
   background: url("../../../Files/background.png") repeat;
   background-size: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-html, #root {
+html,
+#root {
   height: 100%;
 }

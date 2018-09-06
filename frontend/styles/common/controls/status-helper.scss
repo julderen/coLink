@@ -2,8 +2,9 @@
   width: 100%;
   height: 100%;
   position: relative;
+
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     width: 100%;
@@ -14,70 +15,111 @@
 }
 
 .status-helper__message {
-  transform: translate(-50%, -50%);
+  transition: $textTransition;
+  transform: translate(-50%, -60%);
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
-  width: 120px;
-  height: 120px;
+  color: black;
+  opacity: 0;
 
   &::after {
     z-index: -1;
     opacity: 0;
-    transition: all 1.5s cubic-bezier(.9, .1, .1, .9);
     position: absolute;
-    content: '';
+    content: "";
     border-radius: 50%;
-    border: 8px solid black;
-    border-color: #4788f4 transparent #4788f4 transparent;
+    width: 32px;
+    height: 32px;
+    border: 4px solid white;
+    border-color: $loadingAnimationColor;
+  }
+
+  &::before {
+    opacity: 0;
+    content: "";
+    transition: $formStateTransition;
   }
 }
 
-.status-helper__message_active {
-  text-align: center;
+.status-helper__message_loading {
   z-index: 2;
   opacity: 1;
-  color: black;
-  font-size: 16px;
-  transition: all 0.7s cubic-bezier(.9, .1, .1, .9);
+
   &::after {
-    width: 120px;
-    height: 120px;
+    transition: all 1.5s cubic-bezier(.9, .1, .1, .9);
     position: absolute;
-    top: 30px;
-    left:0;
+    bottom: 60px;
+    right: 0;
+    top: 0;
+    left: 0;
+    margin: auto;
     animation: loading 2.2s 1s linear infinite;
     z-index: 3;
     opacity: 1;
   }
 }
 
-.status-helper_loading {
-  transition: all 0.7s cubic-bezier(.9, .1, .1, .9);
+.status-helper__message_error {
+  color: $errorColor;
+  z-index: 2;
+  opacity: 1;
+
+  &::before {
+    content: "";
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 78px;
+    margin: auto;
+    animation: none;
+    z-index: 3;
+    opacity: 1;
+    background: url("../../Files/Incorrect32.svg") no-repeat;
+    background-size: cover;
+  }
+}
+
+.status-helper__message_success {
+  color: $successColor;
+  z-index: 2;
+  opacity: 1;
+
+  &::before {
+    content: "";
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 78px;
+    margin: auto;
+    animation: none;
+    z-index: 3;
+    opacity: 1;
+    background: url("../../Files/Correct32.svg") no-repeat;
+    background-size: cover;
+  }
+}
+
+.status-helper_hidden {
+  text-align: center;
+
   &::before {
     z-index: 2;
   }
-  &::after {
-    animation: loading 2.2s 1s linear infinite;
-    opacity: 1;
-    z-index: 1;
-  }
 }
-
-.status-helper_error {
-  animation: none;
-  transition: all .4s cubic-bezier(.9, .1, .1, .9);
-  opacity: 1;
-  z-index: 1;
-  background: url("../../Files/IncorrectCircle.svg") no-repeat 50% 20%;
-}
-
-
 
 @keyframes loading {
+
   0% {
     transform: rotate(0);
   }
+
   100% {
     transform: rotate(360deg);
   }
