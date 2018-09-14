@@ -1,32 +1,28 @@
 import { observable, action } from 'mobx';
 import axios from 'axios';
-import { Default, Loading, Success, Error } from 'constants/StatusConstatns';
+import { DEFAULT_STATUS, LOADING_STATUS, SUCCESS_STATUS, ERROR_STATUS } from 'constants/StatusConstatns';
 
 class Registration {
-  @observable status = Default;
+  @observable status = SUCCESS_STATUS;
 
   @observable error;
 
-  @action resetStatus = () => {
-    this.status = Default;
-  };
-
   @action fetchData = ({ email, login, password }) => {
-    this.status = Loading;
+    this.status = LOADING_STATUS;
     setTimeout(() => axios.post('http://localhost:8892/api/users', { email, login, password })
       .then((res) => {
         localStorage.token = res.data;
-        this.status = Success;
-        setTimeout(() => window.location = 'http://localhost:9000/Album', 2000);
+        this.status = SUCCESS_STATUS;
+        setTimeout(() => window.location = '/Album', 2000);
       })
       .catch((err) => {
-        this.status = Error;
+        this.status = ERROR_STATUS;
         if (!err.response) {
           this.error = 'Ошибка соединения с сервером';
         } else {
           this.error = err.response.data.type;
         }
-        setTimeout(() => this.status = Default, 4000);
+        setTimeout(() => this.status = DEFAULT_STATUS, 4000);
       }), 6000);
   }
 }

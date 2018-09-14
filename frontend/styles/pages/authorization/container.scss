@@ -22,8 +22,7 @@
   align-items: center;
 }
 
-@include mobile-up_authorization {
-
+@include mobile-up {
   .main-picture {
     opacity: 1;
     display: block;

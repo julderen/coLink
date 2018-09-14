@@ -1,12 +1,12 @@
-import { Error, Loading, Success } from '../constants/StatusConstatns';
+import { SUCCESS_STATUS, LOADING_STATUS, ERROR_STATUS } from '../constants/StatusConstatns';
 
 export default function (status) {
   switch (status) {
-    case Loading:
+    case LOADING_STATUS:
       return 'status-helper__message_loading';
-    case Success:
+    case SUCCESS_STATUS:
       return 'status-helper__message_success';
-    case Error:
+    case ERROR_STATUS:
       return 'status-helper__message_error';
     default:
       return '';

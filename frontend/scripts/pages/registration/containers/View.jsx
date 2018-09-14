@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import PropTypes from 'prop-types';
 
-import { Link } from 'components/controls';
+import { Link, StatusHelper } from 'components/controls';
 
-import { Form } from 'components/form';
-import FormComponent from '../components/Form';
+import Form from '../components/Form';
+import FormHeader from '../components/FormHeader';
 import validation from '../utils/Validation';
 
 @inject(['registration'])
@@ -22,26 +22,20 @@ class RegistrationView extends Component {
 
     return (
       <section className="registration-container">
-        <main>
-          <Form
-            onSubmit={submitForm}
-            render={({handleSubmit, invalid}) => (
-              <FormComponent
-                handleSubmit={handleSubmit}
-                invalid={invalid}
-                error={error}
-                status={status}
-              />
-            )}
-            validate={validation}
-          />
-        </main>
-        <footer>
-          <div className="form-linkContainer">
-            Есть аккаунт?
-            <Link path="/Login" text=" Войти..." />
-          </div>
-        </footer>
+        <StatusHelper status={status}>
+          <FormHeader title="Регистрация" />
+          <main>
+            <Form
+              error={error}
+              status={status}
+              onSubmit={submitForm}
+              validate={validation}
+            />
+          </main>
+          <footer>
+            <div className="form-link">Есть аккаунт?<Link path="/Login" text=" Войти..." /></div>
+          </footer>
+        </StatusHelper>
       </section>
     );
   }

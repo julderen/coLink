@@ -1,14 +1,15 @@
-import { Loading, Error, Success } from 'constants/StatusConstatns';
+import { LOADING_STATUS, ERROR_STATUS, SUCCESS_STATUS } from 'constants/StatusConstatns';
 
-export default function(status, isAuthorization) {
+export default function (status, message) {
+  if (message) return message;
   switch (status) {
-    case Loading:
+    case LOADING_STATUS:
       return 'Загрузка...';
-    case Success:
-      return isAuthorization ? 'Авторизация прошла успешно!' : 'Регистрация прошла успешно!';
-    case Error:
-      return isAuthorization ? 'Ошибка авторизации' : 'Ошибка регистрации';
+    case SUCCESS_STATUS:
+      return 'Успешно!';
+    case ERROR_STATUS:
+      return 'Ошибка сервера, попробуйте позже';
     default:
       return '';
   }
-};
+}

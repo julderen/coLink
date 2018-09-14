@@ -1,23 +1,6 @@
-.form-label {
-  padding-left: 4px;
+.label {
   text-align: center;
   font-size: 16px;
-  position: absolute;
-  bottom: 3px;
-  left: -4px;
-  transition: $labelFormTransition;
-  pointer-events: none;
   color: $grey;
 }
 
-.form-label_focused {
-  transform: translateY(-24px);
-  line-height: 12px;
-  z-index: 1;
-  font-size: 12px;
-  color: $blue;
-}
-
-.form-label_error {
-  color: $errorColor
-}

@@ -1,6 +1,7 @@
+import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input } from 'antd';
+import Input from 'antd/lib/input';
 
 import FormGroup from './FormGroup';
 
@@ -8,9 +9,10 @@ const ControlInput = ({ input: { input, meta }, label, type }) => (
   <FormGroup label={label} error={meta.error} touched={meta.touched} value={input.value}>
     <Input
       {...input}
-      className={input.value === ''
-        ? 'form-input'
-        : `${meta.error === undefined ? 'form-input form-input_not-empty' : ' form-input form-input_error'}`}
+      className={classNames({
+        'input_not-empty': input.value,
+        input_error: meta.touched && meta.error,
+      }, 'input')}
       type={type}
     />
   </FormGroup>
@@ -25,7 +27,6 @@ ControlInput.propTypes = {
   ),
   label: PropTypes.string,
   placeholder: PropTypes.string,
-  name: PropTypes.string,
   type: PropTypes.string,
 };
 

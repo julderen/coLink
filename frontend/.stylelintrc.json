@@ -2,5 +2,8 @@
   "extends": "stylelint-config-airbnb",
   "plugins": [
     "stylelint-scss"
-  ]
+  ],
+  "rules": {
+    "at-rule-empty-line-before": 0
+  }
 }

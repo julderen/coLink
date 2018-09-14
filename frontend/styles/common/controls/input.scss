@@ -1,10 +1,10 @@
-.form-input {
+.input {
   font-size: 16px;
   height: 30px;
   width: 100%;
   padding-top: 2px;
   background: inherit;
-  border: none;
+  border: 0;
   border-bottom: 1px solid $grey;
   cursor: pointer;
   transition: $inputFormTransition;
@@ -17,18 +17,18 @@
   }
 }
 
-.form-input_not-empty {
+.input_not-empty {
   border-bottom-color: $blue;
 }
 
-.form-input:focus {
+.input:focus {
   border-bottom-color: $blue;
   cursor: default;
 }
 
 
 
-.form-input_error,
-.form-input_error:focus {
+.input_error,
+.input_error:focus {
   border-color: $errorColor;
 }

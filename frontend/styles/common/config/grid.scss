@@ -1,4 +1,4 @@
-@mixin mobile-up_authorization {
+@mixin mobile-up {
   @media (min-width: 768px) {
       @content;
   }

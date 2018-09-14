@@ -1,1 +1,1 @@
-export const Address = 'https://co-link-api.herokuapp.com';
+export const API_URL = 'https://co-link-api.herokuapp.com';

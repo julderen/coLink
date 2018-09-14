@@ -1,11 +1,11 @@
-const Default = 'default';
-const Loading = 'loading';
-const Success = 'success';
-const Error = 'error';
+const DEFAULT_STATUS = 'DEFAULT_STATUS';
+const LOADING_STATUS = 'LOADING_STATUS';
+const SUCCESS_STATUS = 'SUCCESS_STATUS';
+const ERROR_STATUS = 'ERROR_STATUS';
 
 export {
-  Default,
-  Loading,
-  Success,
-  Error,
+  DEFAULT_STATUS,
+  LOADING_STATUS,
+  SUCCESS_STATUS,
+  ERROR_STATUS,
 };

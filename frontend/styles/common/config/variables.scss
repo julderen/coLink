@@ -1,13 +1,6 @@
 //COLORS
-$blue-900: #01344d;
-$blue-400: #467fa4;
-$blue-50: #d9f1ff;
-$red-700: #D50000;
-$blue-200: #9ac0df;
-$blue-300: #7aa6c8;
-$blue-50: #daf1ff;
-
 $blue: #039BE5;
+$blue-light: #75B5FF;
 $red: #E50303;
 $grey: rgba(174, 174, 174, .87);
 $darkGrey: #555555;
@@ -17,40 +10,17 @@ $successColor: $blue;
 
 
 //SHADOWS
-$buttonFormShadow: 0 4px 4px rgba(0, 0, 0, .2);
 $formShadow: 0 0 10px rgba(0, 0, 0, .15);
 
 //COLORS
-$errorColor: #E50303;
-$successColor: #039BE5;
-$loadingAnimationColor: #4788f4 transparent #4788f4 transparent;
+$errorColor: $red;
+$successColor: $blue;
 
 //TRANSITIONS
-$transition-02ease: all .2s ease;
-$transition-04ease: .4s all ease;
 $transition-03ease: .3s all ease;
 
 $formStateTransition: all .7s cubic-bezier(.9, .1, .1, .9);
 $textTransition: all .4s cubic-bezier(.9, .1, .1, .9);
-$buttonFormTransition: $transition-02ease;
-$labelFormTransition: $transition-02ease;
-$linkFormTransition: $transition-04ease;
 $inputFormTransition: $transition-03ease;
-$checkboxFormTransition: $transition-04ease;
+$checkboxFormTransition: $transition-03ease;
 //OTHERS
-
-
-
-
-
-$inputRadius: 5%;
-
-$inputBorder: 1px solid $grey;
-;
-
-$errorTransition: 0.5s opacity ease;
-$inputFocusBorder: 1px solid #039BE5;
-$inputFocusTranslation: -16px;
-$buttonFormBackground: $blue-200;
-
-

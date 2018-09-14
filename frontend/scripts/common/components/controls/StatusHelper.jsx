@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import defineClassName from 'utils/defineClassName';
 import defineMessage from 'utils/defineMessage';
 
-import { Default } from 'constants/StatusConstatns';
+import { DEFAULT_STATUS } from 'constants/StatusConstatns';
 
-const StatusHelper = ({ status, isAuthorization, children }) => (
-  <div className={status === Default ? 'status-helper' : 'status-helper status-helper_hidden'}>
+const StatusHelper = ({ status, message, children }) => (
+  <div className={status === DEFAULT_STATUS ? 'status-helper' : 'status-helper status-helper_hidden'}>
     <div className={`status-helper__message ${defineClassName(status)}`}>
-      {defineMessage(status, isAuthorization)}
+      {defineMessage(status, message)}
     </div>
     {children}
   </div>
@@ -16,7 +16,7 @@ const StatusHelper = ({ status, isAuthorization, children }) => (
 
 StatusHelper.propTypes = {
   status: PropTypes.string,
-  isAuthorization: PropTypes.bool,
+  message: PropTypes.string,
   children: PropTypes.node,
 };
 

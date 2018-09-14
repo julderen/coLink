@@ -1,20 +1,22 @@
-.form-button {
+.button {
   display: block;
   cursor: pointer;
   position: relative;
-  border-radius: 20px;
+  border-radius: 5px;
+  width: 100%;
   background: linear-gradient(to left, #0090DA, #81D4FA);
   outline: none;
-  width: 200px;
-  margin: 0 auto 10px auto;
   height: 40px;
-  box-shadow: $buttonFormShadow;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .2);
   color: white;
-  border: none;
+  border: 0;
   font-size: 16px;
-  transition: $buttonFormTransition;
-}
+  transition: all 200ms ease-in-out;
+  user-select: none;
+  overflow: hidden;
 
-.form-button:active {
-  transform: scale(0.9);
+  &:hover,
+  &:active {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+  }
 }
