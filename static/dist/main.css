@@ -100,6 +100,7 @@ body {
 }
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 a:link,
 a:visited {
@@ -112,7 +113,9 @@ a:focus,
 a:active,
 a:active:focus {
   outline: none;
-  text-shadow: 1px 1px rgba(174, 174, 174, 0.87);
+}
+.hidden {
+  display: none;
 }
 .input {
   font-size: 16px;
@@ -121,6 +124,7 @@ a:active:focus {
   padding-top: 2px;
   background: inherit;
   border: 0;
+  border-radius: 0;
   border-bottom: 1px solid rgba(174, 174, 174, 0.87);
   cursor: pointer;
   transition: 0.3s all ease;
@@ -246,6 +250,7 @@ a:active:focus {
   height: calc(100% + 10px);
   display: block;
   background: white;
+  z-index: -2;
   opacity: 0;
 }
 .status-helper__message {
@@ -258,9 +263,9 @@ a:active:focus {
   color: black;
   width: 80%;
   opacity: 0;
-  z-index: -1;
 }
 .status-helper__message::before {
+  z-index: inherit;
   position: absolute;
   top: -54px;
   left: 50%;
@@ -290,6 +295,7 @@ a:active:focus {
 }
 .status-helper__message_error::before {
   content: "";
+  background: url(/dist/93340641719b35401008f265d3fd87fc.svg) no-repeat;
   background-size: cover;
 }
 .status-helper__message_success {
@@ -299,6 +305,7 @@ a:active:focus {
 }
 .status-helper__message_success::before {
   content: "";
+  background: url(/dist/1795cd3fdeffcf9fb7171affa7c071a7.svg) no-repeat;
   background-size: cover;
 }
 .status-helper_hidden {
