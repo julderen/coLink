@@ -82,7 +82,6 @@
   margin: 0;
   padding: 0;
 }
-html,
 body,
 #root {
   width: 100%;
@@ -91,12 +90,21 @@ body,
 body {
   font-family: Rubik;
   color: black;
-  font-size: 14px;
-  background: url(/dist/34eeea6bdaf3802f98ddf1c548ab81ba.png) repeat;
-  background-size: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 16px;
+  font-weight: 300;
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+}
+@media (min-width: 992px) {
+  body {
+    font-size: 24px;
+  }
+}
+h1 {
+  font-weight: 400;
 }
 a {
   text-decoration: none;
@@ -119,6 +127,7 @@ a:active:focus {
 }
 .input {
   font-size: 16px;
+  line-height: 24px;
   height: 30px;
   width: 100%;
   padding-top: 2px;
@@ -131,6 +140,12 @@ a:active:focus {
   box-shadow: none;
   outline: none;
   color: rgba(0, 0, 0, 0.87);
+}
+@media (min-width: 768px) {
+  .input {
+    line-height: 28px;
+    font-size: 24px;
+  }
 }
 .input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px white inset;
@@ -151,12 +166,22 @@ a:active:focus {
   font-size: 16px;
   color: rgba(174, 174, 174, 0.87);
 }
+@media (min-width: 768px) {
+  .label {
+    font-size: 24px;
+  }
+}
 .form-group {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 26px;
+}
+@media (min-width: 768px) {
+  .form-group {
+    margin-bottom: 36px;
+  }
 }
 .form-group__label {
   position: absolute;
@@ -173,6 +198,11 @@ a:active:focus {
   z-index: 1;
   font-size: 12px;
   color: #039BE5;
+}
+@media (min-width: 992px) {
+  .form-group__label_focused {
+    font-size: 16px;
+  }
 }
 .form-group__label_error {
   color: #E50303;
@@ -205,6 +235,12 @@ a:active:focus {
   transition: 0.3s all ease;
   cursor: pointer;
 }
+@media (min-width: 768px) {
+  .checkbox:before {
+    width: 32px;
+    height: 32px;
+  }
+}
 .checkbox_checked:before {
   background: url(/dist/ac5d8a58ee17b9741259bf25bc860e66.svg) #039BE5 no-repeat center;
   background-size: contain;
@@ -231,6 +267,11 @@ a:active:focus {
       -ms-user-select: none;
           user-select: none;
   overflow: hidden;
+}
+@media (min-width: 768px) {
+  .button {
+    font-size: 24px;
+  }
 }
 .button:hover,
 .button:active {
@@ -264,6 +305,11 @@ a:active:focus {
   width: 80%;
   opacity: 0;
 }
+@media (min-width: 992px) {
+  .status-helper__message {
+    font-size: 40px;
+  }
+}
 .status-helper__message::before {
   z-index: inherit;
   position: absolute;
@@ -272,6 +318,14 @@ a:active:focus {
   width: 32px;
   height: 32px;
   margin-left: -16px;
+}
+@media (min-width: 992px) {
+  .status-helper__message::before {
+    width: 64px;
+    height: 64px;
+    top: -108px;
+    margin-left: -32px;
+  }
 }
 .status-helper__message_loading {
   z-index: 3;
@@ -339,7 +393,6 @@ a:active:focus {
 .alert-error {
   color: #E50303;
   margin-bottom: 24px;
-  font-size: 16px;
   text-align: center;
   position: relative;
   height: 0;
@@ -3733,13 +3786,8 @@ a:active:focus {
     order: 0;
   }
 }
-.registration-container {
-  position: absolute;
+.sign-up-container {
   width: 270px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
   padding: 24px;
   text-align: center;
   background-color: white;
@@ -3748,125 +3796,26 @@ a:active:focus {
   transition: 0.3s all ease;
 }
 @media (min-width: 768px) {
-  .registration-container {
+  .sign-up-container {
     width: 590px;
   }
 }
-.registration-form {
-  margin-bottom: 26px;
-}
-.image {
-  display: none;
-  position: absolute;
-  opacity: 0;
-  transition: 1s all ease;
-}
-/*@media screen and (min-width: 768px) {
-
-  .registration-container {
-    box-shadow: $formShadow;
-    border-radius: 20px;
-    width: 600px;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: row;
-
-    .form-linkContainer {
-      display: none;
-    }
-
-  }
-
-  .authorization-container {
-    box-shadow: $formShadow;
-    border-radius: 20px;
-    width: 600px;
-    height: 460px;
-    display: flex;
-    padding-top: 20px;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: row;
-    position: relative;
-
-    .form-linkContainer {
-      position: absolute;
-      bottom: 50px;
-      right: 78px;
-      width: auto;
-    }
-  }
-
-  .form {
-    width: 270px;
-    box-shadow: none;
-  }
-
-  .image {
-    display: block;
-    opacity: 1;
-    position: relative;
-    width: 270px;
-    height: 260px;
-    align-self: center;
-  }
-}*/
-/*
-@include mobile-up {
-
-  .registration-container {
-    box-shadow: $formShadow;
-    border-radius: 20px;
-    width: 600px;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: row;
-
-    .form-linkContainer {
-      display: none;
-    }
-
-  }
-
-  .authorization-container {
-    box-shadow: $formShadow;
-    border-radius: 20px;
-    width: 600px;
-    height: 460px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: row;
-    position: relative;
-
-    .form-linkContainer {
-      position: absolute;
-      bottom: 50px;
-      right: 78px;
-      width: auto;
-    }
-  }
-
-  .form {
-    width: 270px;
-    box-shadow: none;
-  }
-
-  .image {
-    display: block;
-    opacity: 1;
-    position: relative;
-    width: 270px;
-    height: 260px;
-    align-self: center;
+@media (min-width: 992px) {
+  .sign-up-container {
+    width: 50%;
+    padding: 60px 90px;
+    border-radius: 0;
   }
 }
-*/
-.registration-license {
+@media (min-width: 992px) {
+  .sign-up-form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+.sign-up-license {
   display: inline-block;
   position: relative;
   text-align: left;
@@ -3874,16 +3823,26 @@ a:active:focus {
   line-height: 12px;
   color: black;
 }
-.registration-header {
+@media (min-width: 768px) {
+  .sign-up-license {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+.sign-up-header {
   position: relative;
   color: #555555;
-  font-weight: normal;
   margin: 0 auto 24px;
 }
-.registration-header h1 {
+.sign-up-header h1 {
   font-size: 32px;
 }
-.registration-header:after {
+@media (min-width: 992px) {
+  .sign-up-header h1 {
+    font-size: 40px;
+  }
+}
+.sign-up-header:after {
   content: "";
   display: block;
   position: relative;
@@ -3891,52 +3850,48 @@ a:active:focus {
   margin: 5px auto 0;
   border-bottom: 2px solid #039BE5;
 }
+@media (min-width: 768px) {
+  .sign-up-header:after {
+    width: 108px;
+  }
+}
+@media (min-width: 992px) {
+  .sign-up-header:after {
+    width: 112px;
+  }
+}
+.sign-up-form__main {
+  margin-bottom: 26px;
+}
 .authorization-container {
-  transition: all 0.4s cubic-bezier(0.9, 0.1, 0.1, 0.9);
-  height: 100%;
-  width: 270px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 20px;
-}
-.main-picture {
-  opacity: 0;
-  height: 0;
-  width: 0;
-  transition: 0.8s all ease;
-}
-.container-main {
-  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: url(/dist/34eeea6bdaf3802f98ddf1c548ab81ba.png) no-repeat;
+  background-size: cover;
+  transition: none;
 }
-@include mobile-up {
-  .main-picture {
-    opacity: 1;
-    display: block;
-    width: 270px;
-    height: 270px;
-  }
-  .form {
-    box-shadow: none !important;
-  }
-  .container-footer {
-    position: absolute;
-    bottom: 70px;
-    right: 64px;
-  }
+@media (min-width: 768px) {
   .authorization-container {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    border-radius: 20px;
-    width: 600px;
-    height: 460px;
-    padding-bottom: 0;
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    background: fixed url(/dist/11200bff7d3c76571dce933b644491a0.jpg) no-repeat;
+    background-position: left bottom;
+    background-size: cover;
+  }
+}
+@media (min-width: 992px) {
+  .authorization-container {
+    align-items: stretch;
+    justify-content: flex-end;
+    padding: 0;
+    background: fixed url(/dist/bbd758116b6d275c60b24f78e089a2c8.jpg) no-repeat;
+    background-position: left bottom;
+    background-size: cover;
   }
 }
 .header {
