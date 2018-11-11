@@ -9,8 +9,8 @@ const Layout = ({ children }) => (
   </Fragment>
 );
 
-Header.propTypes = {
-  children: PropTypes.object,
+Layout.propTypes = {
+  children: PropTypes.node,
 };
 
 export default Layout;

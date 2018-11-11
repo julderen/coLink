@@ -1,15 +1,15 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch, Route } from 'components/controls';
 
 import Home from './Home';
 import Album from './Album';
 import Catalog from './Catalog';
-import Registration from './registration/containers/View';
-import Authorization from './authorization/containers/View';
+import Registration from './sign-up/containers/View';
+import Authorization from './sign-in/containers/View';
 import NotFound from './NotFound';
 import Layout from './Layout';
 
-import '../../styles/index.scss';
+import '../../styles/index.less';
 
 const App = () => (
   <Layout>

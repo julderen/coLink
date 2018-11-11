@@ -1,0 +1,42 @@
+.authorization-header {
+  position: relative;
+  color: @grey--dark;
+  margin: 0 auto 40px;
+
+  h1 {
+    font-size: 32px;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: relative;
+    width: 74px;
+    margin: 5px auto 0;
+    border-bottom: 2px solid @blue;
+  }
+}
+
+@media (min-width: @tablet-width) {
+
+  .authorization-header {
+
+    &::after {
+      width: 108px;
+    }
+  }
+}
+
+@media (min-width: @desktop-width) {
+
+  .authorization-header {
+
+    h1 {
+      font-size: 40px;
+    }
+
+    &::after {
+      width: 112px;
+    }
+  }
+}

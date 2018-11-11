@@ -1,0 +1,38 @@
+.authorization-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: url("../../../files/bg_auth_mobile.svg") no-repeat top;
+  background-size: cover;
+  transition: none;
+}
+
+@media (min-width: @tablet-width) {
+
+  .authorization-container {
+    background-image: url("../../../files/bg_auth_tablet.svg");
+  }
+}
+
+
+@media (min-width: @desktop-width) {
+
+  .authorization-container {
+    align-items: stretch;
+    justify-content: flex-end;
+    padding: 0;
+    background-image: url("../../../files/bg_auth_desctop_1x.png");
+    background-size: contain;
+    background-position: left;
+
+    .retina({
+      background-image: url("../../../files/bg_auth_desctop_2x.png");
+    })
+  }
+}

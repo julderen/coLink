@@ -1,0 +1,32 @@
+.checkbox .ant-checkbox-input {
+  display: none;
+}
+
+.checkbox:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 5%;
+  background-color: white;
+  margin-right: 10px;
+  border: 2px solid rgba(0, 0, 0, .54);
+  transition: @checkboxFormTransition;
+  cursor: pointer;
+}
+
+.checkbox_checked:before {
+  background: url("../../../files/Correct.svg") @blue no-repeat center;
+  background-size: contain;
+  border: 0;
+  background-origin: content-box;
+  padding: 4px;
+}
+
+@media (min-width: @tablet-width) {
+
+  .checkbox:before {
+    width: 32px;
+    height: 32px;
+  }
+}

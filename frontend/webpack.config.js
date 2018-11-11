@@ -6,7 +6,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const outputFolderPath = join(__dirname, '..', 'static');
 const commonFolderPath = join(__dirname, 'scripts', 'common');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 module.exports = {
+  mode: isProduction ? 'production' : 'development',
   entry: join(__dirname, 'scripts', 'index.jsx'),
   output: {
     path: outputFolderPath,
@@ -22,6 +25,17 @@ module.exports = {
     },
     extensions: ['.js', '.jsx'],
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
   module: {
     rules: [
       {
@@ -34,7 +48,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(scss|css)$/,
+        test: /\.(less|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -48,9 +62,10 @@ module.exports = {
           },
           'resolve-url-loader',
           {
-            loader: 'sass-loader',
+            loader: 'less-loader',
             options: {
-              sourceMap: true,
+              noIeCompat: true,
+              javascriptEnabled: true,
             },
           },
         ],

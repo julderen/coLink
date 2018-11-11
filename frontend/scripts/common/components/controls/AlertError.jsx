@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const AlertError = ({ error }) => (
-  <article className={classNames({ 'alert-error_empty': error }, 'alert-error')}>{error}</article>
+  <article className={classNames({ hidden: !error }, 'alert-error')}>{error}</article>
 );
 
 AlertError.propTypes = {
