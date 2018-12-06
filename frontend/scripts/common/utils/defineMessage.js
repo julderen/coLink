@@ -1,13 +1,13 @@
-import { LOADING_STATUS, ERROR_STATUS, SUCCESS_STATUS } from 'constants/StatusConstatns';
+import { STATE_LOADING, STATE_ERROR, STATE_SUCCESS } from 'constants/StateConstatns';
 
 export default function (status, message) {
   if (message) return message;
   switch (status) {
-    case LOADING_STATUS:
+    case STATE_LOADING:
       return 'Загрузка...';
-    case SUCCESS_STATUS:
+    case STATE_SUCCESS:
       return 'Успешно!';
-    case ERROR_STATUS:
+    case STATE_ERROR:
       return 'Ошибка сервера, попробуйте позже';
     default:
       return '';

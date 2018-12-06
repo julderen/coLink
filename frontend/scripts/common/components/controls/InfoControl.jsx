@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Success, Error, InfoError, InfoSuccess } from 'constants/StatusConstatns';
+import { Success, Error, InfoError, InfoSuccess } from 'constants/StateConstatns';
 
 const InfoControl = ({ status }) => (
   <span className={status === Success || status === Error

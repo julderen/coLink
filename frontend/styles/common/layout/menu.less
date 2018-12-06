@@ -1,0 +1,37 @@
+.menu {
+  position: fixed;
+  width: @menu__width-desktop;
+  height: 100%;
+  padding: 60px 0;
+  background: @grey--light;
+  color: @grey--dark;
+}
+
+.menu__list {
+  list-style: none;
+
+  li {
+    display: block;
+  }
+}
+
+.menu__item {
+  padding: 20px 40px;
+  display: block;
+  color: @grey--dark;
+  font-weight: 400;
+
+  &:visited {
+    color: @grey--dark;
+  }
+
+  &:hover {
+    padding-left: 35px;
+    border-left: 5px solid @blue;
+  }
+}
+
+.menu__item--active {
+  padding-left: 35px;
+  border-left: 5px solid @blue--light;
+}
